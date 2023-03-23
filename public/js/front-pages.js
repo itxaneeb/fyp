@@ -1,2 +1,4333 @@
-/*! For license information please see front-pages.js.LICENSE.txt */
-(()=>{var e={2743:e=>{!function(t,n){var a=n.jQuery;e.exports=a?t(n,a):function(e){if(e&&!e.fn)throw"Provide jQuery or null";return t(n,e)}}((function(e,t){"use strict";var n=!1===t;t=t&&t.fn?t:e.jQuery;var a,r,o,i,s,l,d,c,u,p,f,m,g,v,h,$,w,y,b,x,_,C,k="v1.0.7",D="_ocp",T=/[ \t]*(\r\n|\n|\r)/g,S=/\\(['"\\])/g,E=/['"\\]/g,j=/(?:\x08|^)(onerror:)?(?:(~?)(([\w$.]+):)?([^\x08]+))\x08(,)?([^\x08]+)/gi,I=/^if\s/,M=/<(\w+)[>\s]/,N=/[\x00`><\"'&=]/,P=/^on[A-Z]|^convert(Back)?$/,A=/^\#\d+_`[\s\S]*\/\d+_`$/,O=/[\x00`><"'&=]/g,L=/[&<>]/g,F=/&(amp|gt|lt);/g,R=/\[['"]?|['"]?\]/g,B=0,V={"&":"&amp;","<":"&lt;",">":"&gt;","\0":"&#0;","'":"&#39;",'"':"&#34;","`":"&#96;","=":"&#61;"},q={amp:"&",gt:">",lt:"<"},U="html",Y="object",z="data-jsv-tmpl",J="jsvTmpl",K="For #index in nested block use #getIndex().",H={},G={},Q=e.jsrender,W=Q&&t&&!t.render,X={template:{compile:function e(n,a,r,o){function s(a){var i,s;if(""+a===a||a.nodeType>0&&(l=a)){if(!l)if(/^\.?\/[^\\:*?"<>]*$/.test(a))(s=c[n=n||a])?a=s:l=document.getElementById(a);else if(t.fn&&!m.rTmpl.test(a))try{l=t(a,document)[0]}catch(e){}l&&("SCRIPT"!==l.tagName&&xe(a+": Use script block, not "+l.tagName),o?a=l.innerHTML:((i=l.getAttribute(z))&&(i!==J?(a=c[i],delete c[i]):t.fn&&(a=t.data(l).jsvTmpl)),i&&a||(n=n||(t.fn?J:a),a=e(n,l.innerHTML,r,o)),a.tmplName=n=n||i,n!==J&&(c[n]=a),l.setAttribute(z,n),t.fn&&t.data(l,J,a))),l=void 0}else a.fn||(a=void 0);return a}var l,d,p=a=a||"";m._html=u.html,0===o&&(o=void 0,p=s(p));(o=o||(a.markup?a.bnds?oe({},a):a:{})).tmplName=o.tmplName||n||"unnamed",r&&(o._parentTmpl=r);!p&&a.markup&&(p=s(a.markup))&&p.fn&&(p=p.markup);if(void 0!==p)return p.render||a.render?p.tmpls&&(d=p):(a=ve(p,o),Ce(p.replace(E,"\\$&"),a)),d||function(e){var t,n,a;for(t in X)e[n=t+"s"]&&(a=e[n],e[n]={},i[n](a,e))}(d=oe((function(){return d.render.apply(d,arguments)}),a)),d}},tag:{compile:function(e,t,n){var a,r,o,i=new m._tg;function s(){var t=this;t._={unlinked:!0},t.inline=!0,t.tagName=e}l(t)?t={depends:t.depends,render:t}:""+t===t&&(t={template:t});if(r=t.baseTag)for(o in t.flow=!!t.flow,(r=""+r===r?n&&n.tags[r]||f[r]:r)||xe('baseTag: "'+t.baseTag+'" not found'),i=oe(i,r),t)i[o]=ee(r[o],t[o]);else i=oe(i,t);void 0!==(a=i.template)&&(i.template=""+a===a?c[a]||c(a):a);(s.prototype=i).constructor=i._ctr=s,n&&(i._parentTmpl=n);return i}},viewModel:{compile:function(e,n){var a,r,o,i=this,c=n.getters,u=n.extend,p=n.id,f=t.extend({_is:e||"unnamed",unmap:_,merge:x},u),m="",g="",v=c?c.length:0,h=t.observable,$={};function w(e){r.apply(this,e)}function y(){return new w(arguments)}function b(e,t){for(var n,a,r,o,s,l=0;l<v;l++)n=void 0,(r=c[l])+""!==r&&(r=(n=r).getter,s=n.parentRef),void 0===(o=e[r])&&n&&void 0!==(a=n.defaultVal)&&(o=me(a,e)),t(o,n&&i[n.type],r,s)}function x(e,t,n){e=e+""===e?JSON.parse(e):e;var a,r,o,i,l,c,u,f,m,g,v=0,w=this;if(d(w)){for(u={},m=[],r=e.length,o=w.length;v<r;v++){for(f=e[v],c=!1,a=0;a<o&&!c;a++)u[a]||(l=w[a],p&&(u[a]=c=p+""===p?f[p]&&($[p]?l[p]():l[p])===f[p]:p(l,f)));c?(l.merge(f),m.push(l)):(m.push(g=y.map(f)),n&&ge(g,n,t))}h?h(w).refresh(m,!0):w.splice.apply(w,[0,w.length].concat(m))}else for(i in b(e,(function(e,t,n,a){t?w[n]().merge(e,w,a):w[n]()!==e&&w[n](e)})),e)i===s||$[i]||(w[i]=e[i])}function _(){var e,t,n,a,r=0,o=this;function u(e){for(var t=[],n=0,a=e.length;n<a;n++)t.push(e[n].unmap());return t}if(d(o))return u(o);for(e={};r<v;r++)n=void 0,(t=c[r])+""!==t&&(t=(n=t).getter),a=o[t](),e[t]=n&&a&&i[n.type]?d(a)?u(a):a.unmap():a;for(t in o)!o.hasOwnProperty(t)||"_"===t.charAt(0)&&$[t.slice(1)]||t===s||l(o[t])||(e[t]=o[t]);return e}for(w.prototype=f,a=0;a<v;a++)!function(e){e=e.getter||e,$[e]=a+1;var t="_"+e;m+=(m?",":"")+e,g+="this."+t+" = "+e+";\n",f[e]=f[e]||function(n){if(!arguments.length)return this[t];h?h(this).setProperty(e,n):this[t]=n},h&&(f[e].set=f[e].set||function(e){this[t]=e})}(c[a]);return g=new Function(m,g),(r=function(){g.apply(this,arguments),(o=arguments[v+1])&&ge(this,arguments[v],o)}).prototype=f,f.constructor=r,y.map=function(t){t=t+""===t?JSON.parse(t):t;var n,a,r,o,i=0,l=t,u=[];if(d(t)){for(n=(t=t||[]).length;i<n;i++)u.push(this.map(t[i]));return u._is=e,u.unmap=_,u.merge=x,u}if(t){for(b(t,(function(e,t){t&&(e=t.map(e)),u.push(e)})),l=this.apply(this,u),i=v;i--;)if(r=u[i],(o=c[i].parentRef)&&r&&r.unmap)if(d(r))for(n=r.length;n--;)ge(r[n],o,l);else ge(r,o,l);for(a in t)a===s||$[a]||(l[a]=t[a])}return l},y.getters=c,y.extend=u,y.id=p,y}},helper:{},converter:{}};function Z(e,t){return function(){var n,a=this,r=a.base;return a.base=e,n=t.apply(a,arguments),a.base=r,n}}function ee(e,t){return l(t)&&((t=Z(e?e._d?e:Z(ae,e):ae,t))._d=(e&&e._d||0)+1),t}function te(e,t){var n,a=t.props;for(n in a)!P.test(n)||e[n]&&e[n].fix||(e[n]="convert"!==n?ee(e.constructor.prototype[n],a[n]):a[n])}function ne(e){return e}function ae(){return""}function re(e){this.name=(t.link?"JsViews":"JsRender")+" Error",this.message=e||this.name}function oe(e,t){if(e){for(var n in t)e[n]=t[n];return e}}function ie(){var e=this.get("item");return e?e.index:void 0}function se(){return this.index}function le(e,t,n,a){var r,o,i,s=0;if(1===n&&(a=1,n=void 0),t)for(i=(o=t.split(".")).length;e&&s<i;s++)r=e,e=o[s]?e[o[s]]:e;return n&&(n.lt=n.lt||s<i),void 0===e?a?ae:"":a?function(){return e.apply(r,arguments)}:e}function de(n,a,r){var o,i,s,d,c,u,f,g=this,v=!C&&arguments.length>1,h=g.ctx;if(n){if(g._||(c=g.index,g=g.tag),u=g,h&&h.hasOwnProperty(n)||(h=p).hasOwnProperty(n)){if(s=h[n],"tag"===n||"tagCtx"===n||"root"===n||"parentTags"===n)return s}else h=void 0;if((!C&&g.tagCtx||g.linked)&&(s&&s._cxp||(g=g.tagCtx||l(s)?g:!(g=g.scope||g).isTop&&g.ctx.tag||g,void 0!==s&&g.tagCtx&&(g=g.tagCtx.view.scope),h=g._ocps,(s=h&&h.hasOwnProperty(n)&&h[n]||s)&&s._cxp||!r&&!v||((h||(g._ocps=g._ocps||{}))[n]=s=[{_ocp:s,_vw:u,_key:n}],s._cxp={path:D,ind:0,updateValue:function(e,n){return t.observable(s[0]).setProperty(D,e),this}})),d=s&&s._cxp)){if(arguments.length>2)return(i=s[1]?m._ceo(s[1].deps):[D]).unshift(s[0]),i._cxp=d,i;if(c=d.tagElse,f=s[1]?d.tag&&d.tag.cvtArgs?d.tag.cvtArgs(c,1)[d.ind]:s[1](s[0].data,s[0],m):s[0]._ocp,v)return m._ucp(n,a,g,d),g;s=f}return s&&l(s)&&oe(o=function(){return s.apply(this&&this!==e?this:u,arguments)},s),o||s}}function ce(e,t){var n,a,r,o,i,s,l,c=this;if(c.tagName){if(!(c=((s=c).tagCtxs||[c])[e||0]))return}else s=c.tag;if(i=s.bindFrom,o=c.args,(l=s.convert)&&""+l===l&&(l="true"===l?void 0:c.view.getRsc("converters",l)||xe("Unknown converter: '"+l+"'")),l&&!t&&(o=o.slice()),i){for(r=[],n=i.length;n--;)a=i[n],r.unshift(ue(c,a));t&&(o=r)}if(l){if(void 0===(l=l.apply(s,r||o)))return o;if(n=(i=i||[0]).length,d(l)&&l.length===n||(l=[l],i=[0],n=1),t)o=l;else for(;n--;)+(a=i[n])===a&&(o[a]=l[n])}return o}function ue(e,t){return(e=e[+t===t?"args":"props"])&&e[t]}function pe(e){return this.cvtArgs(e,1)}function fe(e,t,n,a,r,o,i,s){var l,d,c,u=this,p="array"===t;u.content=s,u.views=p?[]:{},u.data=a,u.tmpl=r,c=u._={key:0,useKey:p?0:1,id:""+B++,onRender:i,bnds:{}},u.linked=!!i,u.type=t||"top",t&&(u.cache={_ct:g._cchCt}),n&&"top"!==n.type||((u.ctx=e||{}).root=u.data),(u.parent=n)?(u.root=n.root||u,l=n.views,d=n._,u.isTop=d.scp,u.scope=(!e.tag||e.tag===n.ctx.tag)&&!u.isTop&&n.scope||u,d.useKey?(l[c.key="_"+d.useKey++]=u,u.index=K,u.getIndex=ie):l.length===(c.key=u.index=o)?l.push(u):l.splice(o,0,u),u.ctx=e||n.ctx):t&&(u.root=u)}function me(e,t){return l(e)?e.call(t):e}function ge(e,t,n){Object.defineProperty(e,t,{value:n,configurable:!0})}function ve(e,n){var a,r=v._wm||{},o={tmpls:[],links:{},bnds:[],_is:"template",render:ye};return n&&(o=oe(o,n)),o.markup=e,o.htmlTag||(a=M.exec(e),o.htmlTag=a?a[1].toLowerCase():""),(a=r[o.htmlTag])&&a!==r.div&&(o.markup=t.trim(o.markup)),o}function he(e,t){var n=e+"s";i[n]=function a(r,o,s){var l,d,c,u=m.onStore[e];if(r&&typeof r===Y&&!r.nodeType&&!r.markup&&!r.getTgt&&!("viewModel"===e&&r.getters||r.extend)){for(d in r)a(d,r[d],o);return o||i}return r&&""+r!==r&&(s=o,o=r,r=void 0),c=s?"viewModel"===e?s:s[n]=s[n]||{}:a,l=t.compile,void 0===o&&(o=l?r:c[r],r=void 0),null===o?r&&delete c[r]:(l&&((o=l.call(c,r,o,s,0)||{})._is=e),r&&(c[r]=o)),u&&u(r,o,s,l),o}}function $e(e){h[e]=h[e]||function(t){return arguments.length?(g[e]=t,h):g[e]}}function we(e){function t(t,n){this.tgt=e.getTgt(t,n),n.map=this}return l(e)&&(e={getTgt:e}),e.baseMap&&(e=oe(oe({},e.baseMap),e)),e.map=function(e,n){return new t(e,n)},e}function ye(e,t,n,a,r,i){var s,c,u,p,f,g,h,$,w=a,y="";if(!0===t?(n=t,t=void 0):typeof t!==Y&&(t=void 0),(u=this.tag)?(f=this,p=(w=w||f.view)._getTmpl(u.template||f.tmpl),arguments.length||(e=u.contentCtx&&l(u.contentCtx)?e=u.contentCtx(e):w)):p=this,p){if(!a&&e&&"view"===e._is&&(w=e),w&&e===w&&(e=w.data),g=!w,C=C||g,g&&((t=t||{}).root=e),!C||v.useViews||p.useViews||w&&w!==o)y=be(p,e,t,n,w,r,i,u);else{if(w?(h=w.data,$=w.index,w.index=K):(h=(w=o).data,w.data=e,w.ctx=t),d(e)&&!n)for(s=0,c=e.length;s<c;s++)w.index=s,w.data=e[s],y+=p.fn(e[s],w,m);else w.data=e,y+=p.fn(e,w,m);w.data=h,w.index=$}g&&(C=void 0)}return y}function be(e,t,n,a,r,o,i,s){var l,c,u,p,f,g,v,h,$,w,y,b,x,_="";if(s&&($=s.tagName,b=s.tagCtx,n=n?Ee(n,s.ctx):s.ctx,e===r.content?v=e!==r.ctx._wrp?r.ctx._wrp:void 0:e!==b.content?e===s.template?(v=b.tmpl,n._wrp=b.content):v=b.content||r.content:v=r.content,!1===b.props.link&&((n=n||{}).link=!1)),r&&(i=i||r._.onRender,(x=n&&!1===n.link)&&r._.nl&&(i=void 0),n=Ee(n,r.ctx),b=!s&&r.tag?r.tag.tagCtxs[r.tagElse]:b),(w=b&&b.props.itemVar)&&("~"!==w[0]&&_e("Use itemVar='~myItem'"),w=w.slice(1)),!0===o&&(g=!0,o=0),i&&s&&s._.noVws&&(i=void 0),h=i,!0===i&&(h=void 0,i=r._.onRender),y=n=e.helpers?Ee(e.helpers,n):n,d(t)&&!a)for((u=g?r:void 0!==o&&r||new fe(n,"array",r,t,e,o,i,v))._.nl=x,r&&r._.useKey&&(u._.bnd=!s||s._.bnd&&s,u.tag=s),l=0,c=t.length;l<c;l++)p=new fe(y,"item",u,t[l],e,(o||0)+l,i,u.content),w&&((p.ctx=oe({},y))[w]=m._cp(t[l],"#data",p)),f=e.fn(t[l],p,m),_+=u._.onRender?u._.onRender(f,p):f;else u=g?r:new fe(y,$||"data",r,t,e,o,i,v),w&&((u.ctx=oe({},y))[w]=m._cp(t,"#data",u)),u.tag=s,u._.nl=x,_+=e.fn(t,u,m);return s&&(u.tagElse=b.index,b.contentView=u),h?h(_,u):_}function xe(e){throw new m.Err(e)}function _e(e){xe("Syntax error\n"+e)}function Ce(e,t,n,a,o){function i(t){(t-=v)&&x.push(e.substr(v,t).replace(T,"\\n"))}function s(t,n){t&&(t+="}}",_e((n?"{{"+n+"}} block has {{/"+t+" without {{"+t:"Unmatched or missing {{/"+t)+", in template:\n"+e))}var l,d,c,u,p,f=g.allowCode||t&&t.allowCode||!0===h.allowCode,m=[],v=0,w=[],x=m,_=[,,m];if(f&&t._is&&(t.allowCode=f),n&&(void 0!==a&&(e=e.slice(0,-a.length-2)+y),e=$+e+b),s(w[0]&&w[0][2].pop()[0]),e.replace(r,(function(r,l,d,p,m,g,h,$,y,b,C,k){(h&&l||y&&!d||$&&":"===$.slice(-1)||b)&&_e(r),g&&(m=":",p=U);var D,E,M,N=(l||n)&&[[]],A="",O="",L="",F="",R="",B="",V="",q="",Y=!(y=y||n&&!o)&&!m;d=d||($=$||"#data",m),i(k),v=k+r.length,h?f&&x.push(["*","\n"+$.replace(/^:/,"ret+= ").replace(S,"$1")+";\n"]):d?("else"===d&&(I.test($)&&_e('For "{{else if expr}}" use "{{else expr}}"'),N=_[9]&&[[]],_[10]=e.substring(_[10],k),E=_[11]||_[0]||_e("Mismatched: "+r),_=w.pop(),x=_[2],Y=!0),$&&Te($.replace(T," "),N,t,n).replace(j,(function(e,t,n,a,r,o,i,s){return"this:"===a&&(o="undefined"),s&&(M=M||"@"===s[0]),a="'"+r+"':",i?(O+=n+o+",",F+="'"+s+"',"):n?(L+=a+"j._cp("+o+',"'+s+'",view),',B+=a+"'"+s+"',"):t?V+=o:("trigger"===r&&(q+=o),"lateRender"===r&&(D="false"!==s),A+=a+o+",",R+=a+"'"+s+"',",u=u||P.test(r)),""})).slice(0,-1),N&&N[0]&&N.pop(),c=[d,p||!!a||u||"",Y&&[],De(F||(":"===d?"'#data',":""),R,B),De(O||(":"===d?"data,":""),A,L),V,q,D,M,N||0],x.push(c),Y&&(w.push(_),(_=c)[10]=v,_[11]=E)):C&&(s(C!==_[0]&&C!==_[11]&&C,_[0]),_[10]=e.substring(_[10],k),_=w.pop()),s(!_&&C),x=_[2]})),i(e.length),(v=m[m.length-1])&&s(""+v!==v&&+v[10]===v[10]&&v[0]),n){for(d=Se(m,e,n),p=[],l=m.length;l--;)p.unshift(m[l][9]);ke(d,p)}else d=Se(m,t);return d}function ke(e,t){var n,a,r=0,o=t.length;for(e.deps=[],e.paths=[];r<o;r++)for(n in e.paths.push(a=t[r]),a)"_jsvto"!==n&&a.hasOwnProperty(n)&&a[n].length&&!a[n].skp&&(e.deps=e.deps.concat(a[n]))}function De(e,t,n){return[e.slice(0,-1),t.slice(0,-1),n.slice(0,-1)]}function Te(e,n,a,r){var o,i,s,l,d,c=n&&n[0],u={bd:c},p={0:u},f=0,g=0,h=0,$={},w=0,y={},b={},x={},_={0:0},C={0:""},k=0;return"@"===e[0]&&(e=e.replace(R,".")),s=(e+(a?" ":"")).replace(m.rPrm,(function(a,s,D,T,S,j,I,M,N,P,A,O,L,F,R,B,V,q,U,Y,z){T&&!M&&(S=T+S),j=j||"",L=L||"",D=D||s||L,S=S||N,P&&(P=!/\)|]/.test(z[Y-1]))&&(S=S.slice(1).split(".").join("^")),A=A||q||"";var J,K,G,Q,W,X,Z,ee=Y;if(!d&&!l){if(I&&_e(e),V&&c){if(J=x[h-1],z.length-1>ee-(J||0)){if(J=t.trim(z.slice(J,ee+a.length)),K=i||p[h-1].bd,(G=K[K.length-1])&&G.prm){for(;G.sb&&G.sb.prm;)G=G.sb;Q=G.sb={path:G.sb,bnd:G.bnd}}else K.push(Q={path:K.pop()});G&&G.sb===Q&&(C[h]=C[h-1].slice(G._cpPthSt)+C[h],C[h-1]=C[h-1].slice(0,G._cpPthSt)),Q._cpPthSt=_[h-1],Q._cpKey=J,C[h]+=z.slice(k,Y),k=Y,Q._cpfn=H[J]=H[J]||new Function("data,view,j","//"+J+"\nvar v;\nreturn ((v="+C[h]+("]"===B?")]":B)+")!=null?v:null);"),C[h-1]+=b[g]&&v.cache?'view.getCache("'+J.replace(E,"\\$&")+'"':C[h],Q.prm=u.bd,Q.bnd=Q.bnd||Q.path&&Q.path.indexOf("^")>=0}C[h]=""}"["===A&&(A="[j._sq("),"["===D&&(D="[j._sq(")}return Z=d?(d=!F)?a:L+'"':l?(l=!R)?a:L+'"':(D?(y[++g]=!0,$[g]=0,c&&(x[h++]=ee++,u=p[h]={bd:[]},C[h]="",_[h]=1),D):"")+(U?g?"":(f=z.slice(f,ee),(o?(o=i=!1,"\b"):"\b,")+f+(f=ee+a.length,c&&n.push(u.bd=[]),"\b")):M?(h&&_e(e),c&&n.pop(),o="_"+S,T,f=ee+a.length,c&&((c=u.bd=n[o]=[]).skp=!T),S+":"):S?S.split("^").join(".").replace(m.rPath,(function(e,t,a,s,l,d,p,f){if(W="."===a,a&&(S=S.slice(t.length),/^\.?constructor$/.test(f||S)&&_e(e),W||(e=(P?(r?"":"(ltOb.lt=ltOb.lt||")+"(ob=":"")+(s?'view.ctxPrm("'+s+'")':l?"view":"data")+(P?")===undefined"+(r?"":")")+'?"":view._getOb(ob,"':"")+(f?(d?"."+d:s||l?"":"."+a)+(p||""):(f=s?"":l?d||"":a,"")),e=t+("view.data"===(e+=f?"."+f:"").slice(0,9)?e.slice(5):e)+(P?(r?'"':'",ltOb')+(A?",1)":")"):"")),c)){if(K="_linkTo"===o?i=n._jsvto=n._jsvto||[]:u.bd,G=W&&K[K.length-1]){if(G._cpfn){for(;G.sb;)G=G.sb;G.prm&&(G.bnd&&(S="^"+S.slice(1)),G.sb=S,G.bnd=G.bnd||"^"===S[0])}}else K.push(S);A&&!W&&(x[h]=ee,_[h]=C[h].length)}return e}))+(A||j):j||(B?"]"===B?")]":")":O?(b[g]||_e(e),","):s?"":(d=F,l=R,'"'))),d||l||B&&(b[g]=!1,g--),c&&(d||l||(B&&(y[g+1]&&(u=p[--h],y[g+1]=!1),w=$[g+1]),A&&($[g+1]=C[h].length+(D?1:0),(S||B)&&(u=p[++h]={bd:[]},y[g+1]=!0))),C[h]=(C[h]||"")+z.slice(k,Y),k=Y+a.length,d||l||((X=D&&y[g+1])&&(C[h-1]+=D,_[h-1]++),"("===A&&W&&!Q&&(C[h]=C[h-1].slice(w)+C[h],C[h-1]=C[h-1].slice(0,w))),C[h]+=X?Z.slice(1):Z),d||l||!A||(g++,S&&"("===A&&(b[g]=!0)),d||l||!q||(c&&(C[h]+=A),Z+=A),Z})),c&&(s=C[0]),!g&&s||_e(e)}function Se(e,t,n){var a,r,o,i,s,l,d,c,u,p,m,h,$,w,y,b,x,_,C,k,D,E,j,I,M,N,P,A,O,L,F,R,B,V,q=0,Y=v.useViews||t.useViews||t.tags||t.templates||t.helpers||t.converters,z="",J={},K=e.length;for(""+t===t?(x=n?'data-link="'+t.replace(T," ").slice(1,-1)+'"':t,t=0):(x=t.tmplName||"unnamed",t.allowCode&&(J.allowCode=!0),t.debug&&(J.debug=!0),p=t.bnds,b=t.tmpls),a=0;a<K;a++)if(""+(r=e[a])===r)z+='+"'+r+'"';else if("*"===(o=r[0]))z+=";\n"+r[1]+"\nret=ret";else{if(i=r[1],k=!n&&r[2],B=r[3],V=h=r[4],s="\n\tparams:{args:["+B[0]+"],\n\tprops:{"+B[1]+"}"+(B[2]?",\n\tctx:{"+B[2]+"}":"")+"},\n\targs:["+V[0]+"],\n\tprops:{"+V[1]+"}"+(V[2]?",\n\tctx:{"+V[2]+"}":""),O=r[6],L=r[7],r[8]?(F="\nvar ob,ltOb={},ctxs=",R=";\nctxs.lt=ltOb.lt;\nreturn ctxs;"):(F="\nreturn ",R=""),D=r[10]&&r[10].replace(S,"$1"),(I="else"===o)?m&&m.push(r[9]):(P=r[5]||!1!==g.debugMode&&"undefined",p&&(m=r[9])&&(m=[m],q=p.push(1))),Y=Y||h[1]||h[2]||m||/view.(?!index)/.test(h[0]),(M=":"===o)?i&&(o=i===U?">":i+o):(k&&((_=ve(D,J)).tmplName=x+"/"+o,_.useViews=_.useViews||Y,Se(k,_),Y=_.useViews,b.push(_)),I||(C=o,Y=Y||o&&(!f[o]||!f[o].flow),j=z,z=""),E=(E=e[a+1])&&"else"===E[0]),A=P?";\ntry{\nret+=":"\n+",$="",w="",M&&(m||O||i&&i!==U||L)){if((N=new Function("data,view,j","// "+x+" "+ ++q+" "+o+F+"{"+s+"};"+R))._er=P,N._tag=o,N._bd=!!m,N._lr=L,n)return N;ke(N,m),u=!0,$=(y='c("'+i+'",view,')+q+",",w=")"}if(z+=M?(n?(P?"try{\n":"")+"return ":A)+(u?(u=void 0,Y=c=!0,y+(N?(p[q-1]=N,q):"{"+s+"}")+")"):">"===o?(d=!0,"h("+h[0]+")"):(!0,"((v="+h[0]+")!=null?v:"+(n?"null)":'"")'))):(l=!0,"\n{view:view,content:false,tmpl:"+(k?b.length:"false")+","+s+"},"),C&&!E){if(z="["+z.slice(0,-1)+"]",y='t("'+C+'",view,this,',n||m){if((z=new Function("data,view,j"," // "+x+" "+q+" "+C+F+z+R))._er=P,z._tag=C,m&&ke(p[q-1]=z,m),z._lr=L,n)return z;$=y+q+",undefined,",w=")"}z=j+A+y+(m&&q||z)+")",m=0,C=0}P&&!E&&(Y=!0,z+=";\n}catch(e){ret"+(n?"urn ":"+=")+$+"j._err(e,view,"+P+")"+w+";}"+(n?"":"\nret=ret"))}z="// "+x+(J.debug?"\ndebugger;":"")+"\nvar v"+(l?",t=j._tag":"")+(c?",c=j._cnvt":"")+(d?",h=j._html":"")+(n?(r[8]?", ob":"")+";\n":',ret=""')+z+(n?"\n":";\nreturn ret;");try{z=new Function("data,view,j",z)}catch(e){_e("Compiled template code:\n\n"+z+'\n: "'+(e.message||e)+'"')}return t&&(t.fn=z,t.useViews=!!Y),z}function Ee(e,t){return e&&e!==t?t?oe(oe({},t),e):e:t&&oe({},t)}function je(e,n){var a,r,o,i=n.tag,s=n.props,c=n.params.props,u=s.filter,p=s.sort,f=!0===p,m=parseInt(s.step),g=s.reverse?-1:1;if(!d(e))return e;if(f||p&&""+p===p?((a=e.map((function(e,t){return{i:t,v:""+(e=f?e:le(e,p))===e?e.toLowerCase():e}}))).sort((function(e,t){return e.v>t.v?g:e.v<t.v?-g:0})),e=a.map((function(t){return e[t.i]}))):(p||g<0)&&!i.dataMap&&(e=e.slice()),l(p)&&(e=e.sort((function(){return p.apply(n,arguments)}))),g<0&&(!p||l(p))&&(e=e.reverse()),e.filter&&u&&(e=e.filter(u,n),n.tag.onFilter&&n.tag.onFilter(n)),c.sorted&&(a=p||g<0?e:e.slice(),i.sorted?t.observable(i.sorted).refresh(a):n.map.sorted=a),r=s.start,o=s.end,(c.start&&void 0===r||c.end&&void 0===o)&&(r=o=0),isNaN(r)&&isNaN(o)||(r=+r||0,o=void 0===o||o>e.length?e.length:+o,e=e.slice(r,o)),m>1){for(r=0,o=e.length,a=[];r<o;r+=m)a.push(e[r]);e=a}return c.paged&&i.paged&&$observable(i.paged).refresh(e),e}function Ie(e,n,a){var r=this.jquery&&(this[0]||xe("Unknown template")),o=r.getAttribute(z);return ye.call(o&&t.data(r).jsvTmpl||c(r),e,n,a)}function Me(e){return V[e]||(V[e]="&#"+e.charCodeAt(0)+";")}function Ne(e,t){return q[t]||""}function Pe(e){return null!=e?N.test(e)&&(""+e).replace(O,Me)||e:""}if(i={jsviews:k,sub:{rPath:/^(!*?)(?:null|true|false|\d[\d.]*|([\w$]+|\.|~([\w$]+)|#(view|([\w$]+))?)([\w$.^]*?)(?:[.[^]([\w$]+)\]?)?)$/g,rPrm:/(\()(?=\s*\()|(?:([([])\s*)?(?:(\^?)(~?[\w$.^]+)?\s*((\+\+|--)|\+|-|~(?![\w$])|&&|\|\||===|!==|==|!=|<=|>=|[<>%*:?\/]|(=))\s*|(!*?(@)?[#~]?[\w$.^]+)([([])?)|(,\s*)|(?:(\()\s*)?\\?(?:(')|("))|(?:\s*(([)\]])(?=[.^]|\s*$|[^([])|[)\]])([([]?))|(\s+)/g,View:fe,Err:re,tmplFn:Ce,parse:Te,extend:oe,extendCtx:Ee,syntaxErr:_e,onStore:{template:function(e,t){null===t?delete G[e]:e&&(G[e]=t)}},addSetting:$e,settings:{allowCode:!1},advSet:ae,_thp:te,_gm:ee,_tg:function(){},_cnvt:function(e,t,n,a){var r,o,i,s,l,d="number"==typeof n&&t.tmpl.bnds[n-1];void 0===a&&d&&d._lr&&(a="");void 0!==a?n=a={props:{},args:[a]}:d&&(n=d(t.data,t,m));if(d=d._bd&&d,e||d){if(o=t._lc,r=o&&o.tag,n.view=t,!r){if(r=oe(new m._tg,{_:{bnd:d,unlinked:!0,lt:n.lt},inline:!o,tagName:":",convert:e,onArrayChange:!0,flow:!0,tagCtx:n,tagCtxs:[n],_is:"tag"}),(s=n.args.length)>1)for(l=r.bindTo=[];s--;)l.unshift(s);o&&(o.tag=r,r.linkCtx=o),n.ctx=Ee(n.ctx,(o?o.view:t).ctx),te(r,n)}r._er=a&&i,r.ctx=n.ctx||r.ctx||{},n.ctx=void 0,i=r.cvtArgs()[0],r._er=a&&i}else i=n.args[0];return null!=(i=d&&t._.onRender?t._.onRender(i,t,r):i)?i:""},_tag:function(e,t,n,a,r,i){function s(e){var t=l[e];if(void 0!==t)for(t=d(t)?t:[t],h=t.length;h--;)O=t[h],isNaN(parseInt(O))||(t[h]=parseInt(O));return t||[0]}var l,c,p,f,g,v,h,$,w,y,b,x,_,C,k,D,T,S,E,j,I,M,N,P,O,L,F,R,B,V=0,q="",Y=(t=t||o)._lc||!1,z=t.ctx,J=n||t.tmpl,K="number"==typeof a&&t.tmpl.bnds[a-1];"tag"===e._is?(e=(l=e).tagName,a=l.tagCtxs,l.template):(c=t.getRsc("tags",e)||xe("Unknown tag: {{"+e+"}} "),c.template);void 0===i&&K&&(K._lr=c.lateRender&&!1!==K._lr||K._lr)&&(i="");void 0!==i?(q+=i,a=i=[{props:{},args:[],params:{props:{}}}]):K&&(a=K(t.data,t,m));for(v=a.length;V<v;V++)y=a[V],D=y.tmpl,(!Y||!Y.tag||V&&!Y.tag.inline||l._er||D&&+D===D)&&(D&&J.tmpls&&(y.tmpl=y.content=J.tmpls[D-1]),y.index=V,y.ctxPrm=de,y.render=ye,y.cvtArgs=ce,y.bndArgs=pe,y.view=t,y.ctx=Ee(Ee(y.ctx,c&&c.ctx),z)),(n=y.props.tmpl)&&(y.tmpl=t._getTmpl(n),y.content=y.content||y.tmpl),l?Y&&Y.fn._lr&&(T=!!l.init):(l=new c._ctr,T=!!l.init,l.parent=g=z&&z.tag,l.tagCtxs=a,Y&&(l.inline=!1,Y.tag=l),l.linkCtx=Y,(l._.bnd=K||Y.fn)?(l._.ths=y.params.props.this,l._.lt=a.lt,l._.arrVws={}):l.dataBoundOnly&&xe(e+" must be data-bound:\n{^{"+e+"}}")),N=l.dataMap,y.tag=l,N&&a&&(y.map=a[V].map),l.flow||(b=y.ctx=y.ctx||{},p=l.parents=b.parentTags=z&&Ee(b.parentTags,z.parentTags)||{},g&&(p[g.tagName]=g),p[l.tagName]=b.tag=l,b.tagCtx=y);if(!(l._er=i)){for(te(l,a[0]),l.rendering={rndr:l.rendering},V=0;V<v;V++){if(y=l.tagCtx=a[V],M=y.props,l.ctx=y.ctx,!V){if(T&&(l.init(y,Y,l.ctx),T=void 0),y.args.length||!1===y.argDefault||!1===l.argDefault||(y.args=j=[y.view.data],y.params.args=["#data"]),_=s("bindTo"),void 0!==l.bindTo&&(l.bindTo=_),void 0!==l.bindFrom?l.bindFrom=s("bindFrom"):l.bindTo&&(l.bindFrom=l.bindTo=_),C=l.bindFrom||_,F=_.length,L=C.length,l._.bnd&&(R=l.linkedElement)&&(l.linkedElement=R=d(R)?R:[R],F!==R.length&&xe("linkedElement not same length as bindTo")),(R=l.linkedCtxParam)&&(l.linkedCtxParam=R=d(R)?R:[R],L!==R.length&&xe("linkedCtxParam not same length as bindFrom/bindTo")),C)for(l._.fromIndex={},l._.toIndex={},$=L;$--;)for(O=C[$],h=F;h--;)O===_[h]&&(l._.fromIndex[h]=$,l._.toIndex[$]=h);Y&&(Y.attr=l.attr=Y.attr||l.attr||Y._dfAt),f=l.attr,l._.noVws=f&&f!==U}if(j=l.cvtArgs(V),l.linkedCtxParam)for(I=l.cvtArgs(V,1),h=L,B=l.constructor.prototype.ctx;h--;)(x=l.linkedCtxParam[h])&&(O=C[h],k=I[h],y.ctx[x]=m._cp(B&&void 0===k?B[x]:k,void 0!==k&&ue(y.params,O),y.view,l._.bnd&&{tag:l,cvt:l.convert,ind:h,tagElse:V}));(S=M.dataMap||N)&&(j.length||M.dataMap)&&((E=y.map)&&E.src===j[0]&&!r||(E&&E.src&&E.unmap(),S.map(j[0],y,E,!l._.bnd),E=y.map),j=[E.tgt]),w=void 0,l.render&&(w=l.render.apply(l,j),t.linked&&w&&!A.test(w)&&((n={links:[]}).render=n.fn=function(){return w},w=be(n,t.data,void 0,!0,t,void 0,void 0,l))),j.length||(j=[t]),void 0===w&&(P=j[0],l.contentCtx&&(P=!0===l.contentCtx?t:l.contentCtx(P)),w=y.render(P,!0)||(r?void 0:"")),q=q?q+(w||""):void 0!==w?""+w:void 0}l.rendering=l.rendering.rndr}l.tagCtx=a[0],l.ctx=l.tagCtx.ctx,l._.noVws&&l.inline&&(q="text"===f?u.html(q):"");return K&&t._.onRender?t._.onRender(q,t,l):q},_er:xe,_err:function(e,t,n){var a=void 0!==n?l(n)?n.call(t.data,e,t):n||"":"{Error: "+(e.message||e)+"}";g.onError&&void 0!==(n=g.onError.call(t.data,e,n&&a,t))&&(a=n);return t&&!t._lc?u.html(a):a},_cp:ne,_sq:function(e){return"constructor"===e&&_e(""),e}},settings:{delimiters:function e(t,n,a){if(!t)return g.delimiters;if(d(t))return e.apply(i,t);x=a?a[0]:x,/^(\W|_){5}$/.test(t+n+x)||xe("Invalid delimiters");return $=t[0],w=t[1],y=n[0],b=n[1],g.delimiters=[$+w,y+b,x],t="\\"+$+"(\\"+x+")?\\"+w,n="\\"+y+"\\"+b,r="(?:(\\w+(?=[\\/\\s\\"+y+"]))|(\\w+)?(:)|(>)|(\\*))\\s*((?:[^\\"+y+"]|\\"+y+"(?!\\"+b+"))*?)",m.rTag="(?:"+r+")",r=new RegExp("(?:"+t+r+"(\\/)?|\\"+$+"(\\"+x+")?\\"+w+"(?:(?:\\/(\\w+))\\s*|!--[\\s\\S]*?--))"+n,"g"),m.rTmpl=new RegExp("^\\s|\\s$|<.*>|([^\\\\]|^)[{}]|"+t+".*"+n),h},advanced:function(e){return e?(oe(v,e),m.advSet(),h):v}},map:we},(re.prototype=new Error).constructor=re,ie.depends=function(){return[this.get("item"),"index"]},se.depends="index",fe.prototype={get:function(e,t){t||!0===e||(t=e,e=void 0);var n,a,r,o,i=this,s="root"===t;if(e){if(!(o=t&&i.type===t&&i))if(n=i.views,i._.useKey){for(a in n)if(o=t?n[a].get(e,t):n[a])break}else for(a=0,r=n.length;!o&&a<r;a++)o=t?n[a].get(e,t):n[a]}else if(s)o=i.root;else if(t)for(;i&&!o;)o=i.type===t?i:void 0,i=i.parent;else o=i.parent;return o||void 0},getIndex:se,ctxPrm:de,getRsc:function(e,t){var n,a,r=this;if(""+t===t){for(;void 0===n&&r;)n=(a=r.tmpl&&r.tmpl[e])&&a[t],r=r.parent;return n||i[e][t]}},_getTmpl:function(e){return e&&(e.fn?e:this.getRsc("templates",e)||c(e))},_getOb:le,getCache:function(e){return g._cchCt>this.cache._ct&&(this.cache={_ct:g._cchCt}),this.cache[e]||(this.cache[e]=H[e](this.data,this,m))},_is:"view"},m=i.sub,h=i.settings,!(Q||t&&t.render)){for(a in X)he(a,X[a]);if(u=i.converters,p=i.helpers,f=i.tags,m._tg.prototype={baseApply:function(e){return this.base.apply(this,e)},cvtArgs:ce,bndArgs:pe,ctxPrm:de},o=m.topView=new fe,t){if(t.fn.render=Ie,s=t.expando,t.observable){if(k!==(k=t.views.jsviews))throw"jquery.observable.js requires jsrender.js "+k;oe(m,t.views.sub),i.map=t.views.map}}else t={},n&&(e.jsrender=t),t.renderFile=t.__express=t.compile=function(){throw"Node.js: use npm jsrender, or jsrender-node.js"},t.isFunction=function(e){return"function"==typeof e},t.isArray=Array.isArray||function(e){return"[object Array]"==={}.toString.call(e)},m._jq=function(e){e!==t&&(oe(e,t),(t=e).fn.render=Ie,delete t.jsrender,s=t.expando)},t.jsrender=k;for(_ in(g=m.settings).allowCode=!1,l=t.isFunction,t.render=G,t.views=i,t.templates=c=i.templates,g)$e(_);(h.debugMode=function(e){return void 0===e?g.debugMode:(g._clFns&&g._clFns(),g.debugMode=e,g.onError=e+""===e?function(){return e}:l(e)?e:void 0,h)})(!1),v=g.advanced={cache:!0,useViews:!1,_jsv:!1},f({if:{render:function(e){var t=this,n=t.tagCtx;return t.rendering.done||!e&&(n.args.length||!n.index)?"":(t.rendering.done=!0,void(t.selected=n.index))},contentCtx:!0,flow:!0},for:{sortDataMap:we(je),init:function(e,t){this.setDataMap(this.tagCtxs)},render:function(e){var t,n,a,r,o,i=this,s=i.tagCtx,l=!1===s.argDefault,c=s.props,u=l||s.args.length,p="",f=0;if(!i.rendering.done){if(t=u?e:s.view.data,l)for(l=c.reverse?"unshift":"push",r=+c.end,o=+c.step||1,t=[],a=+c.start||0;(r-a)*o>0;a+=o)t[l](a);void 0!==t&&(n=d(t),p+=s.render(t,!u||c.noIteration),f+=n?t.length:1),(i.rendering.done=f)&&(i.selected=s.index)}return p},setDataMap:function(e){for(var t,n,a,r=e.length;r--;)n=(t=e[r]).props,a=t.params.props,t.argDefault=void 0===n.end||t.args.length>0,n.dataMap=!1!==t.argDefault&&d(t.args[0])&&(a.sort||a.start||a.end||a.step||a.filter||a.reverse||n.sort||n.start||n.end||n.step||n.filter||n.reverse)&&this.sortDataMap},flow:!0},props:{baseTag:"for",dataMap:we((function(e,n){var a,r,o=n.map,i=o&&o.propsArr;if(!i){if(i=[],typeof e===Y||l(e))for(a in e)r=e[a],a===s||!e.hasOwnProperty(a)||n.props.noFunctions&&t.isFunction(r)||i.push({key:a,prop:r});o&&(o.propsArr=o.options&&i)}return je(i,n)})),init:ae,flow:!0},include:{flow:!0},"*":{render:ne,flow:!0},":*":{render:ne,flow:!0},dbg:p.dbg=u.dbg=function(e){try{throw console.log("JsRender dbg breakpoint: "+e),"dbg breakpoint"}catch(e){}return this.base?this.baseApply(arguments):e}}),u({html:Pe,attr:Pe,encode:function(e){return""+e===e?e.replace(L,Me):e},unencode:function(e){return""+e===e?e.replace(F,Ne):e},url:function(e){return null!=e?encodeURI(""+e):null===e?e:""}})}return g=m.settings,d=(t||Q).isArray,h.delimiters("{{","}}","^"),W&&Q.views.sub._jq(t),t||Q}),window)}},t={};function n(a){var r=t[a];if(void 0!==r)return r.exports;var o=t[a]={exports:{}};return e[a](o,o.exports,n),o.exports}(()=>{"use strict";var e=n(2743),t=$('meta[name="csrf-token"]').attr("content");$.ajaxSetup({headers:{"X-CSRF-TOKEN":$('meta[name="csrf-token"]').attr("content")}}),document.addEventListener("turbo:load",(function(){$('[data-control="select2"]').each((function(){$(this).select2()})),t=$('meta[name="csrf-token"]').attr("content"),$.ajaxSetup({headers:{"X-CSRF-TOKEN":t}}),$(".alert").delay(5e3).slideUp(300),a(),r(),IOInitImageComponent(),IOInitSidebar()}));$(".getLanguage").val();var a=function(){$((function(){$(".modal").on("shown.bs.modal",(function(){$(this).find("input:text").first().focus()}))}))},r=function(){$('input:text:not([readonly="readonly"]):not([name="search"]):not(.front-input)').first().focus()};$(document).on("keydown",(function(e){27===e.keyCode&&$(".modal").modal("hide")})),$('input:text:not([readonly="readonly"])').first().focus(),$(document).on("select2:open",(function(){var e=document.querySelectorAll(".select2-container--open .select2-search__field");e[e.length-1].focus()})),$('[data-control="select2"]').each((function(){$(this).select2()})),document.addEventListener("livewire:load",(function(){window.livewire.hook("message.processed",(function(){$('[data-control="select2"]').each((function(){$(this).select2()}))}))})),$(document).on("focus",".select2.select2-container",(function(e){var t=e.originalEvent,n=$(this).find(".select2-selection--single").length>0;t&&n&&$(this).siblings("select:enabled").select2("open")})),$(document).ready((function(){$('[data-bs-toggle="tooltip"]').tooltip(),$(document).find(".nav-item.nav-dropdown ul li.nav-item").hasClass("active")&&$(document).find(".nav-item.nav-dropdown ul li.nav-item.active").parent("ul").parent("li").addClass("open"),listenClick(".nav-item.nav-dropdown",(function(){$(document).find(".nav-item.nav-dropdown").hasClass("open")&&$(this).hasClass("open")?setTimeout((function(){$(this).removeClass("open")}),1e3):$(document).find(".nav-item.nav-dropdown").removeClass("open")})),listenKeyup('input[name="email"]',(function(){this.value=this.value.toLowerCase()})),$('input[name="email"]').keypress((function(e){if(32===e.which)return!1}))})),$((function(){listenShownBsModal(".modal",(function(){$(this).find("input:text").first().focus()})),listenHiddenBsModal(".modal",(function(){$(".image-input.image-input-empty").attr("style","display:inline-block")}))})),window.resetModalForm=function(e,t){var n=$(e)[0].elements;$.each(n,(function(e,t){void 0!==t._flatpickr&&(t._flatpickr.clear(),t._flatpickr.setDate(new Date))})),$(e)[0].reset(),$("select.select2Selector").each((function(e,t){var n="#"+$(this).attr("id");$(n).val(""),$(n).trigger("change")})),$(t).hide()},window.processingBtn=function(e,t){var n=arguments.length>2&&void 0!==arguments[2]?arguments[2]:null,a=$(e).find(t);"loading"===n?a.button("loading"):a.button("reset")},window.printErrorMessage=function(e,t){displayErrorMessage(t.responseJSON.message)},toastr.options={closeButton:!0,debug:!1,newestOnTop:!1,progressBar:!0,positionClass:"toast-top-right",preventDuplicates:!1,onclick:null,showDuration:"300",hideDuration:"1000",timeOut:"5000",extendedTimeOut:"1000",showEasing:"swing",hideEasing:"linear",showMethod:"fadeIn",hideMethod:"fadeOut"},window.manageAjaxErrors=function(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:"editValidationErrorsBox";404==e.status?toastr.error(e.responseJSON.message):printErrorMessage("#"+t,e)},window.displaySuccessMessage=function(e){toastr.success(e)},window.displayErrorMessage=function(e){toastr.error(e)},window.displayPhoto=function(e,t){var n=!0;if(e.files&&e.files[0]){var a=new FileReader;a.onload=function(e){var a=new Image;a.src=e.target.result,a.onload=function(){$(t).attr("src",e.target.result),n=!0}},n&&(a.readAsDataURL(e.files[0]),$(t).show())}},window.isValidFile=function(e,t){var n=$(e).val().split(".").pop().toLowerCase();return-1==$.inArray(n,["gif","png","jpg","jpeg"])?($(e).val(""),$(t).html("The image must be a file of type: jpeg, jpg, png.").removeClass("d-none").show(),setTimeout((function(){$(t).slideUp(300)}),5e3),!1):($(t).addClass("d-none"),!0)},window.format=function(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:"YYYY-MM-DD";return moment(e).format(t)},window.DatetimepickerDefaults=function(e){return $.extend({},{sideBySide:!0,ignoreReadonly:!0,icons:{up:"icon-arrow-up-circle icons font-2xl",down:"icon-arrow-down-circle icons font-2xl",previous:"icon-arrow-left icons",next:"icon-arrow-right icons",time:"fa fa-clock-o",date:"fa fa-calendar",today:"fa fa-crosshairs",clear:"fa fa-trash",close:"fa fa-times"}},e)},window.screenLock=function(){$("#overlay-screen-lock").show(),$("body").css({"pointer-events":"none",opacity:"0.6"})},window.screenUnLock=function(){$("body").css({"pointer-events":"auto",opacity:"1"}),$("#overlay-screen-lock").hide()},window.prepareTemplateRender=function(t,n){return e.templates(t).render(n)},window.getCurrentCurrencyClass=function(){return"<b>"+$(".currentCurrency").val()+"</b>"},window.hideDropdownManually=function(e,t){e.removeClass("show"),t.removeClass("show")},window.displayDocument=function(e,t,n){var a=!0;if(e.files&&e.files[0]){var r=new FileReader;r.onload=function(e){var r=new Image;-1==$.inArray(n,["pdf","doc","docx","mp3","mp4"])?r.src=e.target.result:"pdf"==n?($("#editPhoto").css("background-image",'url("'+$(".pdfDocumentImageUrl").val()+'")'),r.src=$(".pdfDocumentImageUrl").val()):r.src="mp3"==n?$(".audioDocumentImageUrl").val():"mp4"==n?$(".videoDocumentImageUrl").val():$(".docxDocumentImageUrl").val(),r.onload=function(){$(t).attr("src",r.src),$(t).css("background-image",'url("'+r.src+'")'),a=!0}},a&&(r.readAsDataURL(e.files[0]),$(t).show())}};$(".ajaxCallIsRunning").val();window.ajaxCallInProgress=function(){!0},window.ajaxCallCompleted=function(){!1},window.UnprocessableInputError=function(e){toastr.error(e.responseJSON.message)},window.setValueOfEmptySpan=function(){$("span.showSpan").each((function(){$(this).text()||$(this).text("N/A")}))},window.addCommas=function(e){for(var t=(e+="").split("."),n=t[0],a=t.length>1?"."+t[1]:"",r=/(\d+)(\d{3})/;r.test(n);)n=n.replace(r,"$1,$2");return n+a},$((function(){listenClick(".notification",(function(e){e.stopPropagation();var t=$(this).data("id"),n=$(this);$('[data-toggle="tooltip"]').tooltip("hide"),$.ajax({type:"get",url:"/notification/"+t+"/read",success:function(){n.remove(),displaySuccessMessage("Notification read successfully");var e=document.getElementsByClassName("notification").length;$("#counter").text(e),0==e&&($(".read-all-notification").addClass("d-none"),$(".empty-state").removeClass("d-none"),$("#counter").text(e),$(".notification-count").addClass("d-none"))},error:function(e){manageAjaxErrors(e)}})})),listenClick("#readAllNotification",(function(e){e.stopPropagation(),$.ajax({type:"post",url:"/read-all-notification",success:function(){$(".notification").remove(),displaySuccessMessage("All Notifications read successfully");var e=document.getElementsByClassName("notification").length;$("#counter").text(e),$("#readAllNotification").addClass("d-none"),$(".empty-state").addClass("d-none"),$(".empty-state.empty-notification").removeClass("d-none"),$(".notification-count").addClass("d-none"),displaySuccessMessage("All notifications read successfully")},error:function(e){manageAjaxErrors(e)}})}))})),window.avoidSpace=function(e){if(32==(e?e.which:window.event.keyCode)&&e.path[0].value.length<=0)return!1};var o="asset('assets/img/avatar.png')";window.defaultImagePreview=function(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:null;1==t?$(e).css("background-image",'url("'+o+'")'):$(e).css("background-image",'url("'+$(".defaultDocumentImageUrl").val()+'")')},window.cancelAppointment=function(e,t,n,a){swal({title:Lang.get("messages.common.cancel")+Lang.get("messages.web_menu.appointment"),text:Lang.get("messages.appointment.are_you_sure_want_to_cancel")+n+" ?",type:"warning",icon:"warning",closeOnConfirm:!1,confirmButtonColor:"#000000",showLoaderOnConfirm:!0,buttons:{confirm:Lang.get("messages.common.yes"),cancel:Lang.get("messages.common.no")}}).then((function(t){t&&function(e,t,n,a){$.ajax({url:e,type:"POST",success:function(e){e.success&&Livewire.emit("refresh"),swal({title:Lang.get("messages.common.canceled")+Lang.get("messages.web_menu.appointment"),text:n+Lang.get("messages.appointment.has_been_cancelled"),icon:"success",confirmButtonColor:"#D9214E",buttons:{confirm:Lang.get("messages.common.ok")},timer:2e3})},error:function(e){Swal.fire({title:"Error",icon:"error",text:e.responseJSON.message,type:"error",confirmButtonColor:"#D9214E",buttons:{confirm:Lang.get("messages.common.ok")},timer:5e3})}})}(e,0,n)}))}})(),(()=>{"use strict";window.isEmpty=function(e){return null==e||""===e},window.randomCode=function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:6;return Math.random().toString(36).slice(-e)},window.listen=function(e,t,n){$(document).on(e,t,n)},window.listenClick=function(e,t){$(document).on("click",e,t)},window.listenSubmit=function(e,t){$(document).on("submit",e,t)},window.listenHiddenBsModal=function(e,t){$(document).on("hidden.bs.modal",e,t)},window.listenChange=function(e,t){$(document).on("change",e,t)},window.listenKeyup=function(e,t){$(document).on("keyup",e,t)},window.listenShownBsModal=function(e,t){$(document).on("shown.bs.modal",e,t)}})(),(()=>{var e;document.addEventListener("DOMContentLoaded",(function(){if(!$("#webAppointmentForm").length)return;$("#advancePaymentPatientId").selectize(),$("#webDepartmentId").selectize(),$("#appointmentDoctorId").selectize()}));var t=$("#opdDate").datepicker({useCurrent:!1,sideBySide:!0,minDate:new Date,onSelect:function(t,a){var r=t;if(e=t,$(".doctor-schedule").css("display","none"),$(".error-message").css("display","none"),$(".available-slot-heading").css("display","none"),$(".color-information").css("display","none"),$(".time-slot").remove(),""==$("#webDepartmentId").val())return $("#validationErrorsBox").show().html("Please select Doctor Department"),$("#validationErrorsBox").delay(5e3).fadeOut(),$("#opdDate").val(""),!1;if(""==$("#appointmentDoctorId").val())return $("#validationErrorsBox").show().html("Please select Doctor"),$("#validationErrorsBox").delay(5e3).fadeOut(),$("#opdDate").val(""),!1;var o=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"][new Date(t).getDay()];if(t=a,null==o||""==o)return!1;if($.ajax({type:"GET",url:$("#homeDoctorScheduleList").val(),data:{day_name:o,doctor_id:n},success:function(e){if(e.success&&""!=e.data)if(0!=e.data.scheduleDay.length){var n="";moment(new Date).format("MM/DD/YYYY")===r?(n=moment().ceil(moment.duration(e.data.perPatientTime[0].per_patient_time).asMinutes(),"minute"),n=moment(n.toString()).format("H:mm:ss")):n=e.data.scheduleDay[0].available_from;var a=t+" "+n,o=t+" "+e.data.scheduleDay[0].available_to,i=e.data.perPatientTime[0].per_patient_time.split(":"),s=60*+i[0]+ +i[1],c=l(a),u=l(o);if(intervals=d(c,u,s),intervals.length>0){var p;$(".available-slot-heading").css("display","block"),$(".color-information").css("display","block");var f="";for(p=0;p<intervals.length;++p){var m=[{index:p,timeSlot:intervals[p]}];f+=prepareTemplateRender("#appointmentSlotTemplate",m)}$(".available-slot").append(f)}"00:00:00"!=n&&"00:00:00"!=e.data.scheduleDay[0].available_to&&a!=o?($(".doctor-schedule").css("display","block"),$(".color-information").css("display","block"),$(".day-name").html(e.data.scheduleDay[0].available_on),$(".schedule-time").html("["+n+" - "+e.data.scheduleDay[0].available_to+"]")):($(".doctor-schedule").css("display","none"),$(".color-information").css("display","none"),$(".error-message").css("display","block"),$(".error-message").html("Doctor Schedule not available this date."))}else $(".doctor-schedule").css("display","none"),$(".color-information").css("display","none"),$(".error-message").css("display","block"),$(".error-message").html("Doctor Schedule not available this date.")}}),$("#homeIsCreate").val()||$("#homeIsEdit").val()){setTimeout((function(){s=$("#homeIsCreate").val()?{editSelectedDate:e,doctor_id:n}:{editSelectedDate:e,editId:appointmentEditId,doctor_id:n},$.ajax({url:$("#homeGetBookingSlot").val(),type:"GET",data:s,success:function(e){alreadyCreateTimeSlot=e.data.bookingSlotArr,e.data.hasOwnProperty("onlyTime")?(e.data.bookingSlotArr.length>0&&(i=e.data.onlyTime.toString(),$.each(e.data.bookingSlotArr,(function(e,t){$.each(intervals,(function(e,n){t==n&&$(".time-interval").each((function(){$(this).data("id")==e&&$(this).html()!=i&&($(this).parent().css({"background-color":"#ffa721",border:"1px solid #ffa721",color:"#ffffff"}),$(this).parent().addClass("booked"),$(this).parent().children().prop("disabled",!0))}))}))}))),$(".time-interval").each((function(){$(this).html()==i&&e.data.bookingSlotArr.length>0&&($(this).parent().addClass("time-slot-book"),$(this).parent().removeClass("booked"),$(this).parent().children().prop("disabled",!1),$(this).click())}))):alreadyCreateTimeSlot.length>0&&$.each(alreadyCreateTimeSlot,(function(e,t){$.each(intervals,(function(e,n){t===n&&$(".time-interval").each((function(){$(this).data("id")===e&&($(this).parent().addClass("time-slot-book"),$(".time-slot-book").css({"background-color":"#FF8E4B",border:"1px solid #FF8E4B",color:"#ffffff"}),$(this).parent().addClass("booked"),$(this).parent().children().prop("disabled",!0))}))}))}))}})}),200);var s=null}}});$("#patientId").first().focus();var n,a=$("#doctor").val(),r=$("#appointmentDate").val();listenChange("#webDepartmentId",(function(){$(".error-message").css("display","none"),$("#appointmentDoctorId")[0].selectize.clearOptions(),$("#opdDate").val(""),$.ajax({url:$("#homeDoctorDepartmentUrl").val(),type:"get",dataType:"json",data:{id:$(this).val()},success:function(e){$("#appointmentDoctorId").empty(),$("#appointmentDoctorId").append($('<option value="">Select Doctor</option>')),$.each(e.data,(function(e,t){$("#appointmentDoctorId").append($("<option></option>").attr("value",e).text(t))}));var t=$(document.getElementById("appointmentDoctorId")).selectize()[0].selectize;$.each(e.data,(function(e,n){t.addOption({value:e,text:n})})),t.refreshOptions()}})}));var o,i,s=!1;function l(e){var t=new Date;return t.setHours(e.substring(16,18)),t.setMinutes(e.substring(19,21)),t}function d(e,t,n){for(var a=[];e<t;)a.push(e.toTimeString().substring(0,5)),e.setMinutes(e.getMinutes()+n);return a}listenChange("#appointmentDoctorId",(function(){s&&($(".error-message").css("display","none"),$(".doctor-schedule").css("display","none"),$(".error-message").css("display","none"),$(".available-slot-heading").css("display","none"),$(".color-information").css("display","none"),$(".time-slot").remove(),s=!0),$(".error-message").css("display","none"),n=$(this).val(),s=!0})),$("#homeIsEdit").val()&&($("#appointmentDoctorId").trigger("change",(function(e){n=$(this).val()})),$("#opdDate").trigger("dp.change",(function(){new Date($(this).val())}))),listenClick(".time-interval",(function(e){var t=$(e.currentTarget).attr("data-id");$(this).data("id")==t&&$(this).parent().hasClass("booked")&&$(".time-slot-book").css("background-color","#ffa0a0"),o=$(this).text(),$(".time-slot").removeClass("time-slot-book"),$(this).parent().addClass("time-slot-book")})),listenClick(".time-interval",(function(){i=$(this).text()}));var c=!1;function u(){$("#overlay-screen-lock").addClass("d-none")}listenChange(".new-patient-radio",(function(){$(this).is(":checked")&&($(".old-patient").addClass("d-none"),$(".first-name-div").removeClass("d-none"),$(".last-name-div").removeClass("d-none"),$(".gender-div").removeClass("d-none"),$(".password-div").removeClass("d-none"),$(".confirm-password-div").removeClass("d-none"),$("#firstName").prop("required",!0),$("#lastName").prop("required",!0),$("#password").prop("required",!0),$("#confirmPassword").prop("required",!0),c=!1)})),listenChange(".old-patient-radio",(function(){$(this).is(":checked")&&($(".old-patient").removeClass("d-none"),$(".first-name-div").addClass("d-none"),$(".last-name-div").addClass("d-none"),$(".gender-div").addClass("d-none"),$(".password-div").addClass("d-none"),$(".confirm-password-div").addClass("d-none"),$("#firstName").prop("required",!1),$("#lastName").prop("required",!1),$("#password").prop("required",!1),$("#confirmPassword").prop("required",!1),c=!0)})),$(".old-patient-email").focusout((function(){var e=$(".old-patient-email").val();c&&null!=e&&$.ajax({url:"appointments/"+e+"/patient-detail",type:"get",success:function(e){null!=e.data?($("#patient").empty(),$.each(e.data,(function(e,t){$("#patientName").val(t),$("#patient").val(e)}))):displayErrorMessage("Patient not exists or status is not active.")}})})),listenSubmit("#webAppointmentForm",(function(e){if((e.preventDefault(),$("#overlay-screen-lock").removeClass("d-none"),!c)&&!function(){var e=$("#password").val(),t=$("#confirmPassword").val();if(""==e||""==t)return displayErrorMessage("Please fill all the required fields."),!1;if(e!==t)return displayErrorMessage("Password and Confirm password not match."),!1;return!0}())return u(),!1;if(null==o||""==o)return displayErrorMessage("Please select appointment time slot"),u(),!1;var t=$(this).serialize()+"&time="+o;$.ajax({url:$("#homeAppointmentSaveUrl").val(),type:"POST",dataType:"json",data:t,success:function(e){u(),displaySuccessMessage(e.message),setTimeout((function(){location.reload()}),4e3)},error:function(e){printErrorMessage("#validationErrorsBox ",e),$(".alert").delay(5e3).slideUp(300),u()}})})),listenClick("#reset",(function(){$(this).closest("#appointmentForm").find("input[type=text], input[type=password], input[type=email], textarea").val(""),$("#patientId, #appointmentDoctorId, #webDepartmentId").val("").trigger("change.select2")})),$.ajax({url:$("#homeDoctorUrl").val(),type:"get",dataType:"json",data:{id:a},success:function(e){$("#appointmentDoctorId").empty();var t=$(document.getElementById("appointmentDoctorId")).selectize()[0].selectize;$.each(e.data,(function(e,n){t.addOption({value:e,text:n}),t.setValue(e)}))}}),null!==r&&function(){if(t.datepicker("setDate",r),null!==t){Date;var e=t,n=r;$(".doctor-schedule").css("display","none"),$(".error-message").css("display","none"),$(".available-slot-heading").css("display","none"),$(".color-information").css("display","none"),$(".time-slot").remove();var o=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"][new Date(n).getDay()];if(n=e,null==o||""==o)return!1;$.ajax({type:"GET",url:$("#homeDoctorScheduleList").val(),data:{day_name:o,doctor_id:a},success:function(e){if(e.success&&""!=e.data)if(0!=e.data.scheduleDay.length){var t="";t=moment(new Date).format("MM/DD/YYYY")===r?moment(new Date).add(e.data.perPatientTime[0].per_patient_time,"minutes").format("H:mm:ss"):e.data.scheduleDay[0].available_from;var a=n+" "+t,o=n+" "+e.data.scheduleDay[0].available_to,i=e.data.perPatientTime[0].per_patient_time.split(":"),s=60*+i[0]+ +i[1],c=l(a),u=l(o);if(intervals=d(c,u,s),intervals.length>0){var p;$(".available-slot-heading").css("display","block"),$(".color-information").css("display","block");var f="";for(p=0;p<intervals.length;++p){var m=[{index:p,timeSlot:intervals[p]}];f+=prepareTemplateRender("#appointmentSlotTemplate",m)}$(".available-slot").append(f)}"00:00:00"!=t&&"00:00:00"!=e.data.scheduleDay[0].available_to&&a!=o?($(".doctor-schedule").css("display","block"),$(".color-information").css("display","block"),$(".day-name").html(e.data.scheduleDay[0].available_on),$(".schedule-time").html("["+t+" - "+e.data.scheduleDay[0].available_to+"]")):($(".doctor-schedule").css("display","none"),$(".color-information").css("display","none"),$(".error-message").css("display","block"),$(".error-message").html("Doctor Schedule not available this date."))}else $(".doctor-schedule").css("display","none"),$(".color-information").css("display","none"),$(".error-message").css("display","block"),$(".error-message").html("Doctor Schedule not available this date.")}})}}()})(),document.addEventListener("DOMContentLoaded",(function(){if(!$(".phoneNumber").length)return!1;var e=document.querySelector(".phoneNumber"),t=document.querySelector(".error-msg"),n=document.querySelector(".valid-msg"),a=["Invalid number","Invalid country code","Too short","Too long","Invalid number"],r=window.intlTelInput(e,{initialCountry:"auto",separateDialCode:!0,geoIpLookup:function(e,t){$.get("https://ipinfo.io",(function(){}),"jsonp").always((function(t){var n=t&&t.country?t.country:"";e(n)}))},utilsScript:$(".utilsScript").val()}),o=function(){e.classList.remove("error"),t.innerHTML="",t.classList.add("hide"),n.classList.add("hide")};e.addEventListener("blur",(function(){if(o(),e.value.trim())if(r.isValidNumber())n.classList.remove("hide");else{e.classList.add("error");var i=r.getValidationError();t.innerHTML=a[i],t.classList.remove("hide")}})),e.addEventListener("change",o),e.addEventListener("keyup",o);var i=$(".phoneNo").val();if(void 0!==i&&""!==i&&setTimeout((function(){$(".phoneNumber").trigger("change")}),500),listen("blur keyup change countrychange",(function(){void 0!==i&&""!==i&&(r.setNumber("+"+i),function(e){throw new TypeError('"'+e+'" is read-only')}("phoneNo"));var e=r.selectedCountryData.dialCode;$(".prefix_code").val(e)})),$(".isEdit").val()){var s=r.selectedCountryData.dialCode;$(".prefix_code").val(s)}$(".phoneNumber").focus(),$(".phoneNumber").blur();var l=$(".phoneNumber").val().replace(/\s/g,"");$(".phoneNumber").val(l)})),document.addEventListener("DOMContentLoaded",(function(){$("#general").length&&$("#general").selectize()})),listenSubmit("#enquiryCreateForm",(function(e){if(e.preventDefault(),""!==$("#error-msg").text())return $(".phoneNumber").focus(),!1;$.ajax({url:$("#frontInquiryUrl").val(),type:"POST",data:$(this).serialize(),success:function(e){e.success?(displaySuccessMessage(e.message),setTimeout((function(){location.reload(),$("#enquiryCreateForm")[0].reset(),grecaptcha.reset()}),5e3)):(displayErrorMessage(e.message),setTimeout((function(){$("#enquiryCreateForm")[0].reset(),grecaptcha.reset()}),5e3))},error:function(e){displayErrorMessage(e.responseJSON.message),grecaptcha.reset()},complete:function(){}})}))})();
+/******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./node_modules/jsrender/jsrender.js":
+/*!*******************************************!*\
+  !*** ./node_modules/jsrender/jsrender.js ***!
+  \*******************************************/
+/***/ ((module) => {
+
+/*! JsRender v1.0.7: http://jsviews.com/#jsrender */
+/*! **VERSION FOR WEB** (For NODE.JS see http://jsviews.com/download/jsrender-node.js) */
+/*
+ * Best-of-breed templating in browser or on Node.js.
+ * Does not require jQuery, or HTML DOM
+ * Integrates with JsViews (http://jsviews.com/#jsviews)
+ *
+ * Copyright 2020, Boris Moore
+ * Released under the MIT License.
+ */
+
+//jshint -W018, -W041, -W120
+
+(function(factory, global) {
+	// global var is the this object, which is window when running in the usual browser environment
+	var $ = global.jQuery;
+
+	if (true) { // CommonJS e.g. Browserify
+		module.exports = $
+			? factory(global, $)
+			: function($) { // If no global jQuery, take optional jQuery passed as parameter: require('jsrender')(jQuery)
+				if ($ && !$.fn) {
+					throw "Provide jQuery or null";
+				}
+				return factory(global, $);
+			};
+	} else {}
+} (
+
+// factory (for jsrender.js)
+function(global, $) {
+"use strict";
+
+//========================== Top-level vars ==========================
+
+// global var is the this object, which is window when running in the usual browser environment
+var setGlobals = $ === false; // Only set globals if script block in browser (not AMD and not CommonJS)
+
+$ = $ && $.fn ? $ : global.jQuery; // $ is jQuery passed in by CommonJS loader (Browserify), or global jQuery.
+
+var versionNumber = "v1.0.7",
+	jsvStoreName, rTag, rTmplString, topView, $views, $expando,
+	_ocp = "_ocp",      // Observable contextual parameter
+
+	$isFunction, $isArray, $templates, $converters, $helpers, $tags, $sub, $subSettings, $subSettingsAdvanced, $viewsSettings,
+	delimOpenChar0, delimOpenChar1, delimCloseChar0, delimCloseChar1, linkChar, setting, baseOnError,
+
+	isRenderCall,
+	rNewLine = /[ \t]*(\r\n|\n|\r)/g,
+	rUnescapeQuotes = /\\(['"\\])/g, // Unescape quotes and trim
+	rEscapeQuotes = /['"\\]/g, // Escape quotes and \ character
+	rBuildHash = /(?:\x08|^)(onerror:)?(?:(~?)(([\w$.]+):)?([^\x08]+))\x08(,)?([^\x08]+)/gi,
+	rTestElseIf = /^if\s/,
+	rFirstElem = /<(\w+)[>\s]/,
+	rAttrEncode = /[\x00`><"'&=]/g, // Includes > encoding since rConvertMarkers in JsViews does not skip > characters in attribute strings
+	rIsHtml = /[\x00`><\"'&=]/,
+	rHasHandlers = /^on[A-Z]|^convert(Back)?$/,
+	rWrappedInViewMarker = /^\#\d+_`[\s\S]*\/\d+_`$/,
+	rHtmlEncode = rAttrEncode,
+	rDataEncode = /[&<>]/g,
+	rDataUnencode = /&(amp|gt|lt);/g,
+	rBracketQuote = /\[['"]?|['"]?\]/g,
+	viewId = 0,
+	charEntities = {
+		"&": "&amp;",
+		"<": "&lt;",
+		">": "&gt;",
+		"\x00": "&#0;",
+		"'": "&#39;",
+		'"': "&#34;",
+		"`": "&#96;",
+		"=": "&#61;"
+	},
+	charsFromEntities = {
+		amp: "&",
+		gt: ">",
+		lt: "<"
+	},
+	HTML = "html",
+	OBJECT = "object",
+	tmplAttr = "data-jsv-tmpl",
+	jsvTmpl = "jsvTmpl",
+	indexStr = "For #index in nested block use #getIndex().",
+	cpFnStore = {},     // Compiled furnctions for computed values in template expressions (properties, methods, helpers)
+	$render = {},
+
+	jsr = global.jsrender,
+	jsrToJq = jsr && $ && !$.render, // JsRender already loaded, without jQuery. but we will re-load it now to attach to jQuery
+
+	jsvStores = {
+		template: {
+			compile: compileTmpl
+		},
+		tag: {
+			compile: compileTag
+		},
+		viewModel: {
+			compile: compileViewModel
+		},
+		helper: {},
+		converter: {}
+	};
+
+	// views object ($.views if jQuery is loaded, jsrender.views if no jQuery, e.g. in Node.js)
+	$views = {
+		jsviews: versionNumber,
+		sub: {
+			// subscription, e.g. JsViews integration
+			rPath: /^(!*?)(?:null|true|false|\d[\d.]*|([\w$]+|\.|~([\w$]+)|#(view|([\w$]+))?)([\w$.^]*?)(?:[.[^]([\w$]+)\]?)?)$/g,
+			//        not                               object     helper    view  viewProperty pathTokens      leafToken
+
+			rPrm: /(\()(?=\s*\()|(?:([([])\s*)?(?:(\^?)(~?[\w$.^]+)?\s*((\+\+|--)|\+|-|~(?![\w$])|&&|\|\||===|!==|==|!=|<=|>=|[<>%*:?\/]|(=))\s*|(!*?(@)?[#~]?[\w$.^]+)([([])?)|(,\s*)|(?:(\()\s*)?\\?(?:(')|("))|(?:\s*(([)\]])(?=[.^]|\s*$|[^([])|[)\]])([([]?))|(\s+)/g,
+			//   lftPrn0           lftPrn         bound     path               operator     err                                          eq      path2 late            prn      comma  lftPrn2          apos quot        rtPrn  rtPrnDot                  prn2     space
+
+			View: View,
+			Err: JsViewsError,
+			tmplFn: tmplFn,
+			parse: parseParams,
+			extend: $extend,
+			extendCtx: extendCtx,
+			syntaxErr: syntaxError,
+			onStore: {
+				template: function(name, item) {
+					if (item === null) {
+						delete $render[name];
+					} else if (name) {
+						$render[name] = item;
+					}
+				}
+			},
+			addSetting: addSetting,
+			settings: {
+				allowCode: false
+			},
+			advSet: noop, // Update advanced settings
+			_thp: tagHandlersFromProps,
+			_gm: getMethod,
+			_tg: function() {}, // Constructor for tagDef
+			_cnvt: convertVal,
+			_tag: renderTag,
+			_er: error,
+			_err: onRenderError,
+			_cp: retVal, // Get observable contextual parameters (or properties) ~foo=expr. In JsRender, simply returns val.
+			_sq: function(token) {
+				if (token === "constructor") {
+					syntaxError("");
+				}
+				return token;
+			}
+		},
+		settings: {
+			delimiters: $viewsDelimiters,
+			advanced: function(value) {
+				return value
+					? (
+							$extend($subSettingsAdvanced, value),
+							$sub.advSet(),
+							$viewsSettings
+						)
+						: $subSettingsAdvanced;
+				}
+		},
+		map: dataMap // If jsObservable loaded first, use that definition of dataMap
+	};
+
+function getDerivedMethod(baseMethod, method) {
+	return function() {
+		var ret,
+			tag = this,
+			prevBase = tag.base;
+
+		tag.base = baseMethod; // Within method call, calling this.base will call the base method
+		ret = method.apply(tag, arguments); // Call the method
+		tag.base = prevBase; // Replace this.base to be the base method of the previous call, for chained calls
+		return ret;
+	};
+}
+
+function getMethod(baseMethod, method) {
+	// For derived methods (or handlers declared declaratively as in {{:foo onChange=~fooChanged}} replace by a derived method, to allow using this.base(...)
+	// or this.baseApply(arguments) to call the base implementation. (Equivalent to this._super(...) and this._superApply(arguments) in jQuery UI)
+	if ($isFunction(method)) {
+		method = getDerivedMethod(
+				!baseMethod
+					? noop // no base method implementation, so use noop as base method
+					: baseMethod._d
+						? baseMethod // baseMethod is a derived method, so use it
+						: getDerivedMethod(noop, baseMethod), // baseMethod is not derived so make its base method be the noop method
+				method
+			);
+		method._d = (baseMethod && baseMethod._d || 0) + 1; // Add flag for derived method (incremented for derived of derived...)
+	}
+	return method;
+}
+
+function tagHandlersFromProps(tag, tagCtx) {
+	var prop,
+		props = tagCtx.props;
+	for (prop in props) {
+		if (rHasHandlers.test(prop) && !(tag[prop] && tag[prop].fix)) { // Don't override handlers with fix expando (used in datepicker and spinner)
+			tag[prop] = prop !== "convert" ? getMethod(tag.constructor.prototype[prop], props[prop]) : props[prop];
+			// Copy over the onFoo props, convert and convertBack from tagCtx.props to tag (overrides values in tagDef).
+			// Note: unsupported scenario: if handlers are dynamically added ^onFoo=expression this will work, but dynamically removing will not work.
+		}
+	}
+}
+
+function retVal(val) {
+	return val;
+}
+
+function noop() {
+	return "";
+}
+
+function dbgBreak(val) {
+	// Usage examples: {{dbg:...}}, {{:~dbg(...)}}, {{dbg .../}}, {^{for ... onAfterLink=~dbg}} etc.
+	try {
+		console.log("JsRender dbg breakpoint: " + val);
+		throw "dbg breakpoint"; // To break here, stop on caught exceptions.
+	}
+	catch (e) {}
+	return this.base ? this.baseApply(arguments) : val;
+}
+
+function JsViewsError(message) {
+	// Error exception type for JsViews/JsRender
+	// Override of $.views.sub.Error is possible
+	this.name = ($.link ? "JsViews" : "JsRender") + " Error";
+	this.message = message || this.name;
+}
+
+function $extend(target, source) {
+	if (target) {
+		for (var name in source) {
+			target[name] = source[name];
+		}
+		return target;
+	}
+}
+
+(JsViewsError.prototype = new Error()).constructor = JsViewsError;
+
+//========================== Top-level functions ==========================
+
+//===================
+// views.delimiters
+//===================
+
+	/**
+	* Set the tag opening and closing delimiters and 'link' character. Default is "{{", "}}" and "^"
+	* openChars, closeChars: opening and closing strings, each with two characters
+	* $.views.settings.delimiters(...)
+	*
+	* @param {string}   openChars
+	* @param {string}   [closeChars]
+	* @param {string}   [link]
+	* @returns {Settings}
+	*
+	* Get delimiters
+	* delimsArray = $.views.settings.delimiters()
+	*
+	* @returns {string[]}
+	*/
+function $viewsDelimiters(openChars, closeChars, link) {
+	if (!openChars) {
+		return $subSettings.delimiters;
+	}
+	if ($isArray(openChars)) {
+		return $viewsDelimiters.apply($views, openChars);
+	}
+	linkChar = link ? link[0] : linkChar;
+	if (!/^(\W|_){5}$/.test(openChars + closeChars + linkChar)) {
+		error("Invalid delimiters"); // Must be non-word characters, and openChars and closeChars must each be length 2
+	}
+	delimOpenChar0 = openChars[0];
+	delimOpenChar1 = openChars[1];
+	delimCloseChar0 = closeChars[0];
+	delimCloseChar1 = closeChars[1];
+
+	$subSettings.delimiters = [delimOpenChar0 + delimOpenChar1, delimCloseChar0 + delimCloseChar1, linkChar];
+
+	// Escape the characters - since they could be regex special characters
+	openChars = "\\" + delimOpenChar0 + "(\\" + linkChar + ")?\\" + delimOpenChar1; // Default is "{^{"
+	closeChars = "\\" + delimCloseChar0 + "\\" + delimCloseChar1;                   // Default is "}}"
+	// Build regex with new delimiters
+	//          [tag    (followed by / space or })  or cvtr+colon or html or code] followed by space+params then convertBack?
+	rTag = "(?:(\\w+(?=[\\/\\s\\" + delimCloseChar0 + "]))|(\\w+)?(:)|(>)|(\\*))\\s*((?:[^\\"
+		+ delimCloseChar0 + "]|\\" + delimCloseChar0 + "(?!\\" + delimCloseChar1 + "))*?)";
+
+	// Make rTag available to JsViews (or other components) for parsing binding expressions
+	$sub.rTag = "(?:" + rTag + ")";
+	//                        { ^? {   tag+params slash?  or closingTag                                                   or comment
+	rTag = new RegExp("(?:" + openChars + rTag + "(\\/)?|\\" + delimOpenChar0 + "(\\" + linkChar + ")?\\" + delimOpenChar1 + "(?:(?:\\/(\\w+))\\s*|!--[\\s\\S]*?--))" + closeChars, "g");
+
+	// Default:  bind     tagName         cvt   cln html code    params            slash   bind2         closeBlk  comment
+	//      /(?:{(\^)?{(?:(\w+(?=[\/\s}]))|(\w+)?(:)|(>)|(\*))\s*((?:[^}]|}(?!}))*?)(\/)?|{(\^)?{(?:(?:\/(\w+))\s*|!--[\s\S]*?--))}}
+
+	$sub.rTmpl = new RegExp("^\\s|\\s$|<.*>|([^\\\\]|^)[{}]|" + openChars + ".*" + closeChars);
+	// $sub.rTmpl looks for initial or final white space, html tags or { or } char not preceded by \\, or JsRender tags {{xxx}}.
+	// Each of these strings are considered NOT to be jQuery selectors
+	return $viewsSettings;
+}
+
+//=========
+// View.get
+//=========
+
+function getView(inner, type) { //view.get(inner, type)
+	if (!type && inner !== true) {
+		// view.get(type)
+		type = inner;
+		inner = undefined;
+	}
+
+	var views, i, l, found,
+		view = this,
+		root = type === "root";
+		// view.get("root") returns view.root, view.get() returns view.parent, view.get(true) returns view.views[0].
+
+	if (inner) {
+		// Go through views - this one, and all nested ones, depth-first - and return first one with given type.
+		// If type is undefined, i.e. view.get(true), return first child view.
+		found = type && view.type === type && view;
+		if (!found) {
+			views = view.views;
+			if (view._.useKey) {
+				for (i in views) {
+					if (found = type ? views[i].get(inner, type) : views[i]) {
+						break;
+					}
+				}
+			} else {
+				for (i = 0, l = views.length; !found && i < l; i++) {
+					found = type ? views[i].get(inner, type) : views[i];
+				}
+			}
+		}
+	} else if (root) {
+		// Find root view. (view whose parent is top view)
+		found = view.root;
+	} else if (type) {
+		while (view && !found) {
+			// Go through views - this one, and all parent ones - and return first one with given type.
+			found = view.type === type ? view : undefined;
+			view = view.parent;
+		}
+	} else {
+		found = view.parent;
+	}
+	return found || undefined;
+}
+
+function getNestedIndex() {
+	var view = this.get("item");
+	return view ? view.index : undefined;
+}
+
+getNestedIndex.depends = function() {
+	return [this.get("item"), "index"];
+};
+
+function getIndex() {
+	return this.index;
+}
+
+getIndex.depends = "index";
+
+//==================
+// View.ctxPrm, etc.
+//==================
+
+/* Internal private: view._getOb() */
+function getPathObject(ob, path, ltOb, fn) {
+	// Iterate through path to late paths: @a.b.c paths
+	// Return "" (or noop if leaf is a function @a.b.c(...) ) if intermediate object not yet available
+	var prevOb, tokens, l,
+		i = 0;
+	if (ltOb === 1) {
+		fn = 1;
+		ltOb = undefined;
+	}
+	// Paths like ^a^b^c or ~^a^b^c will not throw if an object in path is undefined.
+	if (path) {
+		tokens = path.split(".");
+		l = tokens.length;
+
+		for (; ob && i < l; i++) {
+			prevOb = ob;
+			ob = tokens[i] ? ob[tokens[i]] : ob;
+		}
+	}
+	if (ltOb) {
+		ltOb.lt = ltOb.lt || i<l; // If i < l there was an object in the path not yet available
+	}
+	return ob === undefined
+		? fn ? noop : ""
+		: fn ? function() {
+			return ob.apply(prevOb, arguments);
+		} : ob;
+}
+
+function contextParameter(key, value, get) {
+	// Helper method called as view.ctxPrm(key) for helpers or template parameters ~foo - from compiled template or from context callback
+	var wrapped, deps, res, obsCtxPrm, tagElse, callView, newRes,
+		storeView = this,
+		isUpdate = !isRenderCall && arguments.length > 1,
+		store = storeView.ctx;
+	if (key) {
+		if (!storeView._) { // tagCtx.ctxPrm() call
+			tagElse = storeView.index;
+			storeView = storeView.tag;
+		}
+		callView = storeView;
+		if (store && store.hasOwnProperty(key) || (store = $helpers).hasOwnProperty(key)) {
+			res = store[key];
+			if (key === "tag" || key === "tagCtx" || key === "root" || key === "parentTags") {
+				return res;
+			}
+		} else {
+			store = undefined;
+		}
+		if (!isRenderCall && storeView.tagCtx || storeView.linked) { // Data-linked view, or tag instance
+			if (!res || !res._cxp) {
+				// Not a contextual parameter
+				// Set storeView to tag (if this is a tag.ctxPrm() call) or to root view ("data" view of linked template)
+				storeView = storeView.tagCtx || $isFunction(res)
+					? storeView // Is a tag, not a view, or is a computed contextual parameter, so scope to the callView, no the 'scope view'
+					: (storeView = storeView.scope || storeView,
+						!storeView.isTop && storeView.ctx.tag // If this view is in a tag, set storeView to the tag
+							|| storeView);
+				if (res !== undefined && storeView.tagCtx) {
+					// If storeView is a tag, but the contextual parameter has been set at at higher level (e.g. helpers)...
+					storeView = storeView.tagCtx.view.scope; // then move storeView to the outer level (scope of tag container view)
+				}
+				store = storeView._ocps;
+				res = store && store.hasOwnProperty(key) && store[key] || res;
+				if (!(res && res._cxp) && (get || isUpdate)) {
+					// Create observable contextual parameter
+					(store || (storeView._ocps = storeView._ocps || {}))[key]
+						= res
+						= [{
+							_ocp: res, // The observable contextual parameter value
+							_vw: callView,
+							_key: key
+						}];
+					res._cxp = {
+						path: _ocp,
+						ind: 0,
+						updateValue: function(val, path) {
+							$.observable(res[0]).setProperty(_ocp, val); // Set the value (res[0]._ocp)
+							return this;
+						}
+					};
+				}
+			}
+			if (obsCtxPrm = res && res._cxp) {
+				// If this helper resource is an observable contextual parameter
+				if (arguments.length > 2) {
+					deps = res[1] ? $sub._ceo(res[1].deps) : [_ocp]; // fn deps (with any exprObs cloned using $sub._ceo)
+					deps.unshift(res[0]); // view
+					deps._cxp = obsCtxPrm;
+					// In a context callback for a contextual param, we set get = true, to get ctxPrm [view, dependencies...] array - needed for observe call
+					return deps;
+				}
+				tagElse = obsCtxPrm.tagElse;
+				newRes = res[1] // linkFn for compiled expression
+					? obsCtxPrm.tag && obsCtxPrm.tag.cvtArgs
+						? obsCtxPrm.tag.cvtArgs(tagElse, 1)[obsCtxPrm.ind] // = tag.bndArgs() - for tag contextual parameter
+						: res[1](res[0].data, res[0], $sub) // = fn(data, view, $sub) for compiled binding expression
+					: res[0]._ocp; // Observable contextual parameter (uninitialized, or initialized as static expression, so no path dependencies)
+				if (isUpdate) {
+					$sub._ucp(key, value, storeView, obsCtxPrm); // Update observable contextual parameter
+					return storeView;
+				}
+				res = newRes;
+			}
+		}
+		if (res && $isFunction(res)) {
+			// If a helper is of type function we will wrap it, so if called with no this pointer it will be called with the
+			// view as 'this' context. If the helper ~foo() was in a data-link expression, the view will have a 'temporary' linkCtx property too.
+			// Note that helper functions on deeper paths will have specific this pointers, from the preceding path.
+			// For example, ~util.foo() will have the ~util object as 'this' pointer
+			wrapped = function() {
+				return res.apply((!this || this === global) ? callView : this, arguments);
+			};
+			$extend(wrapped, res); // Attach same expandos (if any) to the wrapped function
+		}
+		return wrapped || res;
+	}
+}
+
+/* Internal private: view._getTmpl() */
+function getTemplate(tmpl) {
+	return tmpl && (tmpl.fn
+		? tmpl
+		: this.getRsc("templates", tmpl) || $templates(tmpl)); // not yet compiled
+}
+
+//==============
+// views._cnvt
+//==============
+
+function convertVal(converter, view, tagCtx, onError) {
+	// Called from compiled template code for {{:}}
+	// self is template object or linkCtx object
+	var tag, linkCtx, value, argsLen, bindTo,
+		// If tagCtx is an integer, then it is the key for the compiled function to return the boundTag tagCtx
+		boundTag = typeof tagCtx === "number" && view.tmpl.bnds[tagCtx-1];
+
+	if (onError === undefined && boundTag && boundTag._lr) { // lateRender
+		onError = "";
+	}
+	if (onError !== undefined) {
+		tagCtx = onError = {props: {}, args: [onError]};
+	} else if (boundTag) {
+		tagCtx = boundTag(view.data, view, $sub);
+	}
+	boundTag = boundTag._bd && boundTag;
+	if (converter || boundTag) {
+		linkCtx = view._lc; // For data-link="{cvt:...}"... See onDataLinkedTagChange
+		tag = linkCtx && linkCtx.tag;
+		tagCtx.view = view;
+		if (!tag) {
+			tag = $extend(new $sub._tg(), {
+				_: {
+					bnd: boundTag,
+					unlinked: true,
+					lt: tagCtx.lt // If a late path @some.path has not returned @some object, mark tag as late
+				},
+				inline: !linkCtx,
+				tagName: ":",
+				convert: converter,
+				onArrayChange: true,
+				flow: true,
+				tagCtx: tagCtx,
+				tagCtxs: [tagCtx],
+				_is: "tag"
+			});
+			argsLen = tagCtx.args.length;
+			if (argsLen>1) {
+				bindTo = tag.bindTo = [];
+				while (argsLen--) {
+					bindTo.unshift(argsLen); // Bind to all the arguments - generate bindTo array: [0,1,2...]
+				}
+			}
+			if (linkCtx) {
+				linkCtx.tag = tag;
+				tag.linkCtx = linkCtx;
+			}
+			tagCtx.ctx = extendCtx(tagCtx.ctx, (linkCtx ? linkCtx.view : view).ctx);
+			tagHandlersFromProps(tag, tagCtx);
+		}
+		tag._er = onError && value;
+		tag.ctx = tagCtx.ctx || tag.ctx || {};
+		tagCtx.ctx = undefined;
+		value = tag.cvtArgs()[0]; // If there is a convertBack but no convert, converter will be "true"
+		tag._er = onError && value;
+	} else {
+		value = tagCtx.args[0];
+	}
+
+	// Call onRender (used by JsViews if present, to add binding annotations around rendered content)
+	value = boundTag && view._.onRender
+		? view._.onRender(value, view, tag)
+		: value;
+	return value != undefined ? value : "";
+}
+
+function convertArgs(tagElse, bound) { // tag.cvtArgs() or tag.cvtArgs(tagElse?, true?)
+	var l, key, boundArgs, args, bindFrom, tag, converter,
+		tagCtx = this;
+
+	if (tagCtx.tagName) {
+		tag = tagCtx;
+		tagCtx = (tag.tagCtxs || [tagCtx])[tagElse||0];
+		if (!tagCtx) {
+			return;
+		}
+	} else {
+		tag = tagCtx.tag;
+	}
+
+	bindFrom = tag.bindFrom;
+	args = tagCtx.args;
+
+	if ((converter = tag.convert) && "" + converter === converter) {
+		converter = converter === "true"
+			? undefined
+			: (tagCtx.view.getRsc("converters", converter) || error("Unknown converter: '" + converter + "'"));
+	}
+
+	if (converter && !bound) { // If there is a converter, use a copy of the tagCtx.args array for rendering, and replace the args[0] in
+		args = args.slice(); // the copied array with the converted value. But we do not modify the value of tag.tagCtx.args[0] (the original args array)
+	}
+	if (bindFrom) { // Get the values of the boundArgs
+		boundArgs = [];
+		l = bindFrom.length;
+		while (l--) {
+			key = bindFrom[l];
+			boundArgs.unshift(argOrProp(tagCtx, key));
+		}
+		if (bound) {
+			args = boundArgs; // Call to bndArgs() - returns the boundArgs
+		}
+	}
+	if (converter) {
+		converter = converter.apply(tag, boundArgs || args);
+		if (converter === undefined) {
+			return args; // Returning undefined from a converter is equivalent to not having a converter.
+		}
+		bindFrom = bindFrom || [0];
+		l = bindFrom.length;
+		if (!$isArray(converter) || converter.length !== l) {
+			converter = [converter];
+			bindFrom = [0];
+			l = 1;
+		}
+		if (bound) {        // Call to bndArgs() - so apply converter to all boundArgs
+			args = converter; // The array of values returned from the converter
+		} else {            // Call to cvtArgs()
+			while (l--) {
+				key = bindFrom[l];
+				if (+key === key) {
+					args[key] = converter[l];
+				}
+			}
+		}
+	}
+	return args;
+}
+
+function argOrProp(context, key) {
+	context = context[+key === key ? "args" : "props"];
+	return context && context[key];
+}
+
+function convertBoundArgs(tagElse) { // tag.bndArgs()
+	return this.cvtArgs(tagElse, 1);
+}
+
+//=============
+// views.tag
+//=============
+
+/* view.getRsc() */
+function getResource(resourceType, itemName) {
+	var res, store,
+		view = this;
+	if ("" + itemName === itemName) {
+		while ((res === undefined) && view) {
+			store = view.tmpl && view.tmpl[resourceType];
+			res = store && store[itemName];
+			view = view.parent;
+		}
+		return res || $views[resourceType][itemName];
+	}
+}
+
+function renderTag(tagName, parentView, tmpl, tagCtxs, isUpdate, onError) {
+	function bindToOrBindFrom(type) {
+		var bindArray = tag[type];
+
+		if (bindArray !== undefined) {
+			bindArray = $isArray(bindArray) ? bindArray : [bindArray];
+			m = bindArray.length;
+			while (m--) {
+				key = bindArray[m];
+				if (!isNaN(parseInt(key))) {
+					bindArray[m] = parseInt(key); // Convert "0" to 0, etc.
+				}
+			}
+		}
+
+		return bindArray || [0];
+	}
+
+	parentView = parentView || topView;
+	var tag, tagDef, template, tags, attr, parentTag, l, m, n, itemRet, tagCtx, tagCtxCtx, ctxPrm, bindTo, bindFrom, initVal,
+		content, callInit, mapDef, thisMap, args, bdArgs, props, tagDataMap, contentCtx, key, bindFromLength, bindToLength, linkedElement, defaultCtx,
+		i = 0,
+		ret = "",
+		linkCtx = parentView._lc || false, // For data-link="{myTag...}"... See onDataLinkedTagChange
+		ctx = parentView.ctx,
+		parentTmpl = tmpl || parentView.tmpl,
+		// If tagCtxs is an integer, then it is the key for the compiled function to return the boundTag tagCtxs
+		boundTag = typeof tagCtxs === "number" && parentView.tmpl.bnds[tagCtxs-1];
+
+	if (tagName._is === "tag") {
+		tag = tagName;
+		tagName = tag.tagName;
+		tagCtxs = tag.tagCtxs;
+		template = tag.template;
+	} else {
+		tagDef = parentView.getRsc("tags", tagName) || error("Unknown tag: {{" + tagName + "}} ");
+		template = tagDef.template;
+	}
+	if (onError === undefined && boundTag && (boundTag._lr = (tagDef.lateRender && boundTag._lr!== false || boundTag._lr))) {
+		onError = ""; // If lateRender, set temporary onError, to skip initial rendering (and render just "")
+	}
+	if (onError !== undefined) {
+		ret += onError;
+		tagCtxs = onError = [{props: {}, args: [], params: {props:{}}}];
+	} else if (boundTag) {
+		tagCtxs = boundTag(parentView.data, parentView, $sub);
+	}
+
+	l = tagCtxs.length;
+	for (; i < l; i++) {
+		tagCtx = tagCtxs[i];
+		content = tagCtx.tmpl;
+		if (!linkCtx || !linkCtx.tag || i && !linkCtx.tag.inline || tag._er || content && +content===content) {
+			// Initialize tagCtx
+			// For block tags, tagCtx.tmpl is an integer > 0
+			if (content && parentTmpl.tmpls) {
+				tagCtx.tmpl = tagCtx.content = parentTmpl.tmpls[content - 1]; // Set the tmpl property to the content of the block tag
+			}
+			tagCtx.index = i;
+			tagCtx.ctxPrm = contextParameter;
+			tagCtx.render = renderContent;
+			tagCtx.cvtArgs = convertArgs;
+			tagCtx.bndArgs = convertBoundArgs;
+			tagCtx.view = parentView;
+			tagCtx.ctx = extendCtx(extendCtx(tagCtx.ctx, tagDef && tagDef.ctx), ctx); // Clone and extend parentView.ctx
+		}
+		if (tmpl = tagCtx.props.tmpl) {
+			// If the tmpl property is overridden, set the value (when initializing, or, in case of binding: ^tmpl=..., when updating)
+			tagCtx.tmpl = parentView._getTmpl(tmpl);
+			tagCtx.content = tagCtx.content || tagCtx.tmpl;
+		}
+
+		if (!tag) {
+			// This will only be hit for initial tagCtx (not for {{else}}) - if the tag instance does not exist yet
+			// If the tag has not already been instantiated, we will create a new instance.
+			// ~tag will access the tag, even within the rendering of the template content of this tag.
+			// From child/descendant tags, can access using ~tag.parent, or ~parentTags.tagName
+			tag = new tagDef._ctr();
+			callInit = !!tag.init;
+
+			tag.parent = parentTag = ctx && ctx.tag;
+			tag.tagCtxs = tagCtxs;
+
+			if (linkCtx) {
+				tag.inline = false;
+				linkCtx.tag = tag;
+			}
+			tag.linkCtx = linkCtx;
+			if (tag._.bnd = boundTag || linkCtx.fn) {
+				// Bound if {^{tag...}} or data-link="{tag...}"
+				tag._.ths = tagCtx.params.props.this; // Tag has a this=expr binding, to get javascript reference to tag instance
+				tag._.lt = tagCtxs.lt; // If a late path @some.path has not returned @some object, mark tag as late
+				tag._.arrVws = {};
+			} else if (tag.dataBoundOnly) {
+				error(tagName + " must be data-bound:\n{^{" + tagName + "}}");
+			}
+			//TODO better perf for childTags() - keep child tag.tags array, (and remove child, when disposed)
+			// tag.tags = [];
+		} else if (linkCtx && linkCtx.fn._lr) {
+			callInit = !!tag.init;
+		}
+		tagDataMap = tag.dataMap;
+
+		tagCtx.tag = tag;
+		if (tagDataMap && tagCtxs) {
+			tagCtx.map = tagCtxs[i].map; // Copy over the compiled map instance from the previous tagCtxs to the refreshed ones
+		}
+		if (!tag.flow) {
+			tagCtxCtx = tagCtx.ctx = tagCtx.ctx || {};
+
+			// tags hash: tag.ctx.tags, merged with parentView.ctx.tags,
+			tags = tag.parents = tagCtxCtx.parentTags = ctx && extendCtx(tagCtxCtx.parentTags, ctx.parentTags) || {};
+			if (parentTag) {
+				tags[parentTag.tagName] = parentTag;
+				//TODO better perf for childTags: parentTag.tags.push(tag);
+			}
+			tags[tag.tagName] = tagCtxCtx.tag = tag;
+			tagCtxCtx.tagCtx = tagCtx;
+		}
+	}
+	if (!(tag._er = onError)) {
+		tagHandlersFromProps(tag, tagCtxs[0]);
+		tag.rendering = {rndr: tag.rendering}; // Provide object for state during render calls to tag and elses. (Used by {{if}} and {{for}}...)
+		for (i = 0; i < l; i++) { // Iterate tagCtx for each {{else}} block
+			tagCtx = tag.tagCtx = tagCtxs[i];
+			props = tagCtx.props;
+			tag.ctx = tagCtx.ctx;
+
+			if (!i) {
+				if (callInit) {
+					tag.init(tagCtx, linkCtx, tag.ctx);
+					callInit = undefined;
+				}
+				if (!tagCtx.args.length && tagCtx.argDefault !== false && tag.argDefault !== false) {
+					tagCtx.args = args = [tagCtx.view.data]; // Missing first arg defaults to the current data context
+					tagCtx.params.args = ["#data"];
+				}
+
+				bindTo = bindToOrBindFrom("bindTo");
+
+				if (tag.bindTo !== undefined) {
+					tag.bindTo = bindTo;
+				}
+
+				if (tag.bindFrom !== undefined) {
+					tag.bindFrom = bindToOrBindFrom("bindFrom");
+				} else if (tag.bindTo) {
+					tag.bindFrom = tag.bindTo = bindTo;
+				}
+				bindFrom = tag.bindFrom || bindTo;
+
+				bindToLength = bindTo.length;
+				bindFromLength = bindFrom.length;
+
+				if (tag._.bnd && (linkedElement = tag.linkedElement)) {
+					tag.linkedElement = linkedElement = $isArray(linkedElement) ? linkedElement: [linkedElement];
+
+					if (bindToLength !== linkedElement.length) {
+						error("linkedElement not same length as bindTo");
+					}
+				}
+				if (linkedElement = tag.linkedCtxParam) {
+					tag.linkedCtxParam = linkedElement = $isArray(linkedElement) ? linkedElement: [linkedElement];
+
+					if (bindFromLength !== linkedElement.length) {
+						error("linkedCtxParam not same length as bindFrom/bindTo");
+					}
+				}
+
+				if (bindFrom) {
+					tag._.fromIndex = {}; // Hash of bindFrom index which has same path value as bindTo index. fromIndex = tag._.fromIndex[toIndex]
+					tag._.toIndex = {}; // Hash of bindFrom index which has same path value as bindTo index. fromIndex = tag._.fromIndex[toIndex]
+					n = bindFromLength;
+					while (n--) {
+						key = bindFrom[n];
+						m = bindToLength;
+						while (m--) {
+							if (key === bindTo[m]) {
+								tag._.fromIndex[m] = n;
+								tag._.toIndex[n] = m;
+							}
+						}
+					}
+				}
+
+				if (linkCtx) {
+					// Set attr on linkCtx to ensure outputting to the correct target attribute.
+					// Setting either linkCtx.attr or this.attr in the init() allows per-instance choice of target attrib.
+					linkCtx.attr = tag.attr = linkCtx.attr || tag.attr || linkCtx._dfAt;
+				}
+				attr = tag.attr;
+				tag._.noVws = attr && attr !== HTML;
+			}
+			args = tag.cvtArgs(i);
+			if (tag.linkedCtxParam) {
+				bdArgs = tag.cvtArgs(i, 1);
+				m = bindFromLength;
+				defaultCtx = tag.constructor.prototype.ctx;
+				while (m--) {
+					if (ctxPrm = tag.linkedCtxParam[m]) {
+						key = bindFrom[m];
+						initVal = bdArgs[m];
+						// Create tag contextual parameter
+						tagCtx.ctx[ctxPrm] = $sub._cp(
+							defaultCtx && initVal === undefined ? defaultCtx[ctxPrm]: initVal,
+							initVal !== undefined && argOrProp(tagCtx.params, key),
+							tagCtx.view,
+							tag._.bnd && {tag: tag, cvt: tag.convert, ind: m, tagElse: i}
+						);
+					}
+				}
+			}
+			if ((mapDef = props.dataMap || tagDataMap) && (args.length || props.dataMap)) {
+				thisMap = tagCtx.map;
+				if (!thisMap || thisMap.src !== args[0] || isUpdate) {
+					if (thisMap && thisMap.src) {
+						thisMap.unmap(); // only called if observable map - not when only used in JsRender, e.g. by {{props}}
+					}
+					mapDef.map(args[0], tagCtx, thisMap, !tag._.bnd);
+					thisMap = tagCtx.map;
+				}
+				args = [thisMap.tgt];
+			}
+
+			itemRet = undefined;
+			if (tag.render) {
+				itemRet = tag.render.apply(tag, args);
+				if (parentView.linked && itemRet && !rWrappedInViewMarker.test(itemRet)) {
+					// When a tag renders content from the render method, with data linking then we need to wrap with view markers, if absent,
+					// to provide a contentView for the tag, which will correctly dispose bindings if deleted. The 'tmpl' for this view will
+					// be a dumbed-down template which will always return the itemRet string (no matter what the data is). The itemRet string
+					// is not compiled as template markup, so can include "{{" or "}}" without triggering syntax errors
+					tmpl = { // 'Dumbed-down' template which always renders 'static' itemRet string
+						links: []
+					};
+					tmpl.render = tmpl.fn = function() {
+						return itemRet;
+					};
+					itemRet = renderWithViews(tmpl, parentView.data, undefined, true, parentView, undefined, undefined, tag);
+				}
+			}
+			if (!args.length) {
+				args = [parentView]; // no arguments - (e.g. {{else}}) get data context from view.
+			}
+			if (itemRet === undefined) {
+				contentCtx = args[0]; // Default data context for wrapped block content is the first argument
+				if (tag.contentCtx) { // Set tag.contentCtx to true, to inherit parent context, or to a function to provide alternate context.
+					contentCtx = tag.contentCtx === true ? parentView : tag.contentCtx(contentCtx);
+				}
+				itemRet = tagCtx.render(contentCtx, true) || (isUpdate ? undefined : "");
+			}
+			ret = ret
+				? ret + (itemRet || "")
+				: itemRet !== undefined
+					? "" + itemRet
+					: undefined; // If no return value from render, and no template/content tagCtx.render(...), return undefined
+		}
+		tag.rendering = tag.rendering.rndr; // Remove tag.rendering object (if this is outermost render call. (In case of nested calls)
+	}
+	tag.tagCtx = tagCtxs[0];
+	tag.ctx = tag.tagCtx.ctx;
+
+	if (tag._.noVws && tag.inline) {
+		// inline tag with attr set to "text" will insert HTML-encoded content - as if it was element-based innerText
+		ret = attr === "text"
+			? $converters.html(ret)
+			: "";
+	}
+	return boundTag && parentView._.onRender
+		// Call onRender (used by JsViews if present, to add binding annotations around rendered content)
+		? parentView._.onRender(ret, parentView, tag)
+		: ret;
+}
+
+//=================
+// View constructor
+//=================
+
+function View(context, type, parentView, data, template, key, onRender, contentTmpl) {
+	// Constructor for view object in view hierarchy. (Augmented by JsViews if JsViews is loaded)
+	var views, parentView_, tag, self_,
+		self = this,
+		isArray = type === "array";
+		// If the data is an array, this is an 'array view' with a views array for each child 'item view'
+		// If the data is not an array, this is an 'item view' with a views 'hash' object for any child nested views
+
+	self.content = contentTmpl;
+	self.views = isArray ? [] : {};
+	self.data = data;
+	self.tmpl = template;
+	self_ = self._ = {
+		key: 0,
+		// ._.useKey is non zero if is not an 'array view' (owning a data array). Use this as next key for adding to child views hash
+		useKey: isArray ? 0 : 1,
+		id: "" + viewId++,
+		onRender: onRender,
+		bnds: {}
+	};
+	self.linked = !!onRender;
+	self.type = type || "top";
+	if (type) {
+		self.cache = {_ct: $subSettings._cchCt}; // Used for caching results of computed properties and helpers (view.getCache)
+	}
+
+	if (!parentView || parentView.type === "top") {
+		(self.ctx = context || {}).root = self.data;
+	}
+
+	if (self.parent = parentView) {
+		self.root = parentView.root || self; // view whose parent is top view
+		views = parentView.views;
+		parentView_ = parentView._;
+		self.isTop = parentView_.scp; // Is top content view of a link("#container", ...) call
+		self.scope = (!context.tag || context.tag === parentView.ctx.tag) && !self.isTop && parentView.scope || self;
+		// Scope for contextParams - closest non flow tag ancestor or root view
+		if (parentView_.useKey) {
+			// Parent is not an 'array view'. Add this view to its views object
+			// self._key = is the key in the parent view hash
+			views[self_.key = "_" + parentView_.useKey++] = self;
+			self.index = indexStr;
+			self.getIndex = getNestedIndex;
+		} else if (views.length === (self_.key = self.index = key)) { // Parent is an 'array view'. Add this view to its views array
+			views.push(self); // Adding to end of views array. (Using push when possible - better perf than splice)
+		} else {
+			views.splice(key, 0, self); // Inserting in views array
+		}
+		// If no context was passed in, use parent context
+		// If context was passed in, it should have been merged already with parent context
+		self.ctx = context || parentView.ctx;
+	} else if (type) {
+		self.root = self; // view whose parent is top view
+	}
+}
+
+View.prototype = {
+	get: getView,
+	getIndex: getIndex,
+	ctxPrm: contextParameter,
+	getRsc: getResource,
+	_getTmpl: getTemplate,
+	_getOb: getPathObject,
+	getCache: function(key) { // Get cached value of computed value
+		if ($subSettings._cchCt > this.cache._ct) {
+			this.cache = {_ct: $subSettings._cchCt};
+		}
+		return this.cache[key] || (this.cache[key] = cpFnStore[key](this.data, this, $sub));
+	},
+	_is: "view"
+};
+
+//====================================================
+// Registration
+//====================================================
+
+function compileChildResources(parentTmpl) {
+	var storeName, storeNames, resources;
+	for (storeName in jsvStores) {
+		storeNames = storeName + "s";
+		if (parentTmpl[storeNames]) {
+			resources = parentTmpl[storeNames];        // Resources not yet compiled
+			parentTmpl[storeNames] = {};               // Remove uncompiled resources
+			$views[storeNames](resources, parentTmpl); // Add back in the compiled resources
+		}
+	}
+}
+
+//===============
+// compileTag
+//===============
+
+function compileTag(name, tagDef, parentTmpl) {
+	var tmpl, baseTag, prop,
+		compiledDef = new $sub._tg();
+
+	function Tag() {
+		var tag = this;
+		tag._ = {
+			unlinked: true
+		};
+		tag.inline = true;
+		tag.tagName = name;
+	}
+
+	if ($isFunction(tagDef)) {
+		// Simple tag declared as function. No presenter instantation.
+		tagDef = {
+			depends: tagDef.depends,
+			render: tagDef
+		};
+	} else if ("" + tagDef === tagDef) {
+		tagDef = {template: tagDef};
+	}
+
+	if (baseTag = tagDef.baseTag) {
+		tagDef.flow = !!tagDef.flow; // Set flow property, so defaults to false even if baseTag has flow=true
+		baseTag = "" + baseTag === baseTag
+			? (parentTmpl && parentTmpl.tags[baseTag] || $tags[baseTag])
+			: baseTag;
+		if (!baseTag) {
+			error('baseTag: "' + tagDef.baseTag + '" not found');
+		}
+		compiledDef = $extend(compiledDef, baseTag);
+
+		for (prop in tagDef) {
+			compiledDef[prop] = getMethod(baseTag[prop], tagDef[prop]);
+		}
+	} else {
+		compiledDef = $extend(compiledDef, tagDef);
+	}
+
+	// Tag declared as object, used as the prototype for tag instantiation (control/presenter)
+	if ((tmpl = compiledDef.template) !== undefined) {
+		compiledDef.template = "" + tmpl === tmpl ? ($templates[tmpl] || $templates(tmpl)) : tmpl;
+	}
+	(Tag.prototype = compiledDef).constructor = compiledDef._ctr = Tag;
+
+	if (parentTmpl) {
+		compiledDef._parentTmpl = parentTmpl;
+	}
+	return compiledDef;
+}
+
+function baseApply(args) {
+	// In derived method (or handler declared declaratively as in {{:foo onChange=~fooChanged}} can call base method,
+	// using this.baseApply(arguments) (Equivalent to this._superApply(arguments) in jQuery UI)
+	return this.base.apply(this, args);
+}
+
+//===============
+// compileTmpl
+//===============
+
+function compileTmpl(name, tmpl, parentTmpl, options) {
+	// tmpl is either a template object, a selector for a template script block, or the name of a compiled template
+
+	//==== nested functions ====
+	function lookupTemplate(value) {
+		// If value is of type string - treat as selector, or name of compiled template
+		// Return the template object, if already compiled, or the markup string
+		var currentName, tmpl;
+		if (("" + value === value) || value.nodeType > 0 && (elem = value)) {
+			if (!elem) {
+				if (/^\.?\/[^\\:*?"<>]*$/.test(value)) {
+					// value="./some/file.html" (or "/some/file.html")
+					// If the template is not named, use "./some/file.html" as name.
+					if (tmpl = $templates[name = name || value]) {
+						value = tmpl;
+					} else {
+						// BROWSER-SPECIFIC CODE (not on Node.js):
+						// Look for server-generated script block with id "./some/file.html"
+						elem = document.getElementById(value);
+					}
+				} else if ($.fn && !$sub.rTmpl.test(value)) {
+					try {
+						elem = $(value, document)[0]; // if jQuery is loaded, test for selector returning elements, and get first element
+					} catch (e) {}
+				}// END BROWSER-SPECIFIC CODE
+			} //BROWSER-SPECIFIC CODE
+			if (elem) {
+				if (elem.tagName !== "SCRIPT") {
+					error(value + ": Use script block, not " + elem.tagName);
+				}
+				if (options) {
+					// We will compile a new template using the markup in the script element
+					value = elem.innerHTML;
+				} else {
+					// We will cache a single copy of the compiled template, and associate it with the name
+					// (renaming from a previous name if there was one).
+					currentName = elem.getAttribute(tmplAttr);
+					if (currentName) {
+						if (currentName !== jsvTmpl) {
+							value = $templates[currentName];
+							delete $templates[currentName];
+						} else if ($.fn) {
+							value = $.data(elem)[jsvTmpl]; // Get cached compiled template
+						}
+					}
+					if (!currentName || !value) { // Not yet compiled, or cached version lost
+						name = name || ($.fn ? jsvTmpl : value);
+						value = compileTmpl(name, elem.innerHTML, parentTmpl, options);
+					}
+					value.tmplName = name = name || currentName;
+					if (name !== jsvTmpl) {
+						$templates[name] = value;
+					}
+					elem.setAttribute(tmplAttr, name);
+					if ($.fn) {
+						$.data(elem, jsvTmpl, value);
+					}
+				}
+			} // END BROWSER-SPECIFIC CODE
+			elem = undefined;
+		} else if (!value.fn) {
+			value = undefined;
+			// If value is not a string. HTML element, or compiled template, return undefined
+		}
+		return value;
+	}
+
+	var elem, compiledTmpl,
+		tmplOrMarkup = tmpl = tmpl || "";
+	$sub._html = $converters.html;
+
+	//==== Compile the template ====
+	if (options === 0) {
+		options = undefined;
+		tmplOrMarkup = lookupTemplate(tmplOrMarkup); // Top-level compile so do a template lookup
+	}
+
+	// If options, then this was already compiled from a (script) element template declaration.
+	// If not, then if tmpl is a template object, use it for options
+	options = options || (tmpl.markup
+		? tmpl.bnds
+			? $extend({}, tmpl)
+			: tmpl
+		: {}
+	);
+
+	options.tmplName = options.tmplName || name || "unnamed";
+	if (parentTmpl) {
+		options._parentTmpl = parentTmpl;
+	}
+	// If tmpl is not a markup string or a selector string, then it must be a template object
+	// In that case, get it from the markup property of the object
+	if (!tmplOrMarkup && tmpl.markup && (tmplOrMarkup = lookupTemplate(tmpl.markup)) && tmplOrMarkup.fn) {
+		// If the string references a compiled template object, need to recompile to merge any modified options
+		tmplOrMarkup = tmplOrMarkup.markup;
+	}
+	if (tmplOrMarkup !== undefined) {
+		if (tmplOrMarkup.render || tmpl.render) {
+			// tmpl is already compiled, so use it
+			if (tmplOrMarkup.tmpls) {
+				compiledTmpl = tmplOrMarkup;
+			}
+		} else {
+			// tmplOrMarkup is a markup string, not a compiled template
+			// Create template object
+			tmpl = tmplObject(tmplOrMarkup, options);
+			// Compile to AST and then to compiled function
+			tmplFn(tmplOrMarkup.replace(rEscapeQuotes, "\\$&"), tmpl);
+		}
+		if (!compiledTmpl) {
+			compiledTmpl = $extend(function() {
+				return compiledTmpl.render.apply(compiledTmpl, arguments);
+			}, tmpl);
+
+			compileChildResources(compiledTmpl);
+		}
+		return compiledTmpl;
+	}
+}
+
+//==== /end of function compileTmpl ====
+
+//=================
+// compileViewModel
+//=================
+
+function getDefaultVal(defaultVal, data) {
+	return $isFunction(defaultVal)
+		? defaultVal.call(data)
+		: defaultVal;
+}
+
+function addParentRef(ob, ref, parent) {
+	Object.defineProperty(ob, ref, {
+		value: parent,
+		configurable: true
+	});
+}
+
+function compileViewModel(name, type) {
+	var i, constructor, parent,
+		viewModels = this,
+		getters = type.getters,
+		extend = type.extend,
+		id = type.id,
+		proto = $.extend({
+			_is: name || "unnamed",
+			unmap: unmap,
+			merge: merge
+		}, extend),
+		args = "",
+		cnstr = "",
+		getterCount = getters ? getters.length : 0,
+		$observable = $.observable,
+		getterNames = {};
+
+	function JsvVm(args) {
+		constructor.apply(this, args);
+	}
+
+	function vm() {
+		return new JsvVm(arguments);
+	}
+
+	function iterate(data, action) {
+		var getterType, defaultVal, prop, ob, parentRef,
+			j = 0;
+		for (; j < getterCount; j++) {
+			prop = getters[j];
+			getterType = undefined;
+			if (prop + "" !== prop) {
+				getterType = prop;
+				prop = getterType.getter;
+				parentRef = getterType.parentRef;
+			}
+			if ((ob = data[prop]) === undefined && getterType && (defaultVal = getterType.defaultVal) !== undefined) {
+				ob = getDefaultVal(defaultVal, data);
+			}
+			action(ob, getterType && viewModels[getterType.type], prop, parentRef);
+		}
+	}
+
+	function map(data) {
+		data = data + "" === data
+			? JSON.parse(data) // Accept JSON string
+			: data;            // or object/array
+		var l, prop, childOb, parentRef,
+			j = 0,
+			ob = data,
+			arr = [];
+
+		if ($isArray(data)) {
+			data = data || [];
+			l = data.length;
+			for (; j<l; j++) {
+				arr.push(this.map(data[j]));
+			}
+			arr._is = name;
+			arr.unmap = unmap;
+			arr.merge = merge;
+			return arr;
+		}
+
+		if (data) {
+			iterate(data, function(ob, viewModel) {
+				if (viewModel) { // Iterate to build getters arg array (value, or mapped value)
+					ob = viewModel.map(ob);
+				}
+				arr.push(ob);
+			});
+			ob = this.apply(this, arr); // Instantiate this View Model, passing getters args array to constructor
+			j = getterCount;
+			while (j--) {
+				childOb = arr[j];
+				parentRef = getters[j].parentRef;
+				if (parentRef && childOb && childOb.unmap) {
+					if ($isArray(childOb)) {
+						l = childOb.length;
+						while (l--) {
+							addParentRef(childOb[l], parentRef, ob);
+						}
+					} else {
+						addParentRef(childOb, parentRef, ob);
+					}
+				}
+			}
+			for (prop in data) { // Copy over any other properties. that are not get/set properties
+				if (prop !== $expando && !getterNames[prop]) {
+					ob[prop] = data[prop];
+				}
+			}
+		}
+		return ob;
+	}
+
+	function merge(data, parent, parentRef) {
+		data = data + "" === data
+			? JSON.parse(data) // Accept JSON string
+			: data;            // or object/array
+
+		var j, l, m, prop, mod, found, assigned, ob, newModArr, childOb,
+			k = 0,
+			model = this;
+
+		if ($isArray(model)) {
+			assigned = {};
+			newModArr = [];
+			l = data.length;
+			m = model.length;
+			for (; k<l; k++) {
+				ob = data[k];
+				found = false;
+				for (j=0; j<m && !found; j++) {
+					if (assigned[j]) {
+						continue;
+					}
+					mod = model[j];
+
+					if (id) {
+						assigned[j] = found = id + "" === id
+						? (ob[id] && (getterNames[id] ? mod[id]() : mod[id]) === ob[id])
+						: id(mod, ob);
+					}
+				}
+				if (found) {
+					mod.merge(ob);
+					newModArr.push(mod);
+				} else {
+					newModArr.push(childOb = vm.map(ob));
+					if (parentRef) {
+						addParentRef(childOb, parentRef, parent);
+					}
+				}
+			}
+			if ($observable) {
+				$observable(model).refresh(newModArr, true);
+			} else {
+				model.splice.apply(model, [0, model.length].concat(newModArr));
+			}
+			return;
+		}
+		iterate(data, function(ob, viewModel, getter, parentRef) {
+			if (viewModel) {
+				model[getter]().merge(ob, model, parentRef); // Update typed property
+			} else if (model[getter]() !== ob) {
+				model[getter](ob); // Update non-typed property
+			}
+		});
+		for (prop in data) {
+			if (prop !== $expando && !getterNames[prop]) {
+				model[prop] = data[prop];
+			}
+		}
+	}
+
+	function unmap() {
+		var ob, prop, getterType, arr, value,
+			k = 0,
+			model = this;
+
+		function unmapArray(modelArr) {
+			var arr = [],
+				i = 0,
+				l = modelArr.length;
+			for (; i<l; i++) {
+				arr.push(modelArr[i].unmap());
+			}
+			return arr;
+		}
+
+		if ($isArray(model)) {
+			return unmapArray(model);
+		}
+		ob = {};
+		for (; k < getterCount; k++) {
+			prop = getters[k];
+			getterType = undefined;
+			if (prop + "" !== prop) {
+				getterType = prop;
+				prop = getterType.getter;
+			}
+			value = model[prop]();
+			ob[prop] = getterType && value && viewModels[getterType.type]
+				? $isArray(value)
+					? unmapArray(value)
+					: value.unmap()
+				: value;
+		}
+		for (prop in model) {
+			if (model.hasOwnProperty(prop) && (prop.charAt(0) !== "_" || !getterNames[prop.slice(1)]) && prop !== $expando && !$isFunction(model[prop])) {
+				ob[prop] = model[prop];
+			}
+		}
+		return ob;
+	}
+
+	JsvVm.prototype = proto;
+
+	for (i=0; i < getterCount; i++) {
+		(function(getter) {
+			getter = getter.getter || getter;
+			getterNames[getter] = i+1;
+			var privField = "_" + getter;
+
+			args += (args ? "," : "") + getter;
+			cnstr += "this." + privField + " = " + getter + ";\n";
+			proto[getter] = proto[getter] || function(val) {
+				if (!arguments.length) {
+					return this[privField]; // If there is no argument, use as a getter
+				}
+				if ($observable) {
+					$observable(this).setProperty(getter, val);
+				} else {
+					this[privField] = val;
+				}
+			};
+
+			if ($observable) {
+				proto[getter].set = proto[getter].set || function(val) {
+					this[privField] = val; // Setter called by observable property change
+				};
+			}
+		})(getters[i]);
+	}
+
+	// Constructor for new viewModel instance.
+	cnstr = new Function(args, cnstr);
+
+	constructor = function() {
+		cnstr.apply(this, arguments);
+		// Pass additional parentRef str and parent obj to have a parentRef pointer on instance
+		if (parent = arguments[getterCount + 1]) {
+			addParentRef(this, arguments[getterCount], parent);
+		}
+	};
+
+	constructor.prototype = proto;
+	proto.constructor = constructor;
+
+	vm.map = map;
+	vm.getters = getters;
+	vm.extend = extend;
+	vm.id = id;
+	return vm;
+}
+
+function tmplObject(markup, options) {
+	// Template object constructor
+	var htmlTag,
+		wrapMap = $subSettingsAdvanced._wm || {}, // Only used in JsViews. Otherwise empty: {}
+		tmpl = {
+			tmpls: [],
+			links: {}, // Compiled functions for link expressions
+			bnds: [],
+			_is: "template",
+			render: renderContent
+		};
+
+	if (options) {
+		tmpl = $extend(tmpl, options);
+	}
+
+	tmpl.markup = markup;
+	if (!tmpl.htmlTag) {
+		// Set tmpl.tag to the top-level HTML tag used in the template, if any...
+		htmlTag = rFirstElem.exec(markup);
+		tmpl.htmlTag = htmlTag ? htmlTag[1].toLowerCase() : "";
+	}
+	htmlTag = wrapMap[tmpl.htmlTag];
+	if (htmlTag && htmlTag !== wrapMap.div) {
+		// When using JsViews, we trim templates which are inserted into HTML contexts where text nodes are not rendered (i.e. not 'Phrasing Content').
+		// Currently not trimmed for <li> tag. (Not worth adding perf cost)
+		tmpl.markup = $.trim(tmpl.markup);
+	}
+
+	return tmpl;
+}
+
+//==============
+// registerStore
+//==============
+
+/**
+* Internal. Register a store type (used for template, tags, helpers, converters)
+*/
+function registerStore(storeName, storeSettings) {
+
+/**
+* Generic store() function to register item, named item, or hash of items
+* Also used as hash to store the registered items
+* Used as implementation of $.templates(), $.views.templates(), $.views.tags(), $.views.helpers() and $.views.converters()
+*
+* @param {string|hash} name         name - or selector, in case of $.templates(). Or hash of items
+* @param {any}         [item]       (e.g. markup for named template)
+* @param {template}    [parentTmpl] For item being registered as private resource of template
+* @returns {any|$.views} item, e.g. compiled template - or $.views in case of registering hash of items
+*/
+	function theStore(name, item, parentTmpl) {
+		// The store is also the function used to add items to the store. e.g. $.templates, or $.views.tags
+
+		// For store of name 'thing', Call as:
+		//    $.views.things(items[, parentTmpl]),
+		// or $.views.things(name[, item, parentTmpl])
+
+		var compile, itemName, thisStore, cnt,
+			onStore = $sub.onStore[storeName];
+
+		if (name && typeof name === OBJECT && !name.nodeType && !name.markup && !name.getTgt && !(storeName === "viewModel" && name.getters || name.extend)) {
+			// Call to $.views.things(items[, parentTmpl]),
+
+			// Adding items to the store
+			// If name is a hash, then item is parentTmpl. Iterate over hash and call store for key.
+			for (itemName in name) {
+				theStore(itemName, name[itemName], item);
+			}
+			return item || $views;
+		}
+		// Adding a single unnamed item to the store
+		if (name && "" + name !== name) { // name must be a string
+			parentTmpl = item;
+			item = name;
+			name = undefined;
+		}
+		thisStore = parentTmpl
+			? storeName === "viewModel"
+				? parentTmpl
+				: (parentTmpl[storeNames] = parentTmpl[storeNames] || {})
+			: theStore;
+		compile = storeSettings.compile;
+
+		if (item === undefined) {
+			item = compile ? name : thisStore[name];
+			name = undefined;
+		}
+		if (item === null) {
+			// If item is null, delete this entry
+			if (name) {
+				delete thisStore[name];
+			}
+		} else {
+			if (compile) {
+				item = compile.call(thisStore, name, item, parentTmpl, 0) || {};
+				item._is = storeName; // Only do this for compiled objects (tags, templates...)
+			}
+			if (name) {
+				thisStore[name] = item;
+			}
+		}
+		if (onStore) {
+			// e.g. JsViews integration
+			onStore(name, item, parentTmpl, compile);
+		}
+		return item;
+	}
+
+	var storeNames = storeName + "s";
+	$views[storeNames] = theStore;
+}
+
+/**
+* Add settings such as:
+* $.views.settings.allowCode(true)
+* @param {boolean} value
+* @returns {Settings}
+*
+* allowCode = $.views.settings.allowCode()
+* @returns {boolean}
+*/
+function addSetting(st) {
+	$viewsSettings[st] = $viewsSettings[st] || function(value) {
+		return arguments.length
+			? ($subSettings[st] = value, $viewsSettings)
+			: $subSettings[st];
+	};
+}
+
+//========================
+// dataMap for render only
+//========================
+
+function dataMap(mapDef) {
+	function Map(source, options) {
+		this.tgt = mapDef.getTgt(source, options);
+		options.map = this;
+	}
+
+	if ($isFunction(mapDef)) {
+		// Simple map declared as function
+		mapDef = {
+			getTgt: mapDef
+		};
+	}
+
+	if (mapDef.baseMap) {
+		mapDef = $extend($extend({}, mapDef.baseMap), mapDef);
+	}
+
+	mapDef.map = function(source, options) {
+		return new Map(source, options);
+	};
+	return mapDef;
+}
+
+//==============
+// renderContent
+//==============
+
+/** Render the template as a string, using the specified data and helpers/context
+* $("#tmpl").render(), tmpl.render(), tagCtx.render(), $.render.namedTmpl()
+*
+* @param {any}        data
+* @param {hash}       [context]           helpers or context
+* @param {boolean}    [noIteration]
+* @param {View}       [parentView]        internal
+* @param {string}     [key]               internal
+* @param {function}   [onRender]          internal
+* @returns {string}   rendered template   internal
+*/
+function renderContent(data, context, noIteration, parentView, key, onRender) {
+	var i, l, tag, tmpl, tagCtx, isTopRenderCall, prevData, prevIndex,
+		view = parentView,
+		result = "";
+
+	if (context === true) {
+		noIteration = context; // passing boolean as second param - noIteration
+		context = undefined;
+	} else if (typeof context !== OBJECT) {
+		context = undefined; // context must be a boolean (noIteration) or a plain object
+	}
+
+	if (tag = this.tag) {
+		// This is a call from renderTag or tagCtx.render(...)
+		tagCtx = this;
+		view = view || tagCtx.view;
+		tmpl = view._getTmpl(tag.template || tagCtx.tmpl);
+		if (!arguments.length) {
+			data = tag.contentCtx && $isFunction(tag.contentCtx)
+				? data = tag.contentCtx(data)
+				: view; // Default data context for wrapped block content is the first argument
+		}
+	} else {
+		// This is a template.render(...) call
+		tmpl = this;
+	}
+
+	if (tmpl) {
+		if (!parentView && data && data._is === "view") {
+			view = data; // When passing in a view to render or link (and not passing in a parent view) use the passed-in view as parentView
+		}
+
+		if (view && data === view) {
+			// Inherit the data from the parent view.
+			data = view.data;
+		}
+
+		isTopRenderCall = !view;
+		isRenderCall = isRenderCall || isTopRenderCall;
+		if (isTopRenderCall) {
+			(context = context || {}).root = data; // Provide ~root as shortcut to top-level data.
+		}
+		if (!isRenderCall || $subSettingsAdvanced.useViews || tmpl.useViews || view && view !== topView) {
+			result = renderWithViews(tmpl, data, context, noIteration, view, key, onRender, tag);
+		} else {
+			if (view) { // In a block
+				prevData = view.data;
+				prevIndex = view.index;
+				view.index = indexStr;
+			} else {
+				view = topView;
+				prevData = view.data;
+				view.data = data;
+				view.ctx = context;
+			}
+			if ($isArray(data) && !noIteration) {
+				// Create a view for the array, whose child views correspond to each data item. (Note: if key and parentView are passed in
+				// along with parent view, treat as insert -e.g. from view.addViews - so parentView is already the view item for array)
+				for (i = 0, l = data.length; i < l; i++) {
+					view.index = i;
+					view.data = data[i];
+					result += tmpl.fn(data[i], view, $sub);
+				}
+			} else {
+				view.data = data;
+				result += tmpl.fn(data, view, $sub);
+			}
+			view.data = prevData;
+			view.index = prevIndex;
+		}
+		if (isTopRenderCall) {
+			isRenderCall = undefined;
+		}
+	}
+	return result;
+}
+
+function renderWithViews(tmpl, data, context, noIteration, view, key, onRender, tag) {
+	// Render template against data as a tree of subviews (nested rendered template instances), or as a string (top-level template).
+	// If the data is the parent view, treat as noIteration, re-render with the same data context.
+	// tmpl can be a string (e.g. rendered by a tag.render() method), or a compiled template.
+	var i, l, newView, childView, itemResult, swapContent, contentTmpl, outerOnRender, tmplName, itemVar, newCtx, tagCtx, noLinking,
+		result = "";
+
+	if (tag) {
+		// This is a call from renderTag or tagCtx.render(...)
+		tmplName = tag.tagName;
+		tagCtx = tag.tagCtx;
+		context = context ? extendCtx(context, tag.ctx) : tag.ctx;
+
+		if (tmpl === view.content) { // {{xxx tmpl=#content}}
+			contentTmpl = tmpl !== view.ctx._wrp // We are rendering the #content
+				? view.ctx._wrp // #content was the tagCtx.props.tmpl wrapper of the block content - so within this view, #content will now be the view.ctx._wrp block content
+				: undefined; // #content was the view.ctx._wrp block content - so within this view, there is no longer any #content to wrap.
+		} else if (tmpl !== tagCtx.content) {
+			if (tmpl === tag.template) { // Rendering {{tag}} tag.template, replacing block content.
+				contentTmpl = tagCtx.tmpl; // Set #content to block content (or wrapped block content if tagCtx.props.tmpl is set)
+				context._wrp = tagCtx.content; // Pass wrapped block content to nested views
+			} else { // Rendering tagCtx.props.tmpl wrapper
+				contentTmpl = tagCtx.content || view.content; // Set #content to wrapped block content
+			}
+		} else {
+			contentTmpl = view.content; // Nested views inherit same wrapped #content property
+		}
+
+		if (tagCtx.props.link === false) {
+			// link=false setting on block tag
+			// We will override inherited value of link by the explicit setting link=false taken from props
+			// The child views of an unlinked view are also unlinked. So setting child back to true will not have any effect.
+			context = context || {};
+			context.link = false;
+		}
+	}
+
+	if (view) {
+		onRender = onRender || view._.onRender;
+		noLinking = context && context.link === false;
+
+		if (noLinking && view._.nl) {
+			onRender = undefined;
+		}
+
+		context = extendCtx(context, view.ctx);
+		tagCtx = !tag && view.tag
+			? view.tag.tagCtxs[view.tagElse]
+			: tagCtx;
+	}
+
+	if (itemVar = tagCtx && tagCtx.props.itemVar) {
+		if (itemVar[0] !== "~") {
+			syntaxError("Use itemVar='~myItem'");
+		}
+		itemVar = itemVar.slice(1);
+	}
+
+	if (key === true) {
+		swapContent = true;
+		key = 0;
+	}
+
+	// If link===false, do not call onRender, so no data-linking marker nodes
+	if (onRender && tag && tag._.noVws) {
+		onRender = undefined;
+	}
+	outerOnRender = onRender;
+	if (onRender === true) {
+		// Used by view.refresh(). Don't create a new wrapper view.
+		outerOnRender = undefined;
+		onRender = view._.onRender;
+	}
+	// Set additional context on views created here, (as modified context inherited from the parent, and to be inherited by child views)
+	context = tmpl.helpers
+		? extendCtx(tmpl.helpers, context)
+		: context;
+
+	newCtx = context;
+	if ($isArray(data) && !noIteration) {
+		// Create a view for the array, whose child views correspond to each data item. (Note: if key and view are passed in
+		// along with parent view, treat as insert -e.g. from view.addViews - so view is already the view item for array)
+		newView = swapContent
+			? view
+			: (key !== undefined && view)
+				|| new View(context, "array", view, data, tmpl, key, onRender, contentTmpl);
+		newView._.nl= noLinking;
+		if (view && view._.useKey) {
+			// Parent is not an 'array view'
+			newView._.bnd = !tag || tag._.bnd && tag; // For array views that are data bound for collection change events, set the
+			// view._.bnd property to true for top-level link() or data-link="{for}", or to the tag instance for a data-bound tag, e.g. {^{for ...}}
+			newView.tag = tag;
+		}
+		for (i = 0, l = data.length; i < l; i++) {
+			// Create a view for each data item.
+			childView = new View(newCtx, "item", newView, data[i], tmpl, (key || 0) + i, onRender, newView.content);
+			if (itemVar) {
+				(childView.ctx = $extend({}, newCtx))[itemVar] = $sub._cp(data[i], "#data", childView);
+			}
+			itemResult = tmpl.fn(data[i], childView, $sub);
+			result += newView._.onRender ? newView._.onRender(itemResult, childView) : itemResult;
+		}
+	} else {
+		// Create a view for singleton data object. The type of the view will be the tag name, e.g. "if" or "mytag" except for
+		// "item", "array" and "data" views. A "data" view is from programmatic render(object) against a 'singleton'.
+		newView = swapContent ? view : new View(newCtx, tmplName || "data", view, data, tmpl, key, onRender, contentTmpl);
+
+		if (itemVar) {
+			(newView.ctx = $extend({}, newCtx))[itemVar] = $sub._cp(data, "#data", newView);
+		}
+
+		newView.tag = tag;
+		newView._.nl = noLinking;
+		result += tmpl.fn(data, newView, $sub);
+	}
+	if (tag) {
+		newView.tagElse = tagCtx.index;
+		tagCtx.contentView = newView;
+	}
+	return outerOnRender ? outerOnRender(result, newView) : result;
+}
+
+//===========================
+// Build and compile template
+//===========================
+
+// Generate a reusable function that will serve to render a template against data
+// (Compile AST then build template function)
+
+function onRenderError(e, view, fallback) {
+	var message = fallback !== undefined
+		? $isFunction(fallback)
+			? fallback.call(view.data, e, view)
+			: fallback || ""
+		: "{Error: " + (e.message||e) + "}";
+
+	if ($subSettings.onError && (fallback = $subSettings.onError.call(view.data, e, fallback && message, view)) !== undefined) {
+		message = fallback; // There is a settings.debugMode(handler) onError override. Call it, and use return value (if any) to replace message
+	}
+	return view && !view._lc ? $converters.html(message) : message; // For data-link=\"{... onError=...}"... See onDataLinkedTagChange
+}
+
+function error(message) {
+	throw new $sub.Err(message);
+}
+
+function syntaxError(message) {
+	error("Syntax error\n" + message);
+}
+
+function tmplFn(markup, tmpl, isLinkExpr, convertBack, hasElse) {
+	// Compile markup to AST (abtract syntax tree) then build the template function code from the AST nodes
+	// Used for compiling templates, and also by JsViews to build functions for data link expressions
+
+	//==== nested functions ====
+	function pushprecedingContent(shift) {
+		shift -= loc;
+		if (shift) {
+			content.push(markup.substr(loc, shift).replace(rNewLine, "\\n"));
+		}
+	}
+
+	function blockTagCheck(tagName, block) {
+		if (tagName) {
+			tagName += '}}';
+			//			'{{include}} block has {{/for}} with no open {{for}}'
+			syntaxError((
+				block
+					? '{{' + block + '}} block has {{/' + tagName + ' without {{' + tagName
+					: 'Unmatched or missing {{/' + tagName) + ', in template:\n' + markup);
+		}
+	}
+
+	function parseTag(all, bind, tagName, converter, colon, html, codeTag, params, slash, bind2, closeBlock, index) {
+/*
+
+     bind     tagName         cvt   cln html code    params            slash   bind2         closeBlk  comment
+/(?:{(\^)?{(?:(\w+(?=[\/\s}]))|(\w+)?(:)|(>)|(\*))\s*((?:[^}]|}(?!}))*?)(\/)?|{(\^)?{(?:(?:\/(\w+))\s*|!--[\s\S]*?--))}}/g
+
+(?:
+  {(\^)?{            bind
+  (?:
+    (\w+             tagName
+      (?=[\/\s}])
+    )
+    |
+    (\w+)?(:)        converter colon
+    |
+    (>)              html
+    |
+    (\*)             codeTag
+  )
+  \s*
+  (                  params
+    (?:[^}]|}(?!}))*?
+  )
+  (\/)?              slash
+  |
+  {(\^)?{            bind2
+  (?:
+    (?:\/(\w+))\s*   closeBlock
+    |
+    !--[\s\S]*?--    comment
+  )
+)
+}}/g
+
+*/
+		if (codeTag && bind || slash && !tagName || params && params.slice(-1) === ":" || bind2) {
+			syntaxError(all);
+		}
+
+		// Build abstract syntax tree (AST): [tagName, converter, params, content, hash, bindings, contentMarkup]
+		if (html) {
+			colon = ":";
+			converter = HTML;
+		}
+		slash = slash || isLinkExpr && !hasElse;
+
+		var late, openTagName, isLateOb,
+			pathBindings = (bind || isLinkExpr) && [[]], // pathBindings is an array of arrays for arg bindings and a hash of arrays for prop bindings
+			props = "",
+			args = "",
+			ctxProps = "",
+			paramsArgs = "",
+			paramsProps = "",
+			paramsCtxProps = "",
+			onError = "",
+			useTrigger = "",
+			// Block tag if not self-closing and not {{:}} or {{>}} (special case) and not a data-link expression
+			block = !slash && !colon;
+
+		//==== nested helper function ====
+		tagName = tagName || (params = params || "#data", colon); // {{:}} is equivalent to {{:#data}}
+		pushprecedingContent(index);
+		loc = index + all.length; // location marker - parsed up to here
+		if (codeTag) {
+			if (allowCode) {
+				content.push(["*", "\n" + params.replace(/^:/, "ret+= ").replace(rUnescapeQuotes, "$1") + ";\n"]);
+			}
+		} else if (tagName) {
+			if (tagName === "else") {
+				if (rTestElseIf.test(params)) {
+					syntaxError('For "{{else if expr}}" use "{{else expr}}"');
+				}
+				pathBindings = current[9] && [[]];
+				current[10] = markup.substring(current[10], index); // contentMarkup for block tag
+				openTagName = current[11] || current[0] || syntaxError("Mismatched: " + all);
+				// current[0] is tagName, but for {{else}} nodes, current[11] is tagName of preceding open tag
+				current = stack.pop();
+				content = current[2];
+				block = true;
+			}
+			if (params) {
+				// remove newlines from the params string, to avoid compiled code errors for unterminated strings
+				parseParams(params.replace(rNewLine, " "), pathBindings, tmpl, isLinkExpr)
+					.replace(rBuildHash, function(all, onerror, isCtxPrm, key, keyToken, keyValue, arg, param) {
+						if (key === "this:") {
+							keyValue = "undefined"; // this=some.path is always a to parameter (one-way), so don't need to compile/evaluate some.path initialization
+						}
+						if (param) {
+							isLateOb = isLateOb || param[0] === "@";
+						}
+						key = "'" + keyToken + "':";
+						if (arg) {
+							args += isCtxPrm + keyValue + ",";
+							paramsArgs += "'" + param + "',";
+						} else if (isCtxPrm) { // Contextual parameter, ~foo=expr
+							ctxProps += key + 'j._cp(' + keyValue + ',"' + param + '",view),';
+							// Compiled code for evaluating tagCtx on a tag will have: ctx:{'foo':j._cp(compiledExpr, "expr", view)}
+							paramsCtxProps += key + "'" + param + "',";
+						} else if (onerror) {
+							onError += keyValue;
+						} else {
+							if (keyToken === "trigger") {
+								useTrigger += keyValue;
+							}
+							if (keyToken === "lateRender") {
+								late = param !== "false"; // Render after first pass
+							}
+							props += key + keyValue + ",";
+							paramsProps += key + "'" + param + "',";
+							hasHandlers = hasHandlers || rHasHandlers.test(keyToken);
+						}
+						return "";
+					}).slice(0, -1);
+			}
+
+			if (pathBindings && pathBindings[0]) {
+				pathBindings.pop(); // Remove the binding that was prepared for next arg. (There is always an extra one ready).
+			}
+
+			newNode = [
+					tagName,
+					converter || !!convertBack || hasHandlers || "",
+					block && [],
+					parsedParam(paramsArgs || (tagName === ":" ? "'#data'," : ""), paramsProps, paramsCtxProps), // {{:}} equivalent to {{:#data}}
+					parsedParam(args || (tagName === ":" ? "data," : ""), props, ctxProps),
+					onError,
+					useTrigger,
+					late,
+					isLateOb,
+					pathBindings || 0
+				];
+			content.push(newNode);
+			if (block) {
+				stack.push(current);
+				current = newNode;
+				current[10] = loc; // Store current location of open tag, to be able to add contentMarkup when we reach closing tag
+				current[11] = openTagName; // Used for checking syntax (matching close tag)
+			}
+		} else if (closeBlock) {
+			blockTagCheck(closeBlock !== current[0] && closeBlock !== current[11] && closeBlock, current[0]); // Check matching close tag name
+			current[10] = markup.substring(current[10], index); // contentMarkup for block tag
+			current = stack.pop();
+		}
+		blockTagCheck(!current && closeBlock);
+		content = current[2];
+	}
+	//==== /end of nested functions ====
+
+	var i, result, newNode, hasHandlers, bindings,
+		allowCode = $subSettings.allowCode || tmpl && tmpl.allowCode
+			|| $viewsSettings.allowCode === true, // include direct setting of settings.allowCode true for backward compat only
+		astTop = [],
+		loc = 0,
+		stack = [],
+		content = astTop,
+		current = [,,astTop];
+
+	if (allowCode && tmpl._is) {
+		tmpl.allowCode = allowCode;
+	}
+
+//TODO	result = tmplFnsCache[markup]; // Only cache if template is not named and markup length < ...,
+//and there are no bindings or subtemplates?? Consider standard optimization for data-link="a.b.c"
+//		if (result) {
+//			tmpl.fn = result;
+//		} else {
+
+//		result = markup;
+	if (isLinkExpr) {
+		if (convertBack !== undefined) {
+			markup = markup.slice(0, -convertBack.length - 2) + delimCloseChar0;
+		}
+		markup = delimOpenChar0 + markup + delimCloseChar1;
+	}
+
+	blockTagCheck(stack[0] && stack[0][2].pop()[0]);
+	// Build the AST (abstract syntax tree) under astTop
+	markup.replace(rTag, parseTag);
+
+	pushprecedingContent(markup.length);
+
+	if (loc = astTop[astTop.length - 1]) {
+		blockTagCheck("" + loc !== loc && (+loc[10] === loc[10]) && loc[0]);
+	}
+//			result = tmplFnsCache[markup] = buildCode(astTop, tmpl);
+//		}
+
+	if (isLinkExpr) {
+		result = buildCode(astTop, markup, isLinkExpr);
+		bindings = [];
+		i = astTop.length;
+		while (i--) {
+			bindings.unshift(astTop[i][9]); // With data-link expressions, pathBindings array for tagCtx[i] is astTop[i][9]
+		}
+		setPaths(result, bindings);
+	} else {
+		result = buildCode(astTop, tmpl);
+	}
+	return result;
+}
+
+function setPaths(fn, pathsArr) {
+	var key, paths,
+		i = 0,
+		l = pathsArr.length;
+	fn.deps = [];
+	fn.paths = []; // The array of path binding (array/dictionary)s for each tag/else block's args and props
+	for (; i < l; i++) {
+		fn.paths.push(paths = pathsArr[i]);
+		for (key in paths) {
+			if (key !== "_jsvto" && paths.hasOwnProperty(key) && paths[key].length && !paths[key].skp) {
+				fn.deps = fn.deps.concat(paths[key]); // deps is the concatenation of the paths arrays for the different bindings
+			}
+		}
+	}
+}
+
+function parsedParam(args, props, ctx) {
+	return [args.slice(0, -1), props.slice(0, -1), ctx.slice(0, -1)];
+}
+
+function paramStructure(paramCode, paramVals) {
+	return '\n\tparams:{args:[' + paramCode[0] + '],\n\tprops:{' + paramCode[1] + '}'
+		+ (paramCode[2] ? ',\n\tctx:{' + paramCode[2] + '}' : "")
+		+ '},\n\targs:[' + paramVals[0] + '],\n\tprops:{' + paramVals[1] + '}'
+		+ (paramVals[2] ? ',\n\tctx:{' + paramVals[2] + '}' : "");
+}
+
+function parseParams(params, pathBindings, tmpl, isLinkExpr) {
+
+	function parseTokens(all, lftPrn0, lftPrn, bound, path, operator, err, eq, path2, late, prn,
+												comma, lftPrn2, apos, quot, rtPrn, rtPrnDot, prn2, space, index, full) {
+	// /(\()(?=\s*\()|(?:([([])\s*)?(?:(\^?)(~?[\w$.^]+)?\s*((\+\+|--)|\+|-|~(?![\w$])|&&|\|\||===|!==|==|!=|<=|>=|[<>%*:?\/]|(=))\s*|(!*?(@)?[#~]?[\w$.^]+)([([])?)|(,\s*)|(?:(\()\s*)?\\?(?:(')|("))|(?:\s*(([)\]])(?=[.^]|\s*$|[^([])|[)\]])([([]?))|(\s+)/g,
+	//lftPrn0           lftPrn         bound     path               operator     err                                          eq      path2 late            prn      comma  lftPrn2          apos quot        rtPrn  rtPrnDot                  prn2     space
+	// (left paren? followed by (path? followed by operator) or (path followed by paren?)) or comma or apos or quot or right paren or space
+
+		function parsePath(allPath, not, object, helper, view, viewProperty, pathTokens, leafToken) {
+			// /^(!*?)(?:null|true|false|\d[\d.]*|([\w$]+|\.|~([\w$]+)|#(view|([\w$]+))?)([\w$.^]*?)(?:[.[^]([\w$]+)\]?)?)$/g,
+			//    not                               object     helper    view  viewProperty pathTokens      leafToken
+			subPath = object === ".";
+			if (object) {
+				path = path.slice(not.length);
+				if (/^\.?constructor$/.test(leafToken||path)) {
+					syntaxError(allPath);
+				}
+				if (!subPath) {
+					allPath = (late // late path @a.b.c: not throw on 'property of undefined' if a undefined, and will use _getOb() after linking to resolve late.
+							? (isLinkExpr ? '' : '(ltOb.lt=ltOb.lt||') + '(ob='
+							: ""
+						)
+						+ (helper
+							? 'view.ctxPrm("' + helper + '")'
+							: view
+								? "view"
+								: "data")
+						+ (late
+							? ')===undefined' + (isLinkExpr ? '' : ')') + '?"":view._getOb(ob,"'
+							: ""
+						)
+						+ (leafToken
+							? (viewProperty
+								? "." + viewProperty
+								: helper
+									? ""
+									: (view ? "" : "." + object)
+								) + (pathTokens || "")
+							: (leafToken = helper ? "" : view ? viewProperty || "" : object, ""));
+					allPath = allPath + (leafToken ? "." + leafToken : "");
+
+					allPath = not + (allPath.slice(0, 9) === "view.data"
+						? allPath.slice(5) // convert #view.data... to data...
+						: allPath)
+					+ (late
+							? (isLinkExpr ? '"': '",ltOb') + (prn ? ',1)':')')
+							: ""
+						);
+				}
+				if (bindings) {
+					binds = named === "_linkTo" ? (bindto = pathBindings._jsvto = pathBindings._jsvto || []) : bndCtx.bd;
+					if (theOb = subPath && binds[binds.length-1]) {
+						if (theOb._cpfn) { // Computed property exprOb
+							while (theOb.sb) {
+								theOb = theOb.sb;
+							}
+							if (theOb.prm) {
+								if (theOb.bnd) {
+									path = "^" + path.slice(1);
+								}
+								theOb.sb = path;
+								theOb.bnd = theOb.bnd || path[0] === "^";
+							}
+						}
+					} else {
+						binds.push(path);
+					}
+					if (prn && !subPath) {
+						pathStart[fnDp] = ind;
+						compiledPathStart[fnDp] = compiledPath[fnDp].length;
+					}
+				}
+			}
+			return allPath;
+		}
+
+		//bound = bindings && bound;
+		if (bound && !eq) {
+			path = bound + path; // e.g. some.fn(...)^some.path - so here path is "^some.path"
+		}
+		operator = operator || "";
+		lftPrn2 = lftPrn2 || "";
+		lftPrn = lftPrn || lftPrn0 || lftPrn2;
+		path = path || path2;
+
+		if (late && (late = !/\)|]/.test(full[index-1]))) {
+			path = path.slice(1).split(".").join("^"); // Late path @z.b.c. Use "^" rather than "." to ensure that deep binding will be used
+		}
+		// Could do this - but not worth perf cost?? :-
+		// if (!path.lastIndexOf("#data.", 0)) { path = path.slice(6); } // If path starts with "#data.", remove that.
+		prn = prn || prn2 || "";
+		var expr, binds, theOb, newOb, subPath, lftPrnFCall, ret,
+			ind = index;
+
+		if (!aposed && !quoted) {
+			if (err) {
+				syntaxError(params);
+			}
+			if (rtPrnDot && bindings) {
+				// This is a binding to a path in which an object is returned by a helper/data function/expression, e.g. foo()^x.y or (a?b:c)^x.y
+				// We create a compiled function to get the object instance (which will be called when the dependent data of the subexpression changes, to return the new object, and trigger re-binding of the subsequent path)
+				expr = pathStart[fnDp-1];
+				if (full.length - 1 > ind - (expr || 0)) { // We need to compile a subexpression
+					expr = $.trim(full.slice(expr, ind + all.length));
+					binds = bindto || bndStack[fnDp-1].bd;
+					// Insert exprOb object, to be used during binding to return the computed object
+					theOb = binds[binds.length-1];
+					if (theOb && theOb.prm) {
+						while (theOb.sb && theOb.sb.prm) {
+							theOb = theOb.sb;
+						}
+						newOb = theOb.sb = {path: theOb.sb, bnd: theOb.bnd};
+					} else {
+						binds.push(newOb = {path: binds.pop()}); // Insert exprOb object, to be used during binding to return the computed object
+					}
+					if (theOb && theOb.sb === newOb) {
+						compiledPath[fnDp] = compiledPath[fnDp-1].slice(theOb._cpPthSt) + compiledPath[fnDp];
+						compiledPath[fnDp-1] = compiledPath[fnDp-1].slice(0, theOb._cpPthSt);
+					}
+					newOb._cpPthSt = compiledPathStart[fnDp-1];
+					newOb._cpKey = expr;
+
+					compiledPath[fnDp] += full.slice(prevIndex, index);
+					prevIndex = index;
+
+					newOb._cpfn = cpFnStore[expr] = cpFnStore[expr] || // Compiled function for computed value: get from store, or compile and store
+						new Function("data,view,j", // Compiled function for computed value in template
+					"//" + expr + "\nvar v;\nreturn ((v=" + compiledPath[fnDp] + (rtPrn === "]" ? ")]" : rtPrn) + ")!=null?v:null);");
+
+					compiledPath[fnDp-1] += (fnCall[prnDp] && $subSettingsAdvanced.cache ? "view.getCache(\"" + expr.replace(rEscapeQuotes, "\\$&") + "\"" : compiledPath[fnDp]);
+
+					newOb.prm = bndCtx.bd;
+					newOb.bnd = newOb.bnd || newOb.path && newOb.path.indexOf("^") >= 0;
+				}
+				compiledPath[fnDp] = "";
+			}
+			if (prn === "[") {
+				prn = "[j._sq(";
+			}
+			if (lftPrn === "[") {
+				lftPrn = "[j._sq(";
+			}
+		}
+		ret = (aposed
+			// within single-quoted string
+			? (aposed = !apos, (aposed ? all : lftPrn2 + '"'))
+			: quoted
+			// within double-quoted string
+				? (quoted = !quot, (quoted ? all : lftPrn2 + '"'))
+				:
+			(
+				(lftPrn
+					? (
+						prnStack[++prnDp] = true,
+						prnInd[prnDp] = 0,
+						bindings && (
+							pathStart[fnDp++] = ind++,
+							bndCtx = bndStack[fnDp] = {bd: []},
+							compiledPath[fnDp] = "",
+							compiledPathStart[fnDp] = 1
+						),
+						lftPrn) // Left paren, (not a function call paren)
+					: "")
+				+ (space
+					? (prnDp
+						? "" // A space within parens or within function call parens, so not a separator for tag args
+			// New arg or prop - so insert backspace \b (\x08) as separator for named params, used subsequently by rBuildHash, and prepare new bindings array
+						: (paramIndex = full.slice(paramIndex, ind), named
+							? (named = boundName = bindto = false, "\b")
+							: "\b,") + paramIndex + (paramIndex = ind + all.length, bindings && pathBindings.push(bndCtx.bd = []), "\b")
+					)
+					: eq
+			// named param. Remove bindings for arg and create instead bindings array for prop
+						? (fnDp && syntaxError(params), bindings && pathBindings.pop(), named = "_" + path, boundName = bound, paramIndex = ind + all.length,
+								bindings && ((bindings = bndCtx.bd = pathBindings[named] = []), bindings.skp = !bound), path + ':')
+						: path
+			// path
+							? (path.split("^").join(".").replace($sub.rPath, parsePath)
+								+ (prn || operator)
+							)
+							: operator
+			// operator
+								? operator
+								: rtPrn
+			// function
+									? rtPrn === "]" ? ")]" : ")"
+									: comma
+										? (fnCall[prnDp] || syntaxError(params), ",") // We don't allow top-level literal arrays or objects
+										: lftPrn0
+											? ""
+											: (aposed = apos, quoted = quot, '"')
+			))
+		);
+
+		if (!aposed && !quoted) {
+			if (rtPrn) {
+				fnCall[prnDp] = false;
+				prnDp--;
+			}
+		}
+
+		if (bindings) {
+			if (!aposed && !quoted) {
+				if (rtPrn) {
+					if (prnStack[prnDp+1]) {
+						bndCtx = bndStack[--fnDp];
+						prnStack[prnDp+1] = false;
+					}
+					prnStart = prnInd[prnDp+1];
+				}
+				if (prn) {
+					prnInd[prnDp+1] = compiledPath[fnDp].length + (lftPrn ? 1 : 0);
+					if (path || rtPrn) {
+						bndCtx = bndStack[++fnDp] = {bd: []};
+						prnStack[prnDp+1] = true;
+					}
+				}
+			}
+
+			compiledPath[fnDp] = (compiledPath[fnDp]||"") + full.slice(prevIndex, index);
+			prevIndex = index+all.length;
+
+			if (!aposed && !quoted) {
+				if (lftPrnFCall = lftPrn && prnStack[prnDp+1]) {
+					compiledPath[fnDp-1] += lftPrn;
+					compiledPathStart[fnDp-1]++;
+				}
+				if (prn === "(" && subPath && !newOb) {
+					compiledPath[fnDp] = compiledPath[fnDp-1].slice(prnStart) + compiledPath[fnDp];
+					compiledPath[fnDp-1] = compiledPath[fnDp-1].slice(0, prnStart);
+				}
+			}
+			compiledPath[fnDp] += lftPrnFCall ? ret.slice(1) : ret;
+		}
+
+		if (!aposed && !quoted && prn) {
+			prnDp++;
+			if (path && prn === "(") {
+				fnCall[prnDp] = true;
+			}
+		}
+
+		if (!aposed && !quoted && prn2) {
+			if (bindings) {
+				compiledPath[fnDp] += prn;
+			}
+			ret += prn;
+		}
+		return ret;
+	}
+
+	var named, bindto, boundName, result,
+		quoted, // boolean for string content in double quotes
+		aposed, // or in single quotes
+		bindings = pathBindings && pathBindings[0], // bindings array for the first arg
+		bndCtx = {bd: bindings},
+		bndStack = {0: bndCtx},
+		paramIndex = 0, // list,
+		// The following are used for tracking path parsing including nested paths, such as "a.b(c^d + (e))^f", and chained computed paths such as
+		// "a.b().c^d().e.f().g" - which has four chained paths, "a.b()", "^c.d()", ".e.f()" and ".g"
+		prnDp = 0,     // For tracking paren depth (not function call parens)
+		fnDp = 0,      // For tracking depth of function call parens
+		prnInd = {},   // We are in a function call
+		prnStart = 0,  // tracks the start of the current path such as c^d() in the above example
+		prnStack = {}, // tracks parens which are not function calls, and so are associated with new bndStack contexts
+		fnCall = {},   // We are in a function call
+		pathStart = {},// tracks the start of the current path such as c^d() in the above example
+		compiledPathStart = {0: 0},
+		compiledPath = {0:""},
+		prevIndex = 0;
+
+	if (params[0] === "@") {
+		params = params.replace(rBracketQuote, ".");
+	}
+	result = (params + (tmpl ? " " : "")).replace($sub.rPrm, parseTokens);
+
+	if (bindings) {
+		result = compiledPath[0];
+	}
+
+	return !prnDp && result || syntaxError(params); // Syntax error if unbalanced parens in params expression
+}
+
+function buildCode(ast, tmpl, isLinkExpr) {
+	// Build the template function code from the AST nodes, and set as property on the passed-in template object
+	// Used for compiling templates, and also by JsViews to build functions for data link expressions
+	var i, node, tagName, converter, tagCtx, hasTag, hasEncoder, getsVal, hasCnvt, useCnvt, tmplBindings, pathBindings, params, boundOnErrStart,
+		boundOnErrEnd, tagRender, nestedTmpls, tmplName, nestedTmpl, tagAndElses, content, markup, nextIsElse, oldCode, isElse, isGetVal, tagCtxFn,
+		onError, tagStart, trigger, lateRender, retStrOpen, retStrClose,
+		tmplBindingKey = 0,
+		useViews = $subSettingsAdvanced.useViews || tmpl.useViews || tmpl.tags || tmpl.templates || tmpl.helpers || tmpl.converters,
+		code = "",
+		tmplOptions = {},
+		l = ast.length;
+
+	if ("" + tmpl === tmpl) {
+		tmplName = isLinkExpr ? 'data-link="' + tmpl.replace(rNewLine, " ").slice(1, -1) + '"' : tmpl;
+		tmpl = 0;
+	} else {
+		tmplName = tmpl.tmplName || "unnamed";
+		if (tmpl.allowCode) {
+			tmplOptions.allowCode = true;
+		}
+		if (tmpl.debug) {
+			tmplOptions.debug = true;
+		}
+		tmplBindings = tmpl.bnds;
+		nestedTmpls = tmpl.tmpls;
+	}
+	for (i = 0; i < l; i++) {
+		// AST nodes: [0: tagName, 1: converter, 2: content, 3: params, 4: code, 5: onError, 6: trigger, 7:pathBindings, 8: contentMarkup]
+		node = ast[i];
+
+		// Add newline for each callout to t() c() etc. and each markup string
+		if ("" + node === node) {
+			// a markup string to be inserted
+			code += '+"' + node + '"';
+		} else {
+			// a compiled tag expression to be inserted
+			tagName = node[0];
+			if (tagName === "*") {
+				// Code tag: {{* }}
+				code += ";\n" + node[1] + "\nret=ret";
+			} else {
+				converter = node[1];
+				content = !isLinkExpr && node[2];
+				tagCtx = paramStructure(node[3], params = node[4]);
+				trigger = node[6];
+				lateRender = node[7];
+				if (node[8]) { // latePath @a.b.c or @~a.b.c
+					retStrOpen = "\nvar ob,ltOb={},ctxs=";
+					retStrClose = ";\nctxs.lt=ltOb.lt;\nreturn ctxs;";
+				} else {
+					retStrOpen = "\nreturn ";
+					retStrClose = "";
+				}
+				markup = node[10] && node[10].replace(rUnescapeQuotes, "$1");
+				if (isElse = tagName === "else") {
+					if (pathBindings) {
+						pathBindings.push(node[9]);
+					}
+				} else {
+					onError = node[5] || $subSettings.debugMode !== false && "undefined"; // If debugMode not false, set default onError handler on tag to "undefined" (see onRenderError)
+					if (tmplBindings && (pathBindings = node[9])) { // Array of paths, or false if not data-bound
+						pathBindings = [pathBindings];
+						tmplBindingKey = tmplBindings.push(1); // Add placeholder in tmplBindings for compiled function
+					}
+				}
+				useViews = useViews || params[1] || params[2] || pathBindings || /view.(?!index)/.test(params[0]);
+				// useViews is for perf optimization. For render() we only use views if necessary - for the more advanced scenarios.
+				// We use views if there are props, contextual properties or args with #... (other than #index) - but you can force
+				// using the full view infrastructure, (and pay a perf price) by opting in: Set useViews: true on the template, manually...
+				if (isGetVal = tagName === ":") {
+					if (converter) {
+						tagName = converter === HTML ? ">" : converter + tagName;
+					}
+				} else {
+					if (content) { // TODO optimize - if content.length === 0 or if there is a tmpl="..." specified - set content to null / don't run this compilation code - since content won't get used!!
+						// Create template object for nested template
+						nestedTmpl = tmplObject(markup, tmplOptions);
+						nestedTmpl.tmplName = tmplName + "/" + tagName;
+						// Compile to AST and then to compiled function
+						nestedTmpl.useViews = nestedTmpl.useViews || useViews;
+						buildCode(content, nestedTmpl);
+						useViews = nestedTmpl.useViews;
+						nestedTmpls.push(nestedTmpl);
+					}
+
+					if (!isElse) {
+						// This is not an else tag.
+						tagAndElses = tagName;
+						useViews = useViews || tagName && (!$tags[tagName] || !$tags[tagName].flow);
+						// Switch to a new code string for this bound tag (and its elses, if it has any) - for returning the tagCtxs array
+						oldCode = code;
+						code = "";
+					}
+					nextIsElse = ast[i + 1];
+					nextIsElse = nextIsElse && nextIsElse[0] === "else";
+				}
+				tagStart = onError ? ";\ntry{\nret+=" : "\n+";
+				boundOnErrStart = "";
+				boundOnErrEnd = "";
+
+				if (isGetVal && (pathBindings || trigger || converter && converter !== HTML || lateRender)) {
+					// For convertVal we need a compiled function to return the new tagCtx(s)
+					tagCtxFn = new Function("data,view,j", "// " + tmplName + " " + (++tmplBindingKey) + " " + tagName
+						+ retStrOpen + "{" + tagCtx + "};" + retStrClose);
+					tagCtxFn._er = onError;
+					tagCtxFn._tag = tagName;
+					tagCtxFn._bd = !!pathBindings; // data-linked tag {^{.../}}
+					tagCtxFn._lr = lateRender;
+
+					if (isLinkExpr) {
+						return tagCtxFn;
+					}
+
+					setPaths(tagCtxFn, pathBindings);
+					tagRender = 'c("' + converter + '",view,';
+					useCnvt = true;
+					boundOnErrStart = tagRender + tmplBindingKey + ",";
+					boundOnErrEnd = ")";
+				}
+				code += (isGetVal
+					? (isLinkExpr ? (onError ? "try{\n" : "") + "return " : tagStart) + (useCnvt // Call _cnvt if there is a converter: {{cnvt: ... }} or {^{cnvt: ... }}
+						? (useCnvt = undefined, useViews = hasCnvt = true, tagRender + (tagCtxFn
+							? ((tmplBindings[tmplBindingKey - 1] = tagCtxFn), tmplBindingKey) // Store the compiled tagCtxFn in tmpl.bnds, and pass the key to convertVal()
+							: "{" + tagCtx + "}") + ")")
+						: tagName === ">"
+							? (hasEncoder = true, "h(" + params[0] + ")")
+							: (getsVal = true, "((v=" + params[0] + ')!=null?v:' + (isLinkExpr ? 'null)' : '"")'))
+							// Non strict equality so data-link="title{:expr}" with expr=null/undefined removes title attribute
+					)
+					: (hasTag = true, "\n{view:view,content:false,tmpl:" // Add this tagCtx to the compiled code for the tagCtxs to be passed to renderTag()
+						+ (content ? nestedTmpls.length : "false") + "," // For block tags, pass in the key (nestedTmpls.length) to the nested content template
+						+ tagCtx + "},"));
+
+				if (tagAndElses && !nextIsElse) {
+					// This is a data-link expression or an inline tag without any elses, or the last {{else}} of an inline tag
+					// We complete the code for returning the tagCtxs array
+					code = "[" + code.slice(0, -1) + "]";
+					tagRender = 't("' + tagAndElses + '",view,this,';
+					if (isLinkExpr || pathBindings) {
+						// This is a bound tag (data-link expression or inline bound tag {^{tag ...}}) so we store a compiled tagCtxs function in tmp.bnds
+						code = new Function("data,view,j", " // " + tmplName + " " + tmplBindingKey + " " + tagAndElses + retStrOpen + code
+							+ retStrClose);
+						code._er = onError;
+						code._tag = tagAndElses;
+						if (pathBindings) {
+							setPaths(tmplBindings[tmplBindingKey - 1] = code, pathBindings);
+						}
+						code._lr = lateRender;
+						if (isLinkExpr) {
+							return code; // For a data-link expression we return the compiled tagCtxs function
+						}
+						boundOnErrStart = tagRender + tmplBindingKey + ",undefined,";
+						boundOnErrEnd = ")";
+					}
+
+					// This is the last {{else}} for an inline tag.
+					// For a bound tag, pass the tagCtxs fn lookup key to renderTag.
+					// For an unbound tag, include the code directly for evaluating tagCtxs array
+					code = oldCode + tagStart + tagRender + (pathBindings && tmplBindingKey || code) + ")";
+					pathBindings = 0;
+					tagAndElses = 0;
+				}
+				if (onError && !nextIsElse) {
+					useViews = true;
+					code += ';\n}catch(e){ret' + (isLinkExpr ? "urn " : "+=") + boundOnErrStart + 'j._err(e,view,' + onError + ')' + boundOnErrEnd + ';}' + (isLinkExpr ? "" : '\nret=ret');
+				}
+			}
+		}
+	}
+	// Include only the var references that are needed in the code
+	code = "// " + tmplName
+		+ (tmplOptions.debug ? "\ndebugger;" : "")
+		+ "\nvar v"
+		+ (hasTag ? ",t=j._tag" : "")                // has tag
+		+ (hasCnvt ? ",c=j._cnvt" : "")              // converter
+		+ (hasEncoder ? ",h=j._html" : "")           // html converter
+		+ (isLinkExpr
+				? (node[8] // late @... path?
+						? ", ob"
+						: ""
+					) + ";\n"
+				: ',ret=""')
+		+ code
+		+ (isLinkExpr ? "\n" : ";\nreturn ret;");
+
+	try {
+		code = new Function("data,view,j", code);
+	} catch (e) {
+		syntaxError("Compiled template code:\n\n" + code + '\n: "' + (e.message||e) + '"');
+	}
+	if (tmpl) {
+		tmpl.fn = code;
+		tmpl.useViews = !!useViews;
+	}
+	return code;
+}
+
+//==========
+// Utilities
+//==========
+
+// Merge objects, in particular contexts which inherit from parent contexts
+function extendCtx(context, parentContext) {
+	// Return copy of parentContext, unless context is defined and is different, in which case return a new merged context
+	// If neither context nor parentContext are defined, return undefined
+	return context && context !== parentContext
+		? (parentContext
+			? $extend($extend({}, parentContext), context)
+			: context)
+		: parentContext && $extend({}, parentContext);
+}
+
+function getTargetProps(source, tagCtx) {
+	// this pointer is theMap - which has tagCtx.props too
+	// arguments: tagCtx.args.
+	var key, prop,
+		map = tagCtx.map,
+		propsArr = map && map.propsArr;
+
+	if (!propsArr) { // map.propsArr is the full array of {key:..., prop:...} objects
+		propsArr = [];
+		if (typeof source === OBJECT || $isFunction(source)) {
+			for (key in source) {
+				prop = source[key];
+				if (key !== $expando && source.hasOwnProperty(key) && (!tagCtx.props.noFunctions || !$.isFunction(prop))) {
+					propsArr.push({key: key, prop: prop});
+				}
+			}
+		}
+		if (map) {
+			map.propsArr = map.options && propsArr; // If bound {^{props}} and not isRenderCall, store propsArr on map (map.options is defined only for bound, && !isRenderCall)
+		}
+	}
+	return getTargetSorted(propsArr, tagCtx); // Obtains map.tgt, by filtering, sorting and splicing the full propsArr
+}
+
+function getTargetSorted(value, tagCtx) {
+	// getTgt
+	var mapped, start, end,
+		tag = tagCtx.tag,
+		props = tagCtx.props,
+		propParams = tagCtx.params.props,
+		filter = props.filter,
+		sort = props.sort,
+		directSort = sort === true,
+		step = parseInt(props.step),
+		reverse = props.reverse ? -1 : 1;
+
+	if (!$isArray(value)) {
+		return value;
+	}
+	if (directSort || sort && "" + sort === sort) {
+		// Temporary mapped array holds objects with index and sort-value
+		mapped = value.map(function(item, i) {
+			item = directSort ? item : getPathObject(item, sort);
+			return {i: i, v: "" + item === item ? item.toLowerCase() : item};
+		});
+		// Sort mapped array
+		mapped.sort(function(a, b) {
+			return a.v > b.v ? reverse : a.v < b.v ? -reverse : 0;
+		});
+		// Map to new array with resulting order
+		value = mapped.map(function(item){
+			return value[item.i];
+		});
+	} else if ((sort || reverse < 0) && !tag.dataMap) {
+		value = value.slice(); // Clone array first if not already a new array
+	}
+	if ($isFunction(sort)) {
+		value = value.sort(function() { // Wrap the sort function to provide tagCtx as 'this' pointer
+			return sort.apply(tagCtx, arguments);
+		});
+	}
+	if (reverse < 0 && (!sort || $isFunction(sort))) { // Reverse result if not already reversed in sort
+		value = value.reverse();
+	}
+
+	if (value.filter && filter) { // IE8 does not support filter
+		value = value.filter(filter, tagCtx);
+		if (tagCtx.tag.onFilter) {
+			tagCtx.tag.onFilter(tagCtx);
+		}
+	}
+
+	if (propParams.sorted) {
+		mapped = (sort || reverse < 0) ? value : value.slice();
+		if (tag.sorted) {
+			$.observable(tag.sorted).refresh(mapped); // Note that this might cause the start and end props to be modified - e.g. by pager tag control
+		} else {
+			tagCtx.map.sorted = mapped;
+		}
+	}
+
+	start = props.start; // Get current value - after possible changes triggered by tag.sorted refresh() above
+	end = props.end;
+	if (propParams.start && start === undefined || propParams.end && end === undefined) {
+		start = end = 0;
+	}
+	if (!isNaN(start) || !isNaN(end)) { // start or end specified, but not the auto-create Number array scenario of {{for start=xxx end=yyy}}
+		start = +start || 0;
+		end = end === undefined || end > value.length ? value.length : +end;
+		value = value.slice(start, end);
+	}
+	if (step > 1) {
+		start = 0;
+		end = value.length;
+		mapped = [];
+		for (; start<end; start+=step) {
+			mapped.push(value[start]);
+		}
+		value = mapped;
+	}
+	if (propParams.paged && tag.paged) {
+		$observable(tag.paged).refresh(value);
+	}
+
+	return value;
+}
+
+/** Render the template as a string, using the specified data and helpers/context
+* $("#tmpl").render()
+*
+* @param {any}        data
+* @param {hash}       [helpersOrContext]
+* @param {boolean}    [noIteration]
+* @returns {string}   rendered template
+*/
+function $fnRender(data, context, noIteration) {
+	var tmplElem = this.jquery && (this[0] || error('Unknown template')), // Targeted element not found for jQuery template selector such as "#myTmpl"
+		tmpl = tmplElem.getAttribute(tmplAttr);
+
+	return renderContent.call(tmpl && $.data(tmplElem)[jsvTmpl] || $templates(tmplElem),
+		data, context, noIteration);
+}
+
+//========================== Register converters ==========================
+
+function getCharEntity(ch) {
+	// Get character entity for HTML, Attribute and optional data encoding
+	return charEntities[ch] || (charEntities[ch] = "&#" + ch.charCodeAt(0) + ";");
+}
+
+function getCharFromEntity(match, token) {
+	// Get character from HTML entity, for optional data unencoding
+	return charsFromEntities[token] || "";
+}
+
+function htmlEncode(text) {
+	// HTML encode: Replace < > & ' " ` etc. by corresponding entities.
+	return text != undefined ? rIsHtml.test(text) && ("" + text).replace(rHtmlEncode, getCharEntity) || text : "";
+}
+
+function dataEncode(text) {
+	// Encode just < > and & - intended for 'safe data' along with {{:}} rather than {{>}}
+  return "" + text === text ? text.replace(rDataEncode, getCharEntity) : text;
+}
+
+function dataUnencode(text) {
+  // Unencode just < > and & - intended for 'safe data' along with {{:}} rather than {{>}}
+  return "" + text === text ? text.replace(rDataUnencode, getCharFromEntity) : text;
+}
+
+//========================== Initialize ==========================
+
+$sub = $views.sub;
+$viewsSettings = $views.settings;
+
+if (!(jsr || $ && $.render)) {
+	// JsRender/JsViews not already loaded (or loaded without jQuery, and we are now moving from jsrender namespace to jQuery namepace)
+	for (jsvStoreName in jsvStores) {
+		registerStore(jsvStoreName, jsvStores[jsvStoreName]);
+	}
+
+	$converters = $views.converters;
+	$helpers = $views.helpers;
+	$tags = $views.tags;
+
+	$sub._tg.prototype = {
+		baseApply: baseApply,
+		cvtArgs: convertArgs,
+		bndArgs: convertBoundArgs,
+		ctxPrm: contextParameter
+	};
+
+	topView = $sub.topView = new View();
+
+	//BROWSER-SPECIFIC CODE
+	if ($) {
+
+		////////////////////////////////////////////////////////////////////////////////////////////////
+		// jQuery (= $) is loaded
+
+		$.fn.render = $fnRender;
+		$expando = $.expando;
+		if ($.observable) {
+			if (versionNumber !== (versionNumber = $.views.jsviews)) {
+				// Different version of jsRender was loaded
+				throw "jquery.observable.js requires jsrender.js " + versionNumber;
+			}
+			$extend($sub, $.views.sub); // jquery.observable.js was loaded before jsrender.js
+			$views.map = $.views.map;
+		}
+
+	} else {
+		////////////////////////////////////////////////////////////////////////////////////////////////
+		// jQuery is not loaded.
+
+		$ = {};
+
+		if (setGlobals) {
+			global.jsrender = $; // We are loading jsrender.js from a script element, not AMD or CommonJS, so set global
+		}
+
+		// Error warning if jsrender.js is used as template engine on Node.js (e.g. Express or Hapi...)
+		// Use jsrender-node.js instead...
+		$.renderFile = $.__express = $.compile = function() { throw "Node.js: use npm jsrender, or jsrender-node.js"; };
+
+		//END BROWSER-SPECIFIC CODE
+		$.isFunction = function(ob) {
+			return typeof ob === "function";
+		};
+
+		$.isArray = Array.isArray || function(obj) {
+			return ({}.toString).call(obj) === "[object Array]";
+		};
+
+		$sub._jq = function(jq) { // private method to move from JsRender APIs from jsrender namespace to jQuery namespace
+			if (jq !== $) {
+				$extend(jq, $); // map over from jsrender namespace to jQuery namespace
+				$ = jq;
+				$.fn.render = $fnRender;
+				delete $.jsrender;
+				$expando = $.expando;
+			}
+		};
+
+		$.jsrender = versionNumber;
+	}
+	$subSettings = $sub.settings;
+	$subSettings.allowCode = false;
+	$isFunction = $.isFunction;
+	$.render = $render;
+	$.views = $views;
+	$.templates = $templates = $views.templates;
+
+	for (setting in $subSettings) {
+		addSetting(setting);
+	}
+
+	/**
+	* $.views.settings.debugMode(true)
+	* @param {boolean} debugMode
+	* @returns {Settings}
+	*
+	* debugMode = $.views.settings.debugMode()
+	* @returns {boolean}
+	*/
+	($viewsSettings.debugMode = function(debugMode) {
+		return debugMode === undefined
+			? $subSettings.debugMode
+			: (
+				$subSettings._clFns && $subSettings._clFns(), // Clear linkExprStore (cached compiled expressions), since debugMode setting affects compilation for expressions
+				$subSettings.debugMode = debugMode,
+				$subSettings.onError = debugMode + "" === debugMode
+					? function() { return debugMode; }
+					: $isFunction(debugMode)
+						? debugMode
+						: undefined,
+				$viewsSettings);
+	})(false); // jshint ignore:line
+
+	$subSettingsAdvanced = $subSettings.advanced = {
+		cache: true, // By default use cached values of computed values (Otherwise, set advanced cache setting to false)
+		useViews: false,
+		_jsv: false // For global access to JsViews store
+	};
+
+	//========================== Register tags ==========================
+
+	$tags({
+		"if": {
+			render: function(val) {
+				// This function is called once for {{if}} and once for each {{else}}.
+				// We will use the tag.rendering object for carrying rendering state across the calls.
+				// If not done (a previous block has not been rendered), look at expression for this block and render the block if expression is truthy
+				// Otherwise return ""
+				var self = this,
+					tagCtx = self.tagCtx,
+					ret = (self.rendering.done || !val && (tagCtx.args.length || !tagCtx.index))
+						? ""
+						: (self.rendering.done = true,
+							self.selected = tagCtx.index,
+							undefined); // Test is satisfied, so render content on current context
+				return ret;
+			},
+			contentCtx: true, // Inherit parent view data context
+			flow: true
+		},
+		"for": {
+			sortDataMap: dataMap(getTargetSorted),
+			init: function(val, cloned) {
+				this.setDataMap(this.tagCtxs);
+			},
+			render: function(val) {
+				// This function is called once for {{for}} and once for each {{else}}.
+				// We will use the tag.rendering object for carrying rendering state across the calls.
+				var value, filter, srtField, isArray, i, sorted, end, step,
+					self = this,
+					tagCtx = self.tagCtx,
+					range = tagCtx.argDefault === false,
+					props = tagCtx.props,
+					iterate = range || tagCtx.args.length, // Not final else and not auto-create range
+					result = "",
+					done = 0;
+
+				if (!self.rendering.done) {
+					value = iterate ? val : tagCtx.view.data; // For the final else, defaults to current data without iteration.
+
+					if (range) {
+						range = props.reverse ? "unshift" : "push";
+						end = +props.end;
+						step = +props.step || 1;
+						value = []; // auto-create integer array scenario of {{for start=xxx end=yyy}}
+						for (i = +props.start || 0; (end - i) * step > 0; i += step) {
+							value[range](i);
+						}
+					}
+					if (value !== undefined) {
+						isArray = $isArray(value);
+						result += tagCtx.render(value, !iterate || props.noIteration);
+						// Iterates if data is an array, except on final else - or if noIteration property
+						// set to true. (Use {{include}} to compose templates without array iteration)
+						done += isArray ? value.length : 1;
+					}
+					if (self.rendering.done = done) {
+						self.selected = tagCtx.index;
+					}
+					// If nothing was rendered we will look at the next {{else}}. Otherwise, we are done.
+				}
+				return result;
+			},
+			setDataMap: function(tagCtxs) {
+				var tagCtx, props, paramsProps,
+					self = this,
+					l = tagCtxs.length;
+				while (l--) {
+					tagCtx = tagCtxs[l];
+					props = tagCtx.props;
+					paramsProps = tagCtx.params.props;
+					tagCtx.argDefault = props.end === undefined || tagCtx.args.length > 0; // Default to #data except for auto-create range scenario {{for start=xxx end=yyy step=zzz}}
+					props.dataMap = (tagCtx.argDefault !== false && $isArray(tagCtx.args[0]) &&
+						(paramsProps.sort || paramsProps.start || paramsProps.end || paramsProps.step || paramsProps.filter || paramsProps.reverse
+						|| props.sort || props.start || props.end || props.step || props.filter || props.reverse))
+						&& self.sortDataMap;
+				}
+			},
+			flow: true
+		},
+		props: {
+			baseTag: "for",
+			dataMap: dataMap(getTargetProps),
+			init: noop, // Don't execute the base init() of the "for" tag
+			flow: true
+		},
+		include: {
+			flow: true
+		},
+		"*": {
+			// {{* code... }} - Ignored if template.allowCode and $.views.settings.allowCode are false. Otherwise include code in compiled template
+			render: retVal,
+			flow: true
+		},
+		":*": {
+			// {{:* returnedExpression }} - Ignored if template.allowCode and $.views.settings.allowCode are false. Otherwise include code in compiled template
+			render: retVal,
+			flow: true
+		},
+		dbg: $helpers.dbg = $converters.dbg = dbgBreak // Register {{dbg/}}, {{dbg:...}} and ~dbg() to throw and catch, as breakpoints for debugging.
+	});
+
+	$converters({
+		html: htmlEncode,
+		attr: htmlEncode, // Includes > encoding since rConvertMarkers in JsViews does not skip > characters in attribute strings
+		encode: dataEncode,
+		unencode: dataUnencode, // Includes > encoding since rConvertMarkers in JsViews does not skip > characters in attribute strings
+		url: function(text) {
+			// URL encoding helper.
+			return text != undefined ? encodeURI("" + text) : text === null ? text : ""; // null returns null, e.g. to remove attribute. undefined returns ""
+		}
+	});
+}
+//========================== Define default delimiters ==========================
+$subSettings = $sub.settings;
+$isArray = ($||jsr).isArray;
+$viewsSettings.delimiters("{{", "}}", "^");
+
+if (jsrToJq) { // Moving from jsrender namespace to jQuery namepace - copy over the stored items (templates, converters, helpers...)
+	jsr.views.sub._jq($);
+}
+return $ || jsr;
+}, window));
+
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+(() => {
+"use strict";
+/*!**********************************************!*\
+  !*** ./resources/assets/js/custom/custom.js ***!
+  \**********************************************/
+
+
+var jsrender = __webpack_require__(/*! jsrender */ "./node_modules/jsrender/jsrender.js");
+var csrfToken = $('meta[name="csrf-token"]').attr('content');
+$.ajaxSetup({
+  headers: {
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  }
+});
+document.addEventListener('turbo:load', initAllComponents);
+function initAllComponents() {
+  select2initialize();
+  refreshCsrfToken();
+  alertInitialize();
+  modalInputFocus();
+  inputFocus();
+  IOInitImageComponent();
+  IOInitSidebar();
+}
+var firstTime = true;
+function select2initialize() {
+  $('[data-control="select2"]').each(function () {
+    $(this).select2();
+  });
+}
+$('.getLanguage').val();
+function refreshCsrfToken() {
+  csrfToken = $('meta[name="csrf-token"]').attr('content');
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': csrfToken
+    }
+  });
+}
+function alertInitialize() {
+  $('.alert').delay(5000).slideUp(300);
+}
+var modalInputFocus = function modalInputFocus() {
+  $(function () {
+    $('.modal').on('shown.bs.modal', function () {
+      $(this).find('input:text').first().focus();
+    });
+  });
+};
+var inputFocus = function inputFocus() {
+  $('input:text:not([readonly="readonly"]):not([name="search"]):not(.front-input)').first().focus();
+};
+$(document).on('keydown', function (e) {
+  if (e.keyCode === 27) {
+    $('.modal').modal('hide');
+  }
+});
+$('input:text:not([readonly="readonly"])').first().focus();
+$(document).on('select2:open', function () {
+  var allFound = document.querySelectorAll('.select2-container--open .select2-search__field');
+  allFound[allFound.length - 1].focus();
+});
+$('[data-control="select2"]').each(function () {
+  $(this).select2();
+});
+document.addEventListener('livewire:load', function () {
+  window.livewire.hook('message.processed', function () {
+    $('[data-control="select2"]').each(function () {
+      $(this).select2();
+    });
+  });
+});
+$(document).on('focus', '.select2.select2-container', function (e) {
+  var isOriginalEvent = e.originalEvent; // don't re-open on closing focus event
+  var isSingleSelect = $(this).find('.select2-selection--single').length > 0; // multi-select will pass focus to input
+
+  if (isOriginalEvent && isSingleSelect) {
+    $(this).siblings('select:enabled').select2('open');
+  }
+});
+$(document).ready(function () {
+  // initializer script for bootstrap 4 tooltip
+  $('[data-bs-toggle="tooltip"]').tooltip();
+  function tooltip() {
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+  }
+
+  // script to active parent menu if sub menu has currently active
+  var hasActiveMenu = $(document).find('.nav-item.nav-dropdown ul li.nav-item').hasClass('active');
+  if (hasActiveMenu) $(document).find('.nav-item.nav-dropdown ul li.nav-item.active').parent('ul').parent('li').addClass('open');
+  listenClick('.nav-item.nav-dropdown', function () {
+    var openLiSelector = $(document).find('.nav-item.nav-dropdown').hasClass('open');
+    if (openLiSelector && $(this).hasClass('open')) setTimeout(function () {
+      $(this).removeClass('open');
+    }, 1000);else $(document).find('.nav-item.nav-dropdown').removeClass('open');
+  });
+
+  // remove capital letters from email validation script.
+  listenKeyup('input[name="email"]', function () {
+    this.value = this.value.toLowerCase();
+  });
+  $('input[name="email"]').keypress(function (e) {
+    if (e.which === 32) return false;
+  });
+});
+$(function () {
+  listenShownBsModal('.modal', function () {
+    $(this).find('input:text').first().focus();
+  });
+  listenHiddenBsModal('.modal', function () {
+    $('.image-input.image-input-empty').attr('style', 'display:inline-block');
+  });
+});
+window.resetModalForm = function (formId, validationBox) {
+  var inputs = $(formId)[0].elements;
+  $.each(inputs, function (index, value) {
+    if (typeof value._flatpickr !== 'undefined') {
+      value._flatpickr.clear();
+      value._flatpickr.setDate(new Date());
+    }
+  });
+  $(formId)[0].reset();
+  $('select.select2Selector').each(function (index, element) {
+    var drpSelector = '#' + $(this).attr('id');
+    $(drpSelector).val('');
+    $(drpSelector).trigger('change');
+  });
+  $(validationBox).hide();
+};
+window.processingBtn = function (selecter, btnId) {
+  var state = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+  var loadingButton = $(selecter).find(btnId);
+  if (state === 'loading') {
+    loadingButton.button('loading');
+  } else {
+    loadingButton.button('reset');
+  }
+};
+window.printErrorMessage = function (selector, errorResult) {
+  // $(selector).show().html("");
+  // $(selector).text(errorResult.responseJSON.message);
+  displayErrorMessage(errorResult.responseJSON.message);
+};
+toastr.options = {
+  'closeButton': true,
+  "debug": false,
+  "newestOnTop": false,
+  "progressBar": true,
+  "positionClass": "toast-top-right",
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "300",
+  "hideDuration": "1000",
+  "timeOut": "5000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+};
+window.manageAjaxErrors = function (data) {
+  var errorDivId = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'editValidationErrorsBox';
+  if (data.status == 404) {
+    toastr.error(data.responseJSON.message);
+  } else {
+    printErrorMessage("#" + errorDivId, data);
+  }
+};
+window.displaySuccessMessage = function (message) {
+  toastr.success(message);
+};
+window.displayErrorMessage = function (message) {
+  toastr.error(message);
+};
+window.displayPhoto = function (input, selector) {
+  var displayPreview = true;
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      var image = new Image();
+      image.src = e.target.result;
+      image.onload = function () {
+        $(selector).attr('src', e.target.result);
+        displayPreview = true;
+      };
+    };
+    if (displayPreview) {
+      reader.readAsDataURL(input.files[0]);
+      $(selector).show();
+    }
+  }
+};
+window.isValidFile = function (inputSelector, validationMessageSelector) {
+  var ext = $(inputSelector).val().split('.').pop().toLowerCase();
+  if ($.inArray(ext, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
+    $(inputSelector).val('');
+    $(validationMessageSelector).html('The image must be a file of type: jpeg, jpg, png.').removeClass('d-none').show();
+    setTimeout(function () {
+      $(validationMessageSelector).slideUp(300);
+    }, 5000);
+    return false;
+  }
+  $(validationMessageSelector).addClass('d-none');
+  return true;
+};
+window.format = function (dateTime) {
+  var format = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'YYYY-MM-DD';
+  return moment(dateTime).format(format);
+};
+window.DatetimepickerDefaults = function (opts) {
+  return $.extend({}, {
+    sideBySide: true,
+    ignoreReadonly: true,
+    icons: {
+      up: "icon-arrow-up-circle icons font-2xl",
+      down: "icon-arrow-down-circle icons font-2xl",
+      previous: 'icon-arrow-left icons',
+      next: 'icon-arrow-right icons',
+      time: 'fa fa-clock-o',
+      date: 'fa fa-calendar',
+      today: 'fa fa-crosshairs',
+      clear: 'fa fa-trash',
+      close: 'fa fa-times'
+    }
+  }, opts);
+};
+window.screenLock = function () {
+  $('#overlay-screen-lock').show();
+  $('body').css({
+    'pointer-events': 'none',
+    'opacity': '0.6'
+  });
+};
+window.screenUnLock = function () {
+  $('body').css({
+    'pointer-events': 'auto',
+    'opacity': '1'
+  });
+  $("#overlay-screen-lock").hide();
+};
+window.prepareTemplateRender = function (templateSelector, data) {
+  var template = jsrender.templates(templateSelector);
+  return template.render(data);
+};
+
+/**
+ * @return string
+ */
+window.getCurrentCurrencyClass = function () {
+  return '<b>' + $('.currentCurrency').val() + '</b>';
+};
+window.hideDropdownManually = function (dropdownBtnEle, dropdownEle) {
+  dropdownBtnEle.removeClass('show');
+  dropdownEle.removeClass('show');
+};
+window.displayDocument = function (input, selector, extension) {
+  var displayPreview = true;
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      var image = new Image();
+      if ($.inArray(extension, ['pdf', 'doc', 'docx', 'mp3', 'mp4']) == -1) {
+        image.src = e.target.result;
+      } else {
+        if (extension == 'pdf') {
+          $('#editPhoto').css('background-image', 'url("' + $('.pdfDocumentImageUrl').val() + '")');
+          image.src = $('.pdfDocumentImageUrl').val();
+        } else if (extension == 'mp3') {
+          image.src = $('.audioDocumentImageUrl').val();
+        } else if (extension == 'mp4') {
+          image.src = $('.videoDocumentImageUrl').val();
+        } else {
+          image.src = $('.docxDocumentImageUrl').val();
+        }
+      }
+      image.onload = function () {
+        $(selector).attr('src', image.src);
+        $(selector).css('background-image', 'url("' + image.src + '")');
+        displayPreview = true;
+      };
+    };
+    if (displayPreview) {
+      reader.readAsDataURL(input.files[0]);
+      $(selector).show();
+    }
+  }
+};
+var ajaxCallIsRunning = $('.ajaxCallIsRunning').val();
+window.ajaxCallInProgress = function () {
+  ajaxCallIsRunning = true;
+};
+window.ajaxCallCompleted = function () {
+  ajaxCallIsRunning = false;
+};
+window.UnprocessableInputError = function (data) {
+  toastr.error(data.responseJSON.message);
+};
+
+// set N/A if span tag is empty
+window.setValueOfEmptySpan = function () {
+  $('span.showSpan').each(function () {
+    if (!$(this).text()) {
+      $(this).text('N/A');
+    }
+  });
+};
+
+// Add comma into numbers
+window.addCommas = function (number) {
+  number += '';
+  var x = number.split('.');
+  var x1 = x[0];
+  var x2 = x.length > 1 ? '.' + x[1] : '';
+  var rgx = /(\d+)(\d{3})/;
+  while (rgx.test(x1)) {
+    x1 = x1.replace(rgx, '$1' + ',' + '$2');
+  }
+  return x1 + x2;
+};
+$(function () {
+  listenClick('.notification', function (e) {
+    e.stopPropagation();
+    var notificationId = $(this).data('id');
+    var notification = $(this);
+    $('[data-toggle="tooltip"]').tooltip('hide');
+    $.ajax({
+      type: 'get',
+      url: '/notification/' + notificationId + '/read',
+      success: function success() {
+        notification.remove();
+        displaySuccessMessage('Notification read successfully');
+        var notificationCounter = document.getElementsByClassName('notification').length;
+        $('#counter').text(notificationCounter);
+        if (notificationCounter == 0) {
+          $('.read-all-notification').addClass('d-none');
+          $('.empty-state').removeClass('d-none');
+          $('#counter').text(notificationCounter);
+          $('.notification-count').addClass('d-none');
+        }
+      },
+      error: function error(result) {
+        manageAjaxErrors(result);
+      }
+    });
+  });
+  listenClick('#readAllNotification', function (e) {
+    e.stopPropagation();
+    $.ajax({
+      type: 'post',
+      url: '/read-all-notification',
+      success: function success() {
+        $('.notification').remove();
+        displaySuccessMessage('All Notifications read successfully');
+        var notificationCounter = document.getElementsByClassName('notification').length;
+        $('#counter').text(notificationCounter);
+        $('#readAllNotification').addClass('d-none');
+        $('.empty-state').addClass('d-none');
+        $('.empty-state.empty-notification').removeClass('d-none');
+        $('.notification-count').addClass('d-none');
+        displaySuccessMessage('All notifications read successfully');
+      },
+      error: function error(result) {
+        manageAjaxErrors(result);
+      }
+    });
+  });
+});
+window.avoidSpace = function (event) {
+  var k = event ? event.which : window.event.keyCode;
+  if (k == 32 && event.path[0].value.length <= 0) {
+    return false;
+  }
+};
+var defaultAvatarImageUrl = "asset('assets/img/avatar.png')";
+window.defaultImagePreview = function (imagePreviewSelector) {
+  var id = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+  if (id == 1) {
+    $(imagePreviewSelector).css('background-image', 'url("' + defaultAvatarImageUrl + '")');
+  } else {
+    $(imagePreviewSelector).css('background-image', 'url("' + $('.defaultDocumentImageUrl').val() + '")');
+  }
+};
+window.cancelAppointment = function (url, tableId, header, appointmentId) {
+  swal({
+    title: Lang.get('messages.common.cancel') + Lang.get('messages.web_menu.appointment'),
+    text: Lang.get('messages.appointment.are_you_sure_want_to_cancel') + header + ' ?',
+    type: 'warning',
+    icon: 'warning',
+    closeOnConfirm: false,
+    confirmButtonColor: '#000000',
+    showLoaderOnConfirm: true,
+    buttons: {
+      confirm: Lang.get('messages.common.yes'),
+      cancel: Lang.get('messages.common.no')
+    }
+  }).then(function (result) {
+    if (result) {
+      cancelAppointmentAjax(url, tableId, header, appointmentId);
+    }
+  });
+};
+function cancelAppointmentAjax(url, tableId, header, appointmentId) {
+  $.ajax({
+    url: url,
+    type: 'POST',
+    success: function success(obj) {
+      if (obj.success) {
+        Livewire.emit('refresh');
+      }
+      swal({
+        title: Lang.get('messages.common.canceled') + Lang.get('messages.web_menu.appointment'),
+        text: header + Lang.get('messages.appointment.has_been_cancelled'),
+        icon: 'success',
+        confirmButtonColor: '#D9214E',
+        buttons: {
+          confirm: Lang.get('messages.common.ok')
+        },
+        timer: 2000
+      });
+    },
+    error: function error(data) {
+      Swal.fire({
+        title: 'Error',
+        icon: 'error',
+        text: data.responseJSON.message,
+        type: 'error',
+        confirmButtonColor: '#D9214E',
+        buttons: {
+          confirm: Lang.get('messages.common.ok')
+        },
+        timer: 5000
+      });
+    }
+  });
+}
+})();
+
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+(() => {
+"use strict";
+/*!***********************************************!*\
+  !*** ./resources/assets/js/custom/helpers.js ***!
+  \***********************************************/
+
+
+window.isEmpty = function (value) {
+  return value === undefined || value === null || value === '';
+};
+window.randomCode = function () {
+  var length = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 6;
+  return Math.random().toString(36).slice(-length);
+};
+window.listen = function (event, selector, callback) {
+  $(document).on(event, selector, callback);
+};
+window.listenClick = function (selector, callback) {
+  $(document).on('click', selector, callback);
+};
+window.listenSubmit = function (selector, callback) {
+  $(document).on('submit', selector, callback);
+};
+window.listenHiddenBsModal = function (selector, callback) {
+  $(document).on('hidden.bs.modal', selector, callback);
+};
+window.listenChange = function (selector, callback) {
+  $(document).on('change', selector, callback);
+};
+window.listenKeyup = function (selector, callback) {
+  $(document).on('keyup', selector, callback);
+};
+window.listenShownBsModal = function (selector, callback) {
+  $(document).on('shown.bs.modal', selector, callback);
+};
+})();
+
+// This entry need to be wrapped in an IIFE because it need to be isolated against other entry modules.
+(() => {
+/*!************************************************!*\
+  !*** ./resources/assets/js/web/appointment.js ***!
+  \************************************************/
+document.addEventListener('DOMContentLoaded', loadWebAppointmentDate);
+function loadWebAppointmentDate() {
+  if (!$('#webAppointmentForm').length) {
+    return;
+  }
+  $('#advancePaymentPatientId').selectize();
+  $('#webDepartmentId').selectize();
+  $('#appointmentDoctorId').selectize();
+  var selectedDate;
+  var intervals;
+  var alreadyCreateTimeSlot;
+}
+var dateSelectSlot;
+var opdDate = $('#opdDate').datepicker({
+  useCurrent: false,
+  sideBySide: true,
+  minDate: new Date(),
+  onSelect: function onSelect(selectedDate, dateStr) {
+    var selectDate = selectedDate;
+    dateSelectSlot = selectedDate;
+    $('.doctor-schedule').css('display', 'none');
+    $('.error-message').css('display', 'none');
+    $('.available-slot-heading').css('display', 'none');
+    $('.color-information').css('display', 'none');
+    $('.time-slot').remove();
+    if ($('#webDepartmentId').val() == '') {
+      $('#validationErrorsBox').show().html('Please select Doctor Department');
+      $('#validationErrorsBox').delay(5000).fadeOut();
+      $('#opdDate').val('');
+      // opdDate.clear();
+      return false;
+    } else if ($('#appointmentDoctorId').val() == '') {
+      $('#validationErrorsBox').show().html('Please select Doctor');
+      $('#validationErrorsBox').delay(5000).fadeOut();
+      $('#opdDate').val('');
+      // opdDate.clear();
+      return false;
+    }
+    var weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    var selected = new Date(selectedDate);
+    var dayName = weekday[selected.getDay()];
+    selectedDate = dateStr;
+
+    //if dayName is blank, then ajax call not run.
+    if (dayName == null || dayName == '') {
+      return false;
+    }
+
+    //get doctor schedule list with time slot.
+    $.ajax({
+      type: 'GET',
+      url: $('#homeDoctorScheduleList').val(),
+      data: {
+        day_name: dayName,
+        doctor_id: doctorId
+      },
+      success: function success(result) {
+        if (result.success) {
+          if (result.data != '') {
+            if (result.data.scheduleDay.length != 0) {
+              var availableFrom = '';
+              if (moment(new Date()).format('MM/DD/YYYY') === selectDate) {
+                availableFrom = moment().ceil(moment.duration(result.data.perPatientTime[0].per_patient_time).asMinutes(), 'minute');
+                availableFrom = moment(availableFrom.toString()).format('H:mm:ss');
+                // availableFrom = moment(new Date()).
+                //     add(result.data.perPatientTime[0].per_patient_time,
+                //         'minutes').
+                //     format('H:mm:ss');
+              } else {
+                availableFrom = result.data.scheduleDay[0].available_from;
+              }
+              var doctorStartTime = selectedDate + ' ' + availableFrom;
+              var doctorEndTime = selectedDate + ' ' + result.data.scheduleDay[0].available_to;
+              var doctorPatientTime = result.data.perPatientTime[0].per_patient_time;
+
+              //perPatientTime convert to Minute
+              var a = doctorPatientTime.split(':'); // split it at the colons
+              var minutes = +a[0] * 60 + +a[1]; // convert to minute
+
+              //parse In
+              var startTime = parseIn(doctorStartTime);
+              var endTime = parseIn(doctorEndTime);
+
+              //call to getTimeIntervals function
+              intervals = getTimeIntervals(startTime, endTime, minutes);
+
+              //if intervals array length is grater then 0 then process
+              if (intervals.length > 0) {
+                $('.available-slot-heading').css('display', 'block');
+                $('.color-information').css('display', 'block');
+                var index;
+                var timeStlots = '';
+                for (index = 0; index < intervals.length; ++index) {
+                  var data = [{
+                    'index': index,
+                    'timeSlot': intervals[index]
+                  }];
+                  var timeSlot = prepareTemplateRender('#appointmentSlotTemplate', data);
+                  timeStlots += timeSlot;
+                }
+                $('.available-slot').append(timeStlots);
+              }
+
+              // display Day Name and time
+              if (availableFrom != '00:00:00' && result.data.scheduleDay[0].available_to != '00:00:00' && doctorStartTime != doctorEndTime) {
+                $('.doctor-schedule').css('display', 'block');
+                $('.color-information').css('display', 'block');
+                $('.day-name').html(result.data.scheduleDay[0].available_on);
+                $('.schedule-time').html('[' + availableFrom + ' - ' + result.data.scheduleDay[0].available_to + ']');
+              } else {
+                $('.doctor-schedule').css('display', 'none');
+                $('.color-information').css('display', 'none');
+                $('.error-message').css('display', 'block');
+                $('.error-message').html('Doctor Schedule not available this date.');
+              }
+            } else {
+              $('.doctor-schedule').css('display', 'none');
+              $('.color-information').css('display', 'none');
+              $('.error-message').css('display', 'block');
+              $('.error-message').html('Doctor Schedule not available this date.');
+            }
+          }
+        }
+      }
+    });
+    if ($('#homeIsCreate').val() || $('#homeIsEdit').val()) {
+      var getCreateTimeSlot = function getCreateTimeSlot() {
+        if ($('#homeIsCreate').val()) {
+          slotsData = {
+            editSelectedDate: dateSelectSlot,
+            doctor_id: doctorId
+          };
+        } else {
+          slotsData = {
+            editSelectedDate: dateSelectSlot,
+            editId: appointmentEditId,
+            doctor_id: doctorId
+          };
+        }
+        $.ajax({
+          url: $('#homeGetBookingSlot').val(),
+          type: 'GET',
+          data: slotsData,
+          success: function success(result) {
+            alreadyCreateTimeSlot = result.data.bookingSlotArr;
+            if (result.data.hasOwnProperty('onlyTime')) {
+              if (result.data.bookingSlotArr.length > 0) {
+                editTimeSlot = result.data.onlyTime.toString();
+                $.each(result.data.bookingSlotArr, function (index, value) {
+                  $.each(intervals, function (i, v) {
+                    if (value == v) {
+                      $('.time-interval').each(function () {
+                        if ($(this).data('id') == i) {
+                          if ($(this).html() != editTimeSlot) {
+                            $(this).parent().css({
+                              'background-color': '#ffa721',
+                              'border': '1px solid #ffa721',
+                              'color': '#ffffff'
+                            });
+                            $(this).parent().addClass('booked');
+                            $(this).parent().children().prop('disabled', true);
+                          }
+                        }
+                      });
+                    }
+                  });
+                });
+              }
+              $('.time-interval').each(function () {
+                if ($(this).html() == editTimeSlot && result.data.bookingSlotArr.length > 0) {
+                  $(this).parent().addClass('time-slot-book');
+                  $(this).parent().removeClass('booked');
+                  $(this).parent().children().prop('disabled', false);
+                  $(this).click();
+                }
+              });
+            } else if (alreadyCreateTimeSlot.length > 0) {
+              $.each(alreadyCreateTimeSlot, function (index, value) {
+                $.each(intervals, function (i, v) {
+                  if (value === v) {
+                    $('.time-interval').each(function () {
+                      if ($(this).data('id') === i) {
+                        $(this).parent().addClass('time-slot-book');
+                        $('.time-slot-book').css({
+                          'background-color': '#FF8E4B',
+                          'border': '1px solid #FF8E4B',
+                          'color': '#ffffff'
+                        });
+                        $(this).parent().addClass('booked');
+                        $(this).parent().children().prop('disabled', true);
+                      }
+                    });
+                  }
+                });
+              });
+            }
+          }
+        });
+      };
+      var delayCall = 200;
+      setTimeout(getCreateTimeSlot, delayCall);
+      var slotsData = null;
+    }
+  }
+});
+$('#patientId').first().focus();
+// document.querySelector('#ipdEditChargeDate')._flatpickr.setDate(moment(result.data.date).format());
+
+var doctor = $('#doctor').val();
+var appointmentDate = $('#appointmentDate').val();
+listenChange('#webDepartmentId', function () {
+  $('.error-message').css('display', 'none');
+  var selectize = $('#appointmentDoctorId')[0].selectize;
+  selectize.clearOptions();
+  $('#opdDate').val('');
+  // opdDate.clear();
+  $.ajax({
+    url: $('#homeDoctorDepartmentUrl').val(),
+    type: 'get',
+    dataType: 'json',
+    data: {
+      id: $(this).val()
+    },
+    success: function success(data) {
+      $('#appointmentDoctorId').empty();
+      $('#appointmentDoctorId').append($('<option value="">Select Doctor</option>'));
+      $.each(data.data, function (i, v) {
+        $('#appointmentDoctorId').append($('<option></option>').attr('value', i).text(v));
+      });
+      var $select = $(document.getElementById('appointmentDoctorId')).selectize();
+      var selectize = $select[0].selectize;
+      $.each(data.data, function (i, v) {
+        selectize.addOption({
+          value: i,
+          text: v
+        });
+      });
+      selectize.refreshOptions();
+    }
+  });
+});
+var doctorId;
+var doctorChange = false;
+listenChange('#appointmentDoctorId', function () {
+  if (doctorChange) {
+    $('.error-message').css('display', 'none');
+    // opdDate.clear();
+    $('.doctor-schedule').css('display', 'none');
+    $('.error-message').css('display', 'none');
+    $('.available-slot-heading').css('display', 'none');
+    $('.color-information').css('display', 'none');
+    $('.time-slot').remove();
+    doctorChange = true;
+  }
+  $('.error-message').css('display', 'none');
+  doctorId = $(this).val();
+  doctorChange = true;
+});
+
+// if edit record then trigger change
+var editTimeSlot;
+if ($('#homeIsEdit').val()) {
+  $('#appointmentDoctorId').trigger('change', function (event) {
+    doctorId = $(this).val();
+  });
+  $('#opdDate').trigger('dp.change', function () {
+    var selected = new Date($(this).val());
+  });
+}
+
+//parseIn date_time
+function parseIn(date_time) {
+  var d = new Date();
+  d.setHours(date_time.substring(16, 18));
+  d.setMinutes(date_time.substring(19, 21));
+  return d;
+}
+
+//make time slot list
+function getTimeIntervals(time1, time2, duration) {
+  var arr = [];
+  while (time1 < time2) {
+    arr.push(time1.toTimeString().substring(0, 5));
+    time1.setMinutes(time1.getMinutes() + duration);
+  }
+  return arr;
+}
+
+//slot click change color
+var selectedTime;
+listenClick('.time-interval', function (event) {
+  var appointmentId = $(event.currentTarget).attr('data-id');
+  if ($(this).data('id') == appointmentId) {
+    if ($(this).parent().hasClass('booked')) {
+      $('.time-slot-book').css('background-color', '#ffa0a0');
+    }
+  }
+  selectedTime = $(this).text();
+  $('.time-slot').removeClass('time-slot-book');
+  $(this).parent().addClass('time-slot-book');
+});
+var editTimeSlot;
+listenClick('.time-interval', function () {
+  editTimeSlot = $(this).text();
+});
+var oldPatient = false;
+listenChange('.new-patient-radio', function () {
+  if ($(this).is(':checked')) {
+    $('.old-patient').addClass('d-none');
+    $('.first-name-div').removeClass('d-none');
+    $('.last-name-div').removeClass('d-none');
+    $('.gender-div').removeClass('d-none');
+    $('.password-div').removeClass('d-none');
+    $('.confirm-password-div').removeClass('d-none');
+    $('#firstName').prop('required', true);
+    $('#lastName').prop('required', true);
+    $('#password').prop('required', true);
+    $('#confirmPassword').prop('required', true);
+    oldPatient = false;
+  }
+});
+listenChange('.old-patient-radio', function () {
+  if ($(this).is(':checked')) {
+    $('.old-patient').removeClass('d-none');
+    $('.first-name-div').addClass('d-none');
+    $('.last-name-div').addClass('d-none');
+    $('.gender-div').addClass('d-none');
+    $('.password-div').addClass('d-none');
+    $('.confirm-password-div').addClass('d-none');
+    $('#firstName').prop('required', false);
+    $('#lastName').prop('required', false);
+    $('#password').prop('required', false);
+    $('#confirmPassword').prop('required', false);
+    oldPatient = true;
+  }
+});
+$('.old-patient-email').focusout(function () {
+  var email = $('.old-patient-email').val();
+  if (oldPatient && email != null) {
+    $.ajax({
+      url: 'appointments' + '/' + email + '/patient-detail',
+      type: 'get',
+      success: function success(result) {
+        if (result.data != null) {
+          $('#patient').empty();
+          $.each(result.data, function (index, value) {
+            $('#patientName').val(value);
+            $('#patient').val(index);
+          });
+        } else {
+          displayErrorMessage('Patient not exists or status is not active.');
+        }
+      }
+    });
+  }
+});
+
+//create appointment
+listenSubmit('#webAppointmentForm', function (event) {
+  event.preventDefault();
+  showScreenLoader();
+  if (!oldPatient) {
+    var isValidate = validatePassword();
+    if (!isValidate) {
+      hideScreenLoader();
+      return false;
+    }
+  }
+  if (selectedTime == null || selectedTime == '') {
+    displayErrorMessage('Please select appointment time slot');
+    hideScreenLoader();
+    return false;
+  }
+  // screenLock();
+  var formData = $(this).serialize() + '&time=' + selectedTime;
+  $.ajax({
+    url: $('#homeAppointmentSaveUrl').val(),
+    type: 'POST',
+    dataType: 'json',
+    data: formData,
+    success: function success(result) {
+      hideScreenLoader();
+      displaySuccessMessage(result.message);
+      setTimeout(function () {
+        location.reload();
+      }, 4000);
+    },
+    error: function error(result) {
+      printErrorMessage('#validationErrorsBox ', result);
+      $('.alert').delay(5000).slideUp(300);
+      hideScreenLoader();
+    }
+  });
+});
+function showScreenLoader() {
+  $('#overlay-screen-lock').removeClass('d-none');
+}
+function hideScreenLoader() {
+  $('#overlay-screen-lock').addClass('d-none');
+}
+function validatePassword() {
+  var password = $('#password').val();
+  var confirmPassword = $('#confirmPassword').val();
+  if (password == '' || confirmPassword == '') {
+    displayErrorMessage('Please fill all the required fields.');
+    return false;
+  }
+  if (password !== confirmPassword) {
+    displayErrorMessage('Password and Confirm password not match.');
+    return false;
+  }
+  return true;
+}
+listenClick('#reset', function () {
+  $(this).closest('#appointmentForm').find('input[type=text], input[type=password], input[type=email], textarea').val('');
+  $('#patientId, #appointmentDoctorId, #webDepartmentId').val('').trigger('change.select2');
+});
+
+// listen('keypress', '#firstName, #lastName', function (e) {
+//     if (e.which === 32)
+//         return false;
+// });
+
+$.ajax({
+  url: $('#homeDoctorUrl').val(),
+  type: 'get',
+  dataType: 'json',
+  data: {
+    id: doctor
+  },
+  success: function success(data) {
+    $('#appointmentDoctorId').empty();
+    var $select = $(document.getElementById('appointmentDoctorId')).selectize();
+    var selectize = $select[0].selectize;
+    $.each(data.data, function (i, v) {
+      selectize.addOption({
+        value: i,
+        text: v
+      });
+      selectize.setValue(i);
+    });
+  }
+});
+if (appointmentDate !== null) {
+  loadAppointmentDate();
+}
+function loadAppointmentDate() {
+  opdDate.datepicker('setDate', appointmentDate);
+  if (opdDate !== null) {
+    opdDate instanceof Date;
+    var dateStr = opdDate;
+    var selectedDate = appointmentDate;
+    $('.doctor-schedule').css('display', 'none');
+    $('.error-message').css('display', 'none');
+    $('.available-slot-heading').css('display', 'none');
+    $('.color-information').css('display', 'none');
+    $('.time-slot').remove();
+    // if ($('#departmentId').val() == '') {
+    //     $('#validationErrorsBox').
+    //         show().
+    //         html('Please select Doctor Department');
+    //     $('#validationErrorsBox').delay(5000).fadeOut();
+    //     $('#opdDate').val('');
+    //     // opdDate.clear();
+    //     return false;
+    // } else if ($('#doctorId').val() == '') {
+    //     $('#validationErrorsBox').show().html('Please select Doctor');
+    //     $('#validationErrorsBox').delay(5000).fadeOut();
+    //     $('#opdDate').val('');
+    //     // opdDate.clear();
+    //     return false;
+    // }
+    var weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    var selected = new Date(selectedDate);
+    var dayName = weekday[selected.getDay()];
+    selectedDate = dateStr;
+
+    //if dayName is blank, then ajax call not run.
+    if (dayName == null || dayName == '') {
+      return false;
+    }
+
+    //get doctor schedule list with time slot.
+    $.ajax({
+      type: 'GET',
+      url: $('#homeDoctorScheduleList').val(),
+      data: {
+        day_name: dayName,
+        doctor_id: doctor
+      },
+      success: function success(result) {
+        if (result.success) {
+          if (result.data != '') {
+            if (result.data.scheduleDay.length != 0) {
+              var availableFrom = '';
+              if (moment(new Date()).format('MM/DD/YYYY') === appointmentDate) {
+                availableFrom = moment(new Date()).add(result.data.perPatientTime[0].per_patient_time, 'minutes').format('H:mm:ss');
+              } else {
+                availableFrom = result.data.scheduleDay[0].available_from;
+              }
+              var doctorStartTime = selectedDate + ' ' + availableFrom;
+              var doctorEndTime = selectedDate + ' ' + result.data.scheduleDay[0].available_to;
+              var doctorPatientTime = result.data.perPatientTime[0].per_patient_time;
+
+              //perPatientTime convert to Minute
+              var a = doctorPatientTime.split(':'); // split it at the colons
+              var minutes = +a[0] * 60 + +a[1]; // convert to minute
+
+              //parse In
+              var startTime = parseIn(doctorStartTime);
+              var endTime = parseIn(doctorEndTime);
+
+              //call to getTimeIntervals function
+              intervals = getTimeIntervals(startTime, endTime, minutes);
+
+              //if intervals array length is grater then 0 then process
+              if (intervals.length > 0) {
+                $('.available-slot-heading').css('display', 'block');
+                $('.color-information').css('display', 'block');
+                var index;
+                var timeStlots = '';
+                for (index = 0; index < intervals.length; ++index) {
+                  var data = [{
+                    'index': index,
+                    'timeSlot': intervals[index]
+                  }];
+                  var timeSlot = prepareTemplateRender('#appointmentSlotTemplate', data);
+                  timeStlots += timeSlot;
+                }
+                $('.available-slot').append(timeStlots);
+              }
+
+              // display Day Name and time
+              if (availableFrom != '00:00:00' && result.data.scheduleDay[0].available_to != '00:00:00' && doctorStartTime != doctorEndTime) {
+                $('.doctor-schedule').css('display', 'block');
+                $('.color-information').css('display', 'block');
+                $('.day-name').html(result.data.scheduleDay[0].available_on);
+                $('.schedule-time').html('[' + availableFrom + ' - ' + result.data.scheduleDay[0].available_to + ']');
+              } else {
+                $('.doctor-schedule').css('display', 'none');
+                $('.color-information').css('display', 'none');
+                $('.error-message').css('display', 'block');
+                $('.error-message').html('Doctor Schedule not available this date.');
+              }
+            } else {
+              $('.doctor-schedule').css('display', 'none');
+              $('.color-information').css('display', 'none');
+              $('.error-message').css('display', 'block');
+              $('.error-message').html('Doctor Schedule not available this date.');
+            }
+          }
+        }
+      }
+    });
+  }
+
+  // if (isCreate || isEdit) {
+  //     var delayCall = 200;
+  //     setTimeout(getCreateTimeSlot, delayCall);
+  //
+  //     function getCreateTimeSlot () {
+  //         if (isCreate) {
+  //             var data = {
+  //                 editSelectedDate: selectedDate,
+  //                 doctor_id: doctorId,
+  //             };
+  //         } else {
+  //             var data = {
+  //                 editSelectedDate: selectedDate,
+  //                 editId: appointmentEditId,
+  //                 doctor_id: doctorId,
+  //             };
+  //         }
+  //
+  //         $.ajax({
+  //             url: getBookingSlot,
+  //             type: 'GET',
+  //             data: data,
+  //             success: function (result) {
+  //                 alreadyCreateTimeSlot = result.data.bookingSlotArr;
+  //                 if (result.data.hasOwnProperty('onlyTime')) {
+  //                     if (result.data.bookingSlotArr.length > 0) {
+  //                         editTimeSlot = result.data.onlyTime.toString();
+  //                         $.each(result.data.bookingSlotArr,
+  //                             function (index, value) {
+  //                                 $.each(intervals, function (i, v) {
+  //                                     if (value == v) {
+  //                                         $('.time-interval').
+  //                                             each(function () {
+  //                                                 if ($(this).
+  //                                                     data('id') == i) {
+  //                                                     if ($(this).
+  //                                                             html() !=
+  //                                                         editTimeSlot) {
+  //                                                         $(this).
+  //                                                             parent().
+  //                                                             css({
+  //                                                                 'background-color': '#ffa721',
+  //                                                                 'border': '1px solid #ffa721',
+  //                                                                 'color': '#ffffff',
+  //                                                             });
+  //                                                         $(this).
+  //                                                             parent().
+  //                                                             addClass(
+  //                                                                 'booked');
+  //                                                         $(this).
+  //                                                             parent().
+  //                                                             children().
+  //                                                             prop(
+  //                                                                 'disabled',
+  //                                                                 true);
+  //                                                     }
+  //                                                 }
+  //                                             });
+  //                                     }
+  //                                 });
+  //                             });
+  //                     }
+  //                     $('.time-interval').each(function () {
+  //                         if ($(this).html() == editTimeSlot &&
+  //                             result.data.bookingSlotArr.length > 0) {
+  //                             $(this).parent().addClass('time-slot-book');
+  //                             $(this).parent().removeClass('booked');
+  //                             $(this).
+  //                                 parent().
+  //                                 children().
+  //                                 prop('disabled', false);
+  //                             $(this).click();
+  //                         }
+  //                     });
+  //                 } else if (alreadyCreateTimeSlot.length > 0) {
+  //                     $.each(alreadyCreateTimeSlot,
+  //                         function (index, value) {
+  //                             $.each(intervals, function (i, v) {
+  //                                 if (value == v) {
+  //                                     $('.time-interval').
+  //                                         each(function () {
+  //                                             if ($(this).data('id') ==
+  //                                                 i) {
+  //                                                 $(this).
+  //                                                     parent().
+  //                                                     addClass(
+  //                                                         'time-slot-book');
+  //                                                 $('.time-slot-book').
+  //                                                     css({
+  //                                                         'background-color': '#ffa721',
+  //                                                         'border': '1px solid #ffa721',
+  //                                                         'color': '#ffffff',
+  //                                                     });
+  //                                                 $(this).
+  //                                                     parent().
+  //                                                     addClass('booked');
+  //                                                 $(this).
+  //                                                     parent().
+  //                                                     children().
+  //                                                     prop('disabled',
+  //                                                         true);
+  //                                             }
+  //                                         });
+  //                                 }
+  //                             });
+  //                         });
+  //                 }
+  //             },
+  //         });
+  //     }
+  // }
+}
+})();
+
+// This entry need to be wrapped in an IIFE because it need to be isolated against other entry modules.
+(() => {
+/*!****************************************************************************!*\
+  !*** ./resources/assets/js/custom/front-side-phone-number-country-code.js ***!
+  \****************************************************************************/
+function _readOnlyError(name) { throw new TypeError("\"" + name + "\" is read-only"); }
+document.addEventListener('DOMContentLoaded', loadFrontPhoneNumberCountryCodeData);
+function loadFrontPhoneNumberCountryCodeData() {
+  if (!$('.phoneNumber').length) {
+    return false;
+  }
+  var input = document.querySelector('.phoneNumber'),
+    errorMsg = document.querySelector('.error-msg'),
+    validMsg = document.querySelector('.valid-msg');
+  var errorMap = ['Invalid number', 'Invalid country code', 'Too short', 'Too long', 'Invalid number'];
+
+  // initialise plugin
+  var intl = window.intlTelInput(input, {
+    initialCountry: 'auto',
+    separateDialCode: true,
+    geoIpLookup: function geoIpLookup(success, failure) {
+      $.get('https://ipinfo.io', function () {}, 'jsonp').always(function (resp) {
+        var countryCode = resp && resp.country ? resp.country : '';
+        success(countryCode);
+      });
+    },
+    utilsScript: $('.utilsScript').val()
+  });
+  var reset = function reset() {
+    input.classList.remove('error');
+    errorMsg.innerHTML = '';
+    errorMsg.classList.add('hide');
+    validMsg.classList.add('hide');
+  };
+  input.addEventListener('blur', function () {
+    reset();
+    if (input.value.trim()) {
+      if (intl.isValidNumber()) {
+        validMsg.classList.remove('hide');
+      } else {
+        input.classList.add('error');
+        var errorCode = intl.getValidationError();
+        errorMsg.innerHTML = errorMap[errorCode];
+        errorMsg.classList.remove('hide');
+      }
+    }
+  });
+
+  // on keyup / change flag: reset
+  input.addEventListener('change', reset);
+  input.addEventListener('keyup', reset);
+  var phoneNo = $('.phoneNo').val();
+  if (typeof phoneNo != 'undefined' && phoneNo !== '') {
+    setTimeout(function () {
+      $('.phoneNumber').trigger('change');
+    }, 500);
+  }
+  listen('blur keyup change countrychange', function () {
+    if (typeof phoneNo != 'undefined' && phoneNo !== '') {
+      intl.setNumber('+' + phoneNo);
+      '', _readOnlyError("phoneNo");
+    }
+    var getCode = intl.selectedCountryData['dialCode'];
+    $('.prefix_code').val(getCode);
+  });
+  if ($('.isEdit').val()) {
+    var getCode = intl.selectedCountryData['dialCode'];
+    $('.prefix_code').val(getCode);
+  }
+  $('.phoneNumber').focus();
+  $('.phoneNumber').blur();
+  var getPhoneNumber = $('.phoneNumber').val();
+  var removeSpacePhoneNumber = getPhoneNumber.replace(/\s/g, '');
+  $('.phoneNumber').val(removeSpacePhoneNumber);
+}
+})();
+
+// This entry need to be wrapped in an IIFE because it need to be isolated against other entry modules.
+(() => {
+/*!**********************************************************!*\
+  !*** ./resources/assets/js/front_settings/contact_us.js ***!
+  \**********************************************************/
+document.addEventListener('DOMContentLoaded', loadFrontSettingContactData);
+function loadFrontSettingContactData() {
+  if (!$('#general').length) {
+    return;
+  }
+  $('#general').selectize();
+}
+listenSubmit('#enquiryCreateForm', function (e) {
+  e.preventDefault();
+  var response = '';
+  if ($('#error-msg').text() !== '') {
+    $('.phoneNumber').focus();
+    return false;
+  }
+  $.ajax({
+    url: $('#frontInquiryUrl').val(),
+    type: 'POST',
+    data: $(this).serialize(),
+    success: function success(result) {
+      if (result.success) {
+        displaySuccessMessage(result.message);
+        setTimeout(function () {
+          location.reload();
+          $('#enquiryCreateForm')[0].reset();
+          grecaptcha.reset();
+        }, 5000);
+      } else {
+        displayErrorMessage(result.message);
+        setTimeout(function () {
+          $('#enquiryCreateForm')[0].reset();
+          grecaptcha.reset();
+        }, 5000);
+      }
+    },
+    error: function error(result) {
+      displayErrorMessage(result.responseJSON.message);
+      grecaptcha.reset();
+    },
+    complete: function complete() {}
+  });
+});
+})();
+
+/******/ })()
+;

@@ -205,32 +205,32 @@
 @endrole
 @role('Admin|Receptionist|Case Manager')
 @module('Cases',$modules)
-<li class="nav-item position-relative mx-xl-3 mb-3 mb-xl-0 {{ (!Request::is('patients*','patient-cases*','case-handlers*','patient-admissions*')) ? 'd-none' : '' }}">
+{{-- <li class="nav-item position-relative mx-xl-3 mb-3 mb-xl-0 {{ (!Request::is('patients*','patient-cases*','case-handlers*','patient-admissions*')) ? 'd-none' : '' }}">
     <a class="nav-link p-0 {{ Request::is('patient-cases*') ? 'active' : '' }}"
        href="{{ route('patient-cases.index') }}">
         {{ __('messages.cases') }}
     </a>
-</li>
+</li> --}}
 @endmodule
 @endrole
 @role('Admin|Receptionist')
 @module('Case Handlers',$modules)
-<li class="nav-item position-relative mx-xl-3 mb-3 mb-xl-0  {{ (!Request::is('patients*','patient-cases*','case-handlers*','patient-admissions*')) ? 'd-none' : '' }}">
+{{-- <li class="nav-item position-relative mx-xl-3 mb-3 mb-xl-0  {{ (!Request::is('patients*','patient-cases*','case-handlers*','patient-admissions*')) ? 'd-none' : '' }}">
     <a class="nav-link p-0 {{ Request::is('case-handlers*') ? 'active' : '' }}"
        href="{{ route('case-handlers.index') }}">
         {{ __('messages.case_handlers') }}
     </a>
-</li>
+</li> --}}
 @endmodule
 @endrole
 @role('Admin|Receptionist|Doctor|Case Manager')
 @module('Patient Admissions',$modules)
-<li class="nav-item position-relative mx-xl-3 mb-3 mb-xl-0 {{ (!Request::is('patients*','patient-cases*','case-handlers*','patient-admissions*')) ? 'd-none' : '' }}">
+{{-- <li class="nav-item position-relative mx-xl-3 mb-3 mb-xl-0 {{ (!Request::is('patients*','patient-cases*','case-handlers*','patient-admissions*')) ? 'd-none' : '' }}">
     <a class="nav-link p-0 {{ Request::is('patient-admissions**') ? 'active' : '' }}"
        href="{{ route('patient-admissions.index') }}">
         {{ __('messages.patient_admissions') }}
     </a>
-</li>
+</li> --}}
 @endmodule
 @endrole
 @role('Case Manager|Pharmacist|Lab Technician')
@@ -275,22 +275,22 @@
 
 @role('Admin|Receptionist')
 @module('Insurances',$modules)
-<li class="nav-item position-relative mx-xl-3 mb-3 mb-xl-0 {{ (!Request::is('insurances*','packages*','services*','ambulances*','ambulance-calls*')) ? 'd-none' : '' }}">
+{{-- <li class="nav-item position-relative mx-xl-3 mb-3 mb-xl-0 {{ (!Request::is('insurances*','packages*','services*','ambulances*','ambulance-calls*')) ? 'd-none' : '' }}">
     <a class="nav-link p-0 {{ Request::is('insurances*') ? 'active' : '' }}"
        href="{{ route('insurances.index') }}">
         {{ __('messages.insurances') }}
     </a>
-</li>
+</li> --}}
 @endmodule
 @endrole
 @role('Admin|Receptionist')
 @module('Packages',$modules)
-<li class="nav-item position-relative mx-xl-3 mb-3 mb-xl-0 {{ (!Request::is('insurances*','packages*','services*','ambulances*','ambulance-calls*')) ? 'd-none' : '' }}">
+{{-- <li class="nav-item position-relative mx-xl-3 mb-3 mb-xl-0 {{ (!Request::is('insurances*','packages*','services*','ambulances*','ambulance-calls*')) ? 'd-none' : '' }}">
     <a class="nav-link p-0 {{ Request::is('packages*') ? 'active' : '' }}"
        href="{{ route('packages.index') }}">
         {{ __('messages.packages') }}
     </a>
-</li>
+</li> --}}
 @endmodule
 @endrole
 @role('Admin|Receptionist|Accountant')
@@ -305,21 +305,21 @@
 @endrole
 @role('Admin|Receptionist|Case Manager')
 @module('Ambulances',$modules)
-<li class="nav-item position-relative mx-xl-3 mb-3 mb-xl-0 {{ (!Request::is('insurances*','packages*','services*','ambulances*','ambulance-calls*')) ? 'd-none' : '' }}">
+{{-- <li class="nav-item position-relative mx-xl-3 mb-3 mb-xl-0 {{ (!Request::is('insurances*','packages*','services*','ambulances*','ambulance-calls*')) ? 'd-none' : '' }}">
     <a class="nav-link p-0 {{ Request::is('ambulances*') ? 'active' : '' }}"
        href="{{ route('ambulances.index') }}">
         {{ __('messages.ambulances') }}
     </a>
-</li>
+</li> --}}
 @endmodule
 @endrole
 @role('Admin|Receptionist|Case Manager')
 @module('Ambulances Calls',$modules)
-<li class="nav-item position-relative mx-xl-3 mb-3 mb-xl-0 {{ (!Request::is('insurances*','packages*','services*','ambulances*','ambulance-calls*')) ? 'd-none' : '' }}">
+{{-- <li class="nav-item position-relative mx-xl-3 mb-3 mb-xl-0 {{ (!Request::is('insurances*','packages*','services*','ambulances*','ambulance-calls*')) ? 'd-none' : '' }}">
     <a class="nav-link p-0 {{ Request::is('ambulance-calls*') ? 'active' : '' }}"
        href="{{ route('ambulance-calls.index') }}">
         {{ __('messages.ambulance_calls') }}
-    </a>
+    </a> --}}
 </li>
 @endmodule
 @endrole
@@ -772,12 +772,12 @@
 @endrole
 @role('Admin|Receptionist')
 @module('Testimonial',$modules)
-<li class="nav-item position-relative mx-xl-3 mb-3 mb-xl-0 {{ !Request::is('front-settings*','notice-boards*','testimonials*', 'front-cms-services*','terms-and-conditions*') ? 'd-none' : '' }}">
+{{-- <li class="nav-item position-relative mx-xl-3 mb-3 mb-xl-0 {{ !Request::is('front-settings*','notice-boards*','testimonials*', 'front-cms-services*','terms-and-conditions*') ? 'd-none' : '' }}">
     <a class="nav-link p-0 {{ Request::is('testimonials*') ? 'active' : '' }}"
        href="{{ route('testimonials.index') }}">
         {{ __('messages.testimonials') }}
     </a>
-</li>
+</li> --}}
 @endmodule
 @endrole
 {{--<li class="nav-item position-relative mx-xl-3 mb-3 mb-xl-0 {{ (!Request::is('enquiries*','enquiry*')) ? 'd-none' : '' }}"--}}
